@@ -6,7 +6,7 @@ const HeaderComponent = (props) => {
 
     return (
         <Header display='flex' justifyContent={isMobile ? 'center' : 'space-between'} align='row-vertical-center' position='fixed' width='100%' height='70px' borderBottom='1px solid #F0F3F5'>
-            <Div width='240px' color='#0097F5' fontFamily='Pyunji R' fontSize='32px' fontWeight='bolder' textAlign='center'>EODILO</Div>
+            <Div width='240px' color='#0097F5' fontFamily='Pyunji R' fontSize='30px' fontWeight='bolder' textAlign='center'>EODILO</Div>
             {
             !isMobile && 
             <FlexDiv justifyContent='space-around' align='row-vertical-center' width='370px' margin='0 20px 0 0'>
