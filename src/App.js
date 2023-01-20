@@ -1,10 +1,11 @@
 import React from "react"
+import HeaderComponent from "./components/header/header"
 
 const App =() => {
 
     return(
         <React.Fragment>
-            <div>hello world</div>
+            <HeaderComponent></HeaderComponent>
         </React.Fragment>
     )
 
