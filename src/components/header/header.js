@@ -14,13 +14,13 @@ const HeaderComponent = (props) => {
             {
             !isMobile && 
             <FlexDiv justifyContent='space-around' align='row-vertical-center' width='370px' margin='0 20px 0 0'>
-                <Link to="/">
+                <Link to="/schedule">
                     <Div fontFamily='NanumGothic' fontSize='14px'>PLAN</Div>
                 </Link>
-                <Link to="/">
+                <Link to="/community">
                     <Div fontFamily='NanumGothic' fontSize='14px'>COMMUNITY</Div>
                 </Link>
-                <Link to="/">
+                <Link to="/myPage">
                     <Div fontFamily='NanumGothic' fontSize='14px'>MY PAGE</Div>
                 </Link>
             </FlexDiv>

@@ -4,6 +4,10 @@ import { useMediaQuery } from "react-responsive"
 
 import FooterComponent from "./components/header/Footer"
 import HeaderComponent from "./components/header/Header"
+import NotFound from "./components/NotFound";
+import MyPage from "./components/myPage/MyPage";
+import Community from "./components/community/Community";
+
 
 const App =() => {
     const isMobile = useMediaQuery({ maxWidth: 768 }) // 모바일 가로
@@ -13,14 +17,13 @@ const App =() => {
             <HeaderComponent isMobile={isMobile}></HeaderComponent>
             {isMobile && <FooterComponent></FooterComponent>}
             <Routes>
-                {
-                /*
-                <Route path="/" element={< Main/>} />
-                <Route path="/page1/*" element={<Page1 />} />
-                <Route path="/page2/*" element={<Page2 />} />
-                <Route path="/*" element={<NotFound />} />
-                */
-                }
+                {/*
+                <Route path="/" element={<Main/>}/>
+                <Route path="/schedule/*" element={<Schedule/>}/>
+                */}
+                <Route path="/community/*" element={<Community/>}/>
+                <Route path="/myPage/*" element={<MyPage/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
     )
