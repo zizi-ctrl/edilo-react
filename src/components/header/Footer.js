@@ -12,8 +12,6 @@ const Icon = styled(Img)`
         'invert(40%) sepia(0%) saturate(1774%) hue-rotate(260deg) brightness(94%) contrast(89%);'}}
 `
 
-
-
 const FooterComponent = () => {
     const path = useLocation().pathname
 
@@ -30,7 +28,7 @@ const FooterComponent = () => {
             <Link to="/community">
                 <Icon src={require('../../img/community.svg').default} filter={path == '/community' ? 'true' : undefined}/>
             </Link>
-            <Link to="/myPage">
+            <Link to="/myPage/*">
                 <Icon src={require('../../img/profile.svg').default} filter={path == '/myPage' ? 'true' : undefined}/>
             </Link>
         </Footer>

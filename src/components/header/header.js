@@ -20,13 +20,13 @@ const HeaderComponent = (props) => {
             !isMobile && 
             <FlexDiv justifyContent='space-around' align='row-vertical-center' width='370px' margin='0 20px 0 0'>
                 <StyledLink to="/schedule">
-                    <Div color='black' fontFamily='NanumGothic' fontSize='14px'>PLAN</Div>
+                    <Div color='black' fontSize='14px'>PLAN</Div>
                 </StyledLink>
                 <StyledLink to="/community">
-                    <Div color='black' fontFamily='NanumGothic' fontSize='14px'>COMMUNITY</Div>
+                    <Div color='black' fontSize='14px'>COMMUNITY</Div>
                 </StyledLink>
-                <StyledLink to="/myPage">
-                    <Div color='black' fontFamily='NanumGothic' fontSize='14px'>MY PAGE</Div>
+                <StyledLink to="/myPage/*">
+                    <Div color='black' fontSize='14px'>MY PAGE</Div>
                 </StyledLink>
             </FlexDiv>
             }

@@ -25,14 +25,14 @@ const Profile = () => {
             </FlexDiv>
             <FlexDiv width='50%' align='row-vertical-center' justifyContent='space-around' padding='0 10%' boxSizing='border-box'>
                 <FlexDiv align='column-center'>
-                    <Img src={require('../../img/star.svg').default}/>
+                    <Img src={require('../../img/star_full.svg').default}/>
                     <Div fontSize='24px' margin='10px 0'>20</Div>
                     <Div fontSize='18px'>스크랩</Div>
                 </FlexDiv>
                 <FlexDiv align='column-center'>
                     <Icon src={require('../../img/map.svg').default}/>
                     <Div fontSize='24px' margin='10px 0'>15</Div>
-                    <Div fontSize='18px'>알림</Div>
+                    <Div fontSize='18px'>내 일정</Div>
                 </FlexDiv>
             </FlexDiv>
         </FlexDiv>
