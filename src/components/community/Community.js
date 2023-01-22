@@ -1,8 +1,9 @@
 import React from "react";
+import { Div } from "../../styles/style";
 
 const Community = () => {
     return(
-        <div>Community</div>
+        <Div height='100vh' padding='70px 0 0 0'>Community</Div>
     )
 }
 

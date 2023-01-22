@@ -13,7 +13,7 @@ const App =() => {
     const isMobile = useMediaQuery({ maxWidth: 768 }) // 모바일 가로
 
     return(
-        <BrowserRouter>
+        <React.Fragment>
             <HeaderComponent isMobile={isMobile}></HeaderComponent>
             {isMobile && <FooterComponent></FooterComponent>}
             <Routes>
@@ -25,7 +25,7 @@ const App =() => {
                 <Route path="/myPage/*" element={<MyPage/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
-        </BrowserRouter>
+        </React.Fragment>
     )
 
 }
