@@ -28,7 +28,7 @@ const FooterComponent = () => {
             <Link to="/community">
                 <Icon src={require('../../img/community.svg').default} filter={path == '/community' ? 'true' : undefined}/>
             </Link>
-            <Link to="/myPage/*">
+            <Link to="/myPage/setting">
                 <Icon src={require('../../img/profile.svg').default} filter={path == '/myPage' ? 'true' : undefined}/>
             </Link>
         </Footer>

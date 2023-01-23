@@ -16,7 +16,7 @@ const MyPage = () => {
         
             <FlexDiv width='80%'>
                 <MyPageNav/>
-                <FlexDiv backgroundColor='white' borderRadius='30px' margin='0 0 0 20px' padding='50px 96px' width='100%'>
+                <FlexDiv flexDirection='column' backgroundColor='white' borderRadius='30px' margin='0 0 0 20px' padding='10px 96px 50px 96px' width='100%'>
                     <Routes>
                         <Route path="/setting" element={<Setting/>}/>
                         <Route path="/clipping" element={<Clipping/>}/>

@@ -14,10 +14,10 @@ export const Img = styled.img`
 
 
     border: ${(props) => props.border ? props.border : 'none'};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
 
@@ -62,11 +62,11 @@ export const Button = styled.button`
 
     color : ${(props) => props.color ? props.color : ''};
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    border: ${(props) => props.border ? props.border : ''};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border: ${(props) => props.border ? props.border : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
     
@@ -120,10 +120,10 @@ export const FlexDiv = styled.div`
     color : ${(props) => props.color ? props.color : ''};
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     border: ${(props) => props.border ? props.border : ''};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
@@ -181,6 +181,8 @@ export const FlexDiv = styled.div`
 `
 
 export const Header = styled.header`
+    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
@@ -207,10 +209,10 @@ export const Header = styled.header`
     color : ${(props) => props.color ? props.color : ''};
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     border: ${(props) => props.border ? props.border : ''};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
@@ -268,6 +270,8 @@ export const Header = styled.header`
 `
 
 export const Footer = styled.footer`
+    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
@@ -294,10 +298,10 @@ export const Footer = styled.footer`
     color : ${(props) => props.color ? props.color : ''};
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     border: ${(props) => props.border ? props.border : ''};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
@@ -374,10 +378,10 @@ export const PTag = styled.p`
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     color : ${(props) => props.color ? props.color : 'black'};
     border: ${(props) => props.border ? props.border : 'none'};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : 'black'};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
 
@@ -425,10 +429,10 @@ export const Div = styled.div`
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     color : ${(props) => props.color ? props.color : ''};
     border: ${(props) => props.border ? props.border : 'none'};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
     
@@ -468,10 +472,10 @@ export const Span = styled.span`
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     color : ${(props) => props.color ? props.color : ''};
     border: ${(props) => props.border ? props.border : ''};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
     
@@ -525,10 +529,10 @@ export const Input = styled.input`
     color : ${(props) => props.color ? props.color : ''};
     background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
     border: ${(props) => props.border ? props.border : ''};
-    border-top: ${(props) => props.borderTop ? props.borderTop : 'none'};
-    border-right: ${(props) => props.borderRight ? props.borderRight : 'none'};
-    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : 'none'};
-    border-left: ${(props) => props.borderLeft ? props.borderLeft : 'none'};
+    border-top: ${(props) => props.borderTop ? props.borderTop : ''};
+    border-right: ${(props) => props.borderRight ? props.borderRight : ''};
+    border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
+    border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 

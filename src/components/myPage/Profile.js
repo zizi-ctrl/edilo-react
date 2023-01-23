@@ -18,7 +18,7 @@ const Profile = () => {
                 <Div width='130px' height='130px'>
                     <ProfileImg borderRadius='50%' width='100%' height='100%' src='https://cdn.pixabay.com/photo/2021/08/24/01/44/cat-6569156__340.jpg'/>
                     <Button position='relative' bottom='30px' left='90px'>
-                        <Img src={require('../../img/camera.svg').default}/>
+                        <Img src={require('../../img/camera.svg').default} cursor='pointer'/>
                     </Button>
                 </Div>
                 <Div margin='0 44px' fontSize='24px'>여행가132</Div>
