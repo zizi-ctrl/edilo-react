@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
     color: ${(props) => props.color ? props.color : '#919699'};
     display: flex;
     text-decoration: none;
-    padding: 20px 24px;
+    padding: 20px 28px;
 `
 
 const MyPageNav = () => {
@@ -17,7 +17,7 @@ const MyPageNav = () => {
     console.log(path)
 
     return (
-        <FlexDiv width='190px' height='250px' padding='12px 0' borderRadius='30px' align='column-vertical-center' backgroundColor='white'>
+        <FlexDiv width='18%' height='250px' padding='12px 0' borderRadius='30px' align='column-vertical-center' backgroundColor='white'>
             <StyledLink to="setting">   
                 <Img src={require(path == '/myPage/setting' ? '../../img/setting_full.svg' : '../../img/setting.svg').default} margin='0 10px 0 0'/>
                 <Div color={path == '/myPage/setting' ? '#51B7F6' : ''}>프로필 관리</Div>

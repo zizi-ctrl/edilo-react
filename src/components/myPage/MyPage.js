@@ -11,19 +11,19 @@ import { FlexDiv } from "../../styles/style";
 
 const MyPage = () => {
     return(
-        <FlexDiv backgroundColor='#F0F3F5' padding='70px 0 0 0' align='column-center'>
-        <Profile></Profile>
+        <FlexDiv backgroundColor='#F0F3F5' padding='70px 0 70px 0' align='column-center'>
+            <Profile></Profile>
         
-        <FlexDiv>
-            <MyPageNav/>
-            <FlexDiv backgroundColor='white'>
-            <Routes>
-                <Route path="/setting" element={<Setting/>}/>
-                <Route path="/clipping" element={<Clipping/>}/>
-                <Route path="/notice" element={<Notice/>}/>
-            </Routes>
+            <FlexDiv width='80%'>
+                <MyPageNav/>
+                <FlexDiv backgroundColor='white' borderRadius='30px' margin='0 0 0 20px' padding='50px 96px' width='100%'>
+                    <Routes>
+                        <Route path="/setting" element={<Setting/>}/>
+                        <Route path="/clipping" element={<Clipping/>}/>
+                        <Route path="/notice" element={<Notice/>}/>
+                    </Routes>
+                </FlexDiv>
             </FlexDiv>
-        </FlexDiv>
         </FlexDiv>
     )
 }
