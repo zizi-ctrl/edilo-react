@@ -14,7 +14,7 @@ const HeaderComponent = (props) => {
     return (
         <Header display='flex' justifyContent={isMobile ? 'center' : 'space-between'} align='row-vertical-center' position='fixed' width='100%' height='70px' borderBottom='1px solid #F0F3F5' backgroundColor='white'>
             <StyledLink to="/">
-                <Div cursor='pointer' width='240px' color='#0097F5' fontFamily='Pyunji R' fontSize='30px' fontWeight='bolder' textAlign='center'>EODILO</Div>
+                <Div cursor='pointer' width='240px' color='#51B7F6' fontFamily='Pyunji R' fontSize='30px' fontWeight='bolder' textAlign='center'>EODILO</Div>
             </StyledLink>
             {
             !isMobile && 

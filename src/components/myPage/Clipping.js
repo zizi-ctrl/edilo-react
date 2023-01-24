@@ -1,8 +1,10 @@
 import React from "react";
 
+import PostList from "./PostList";
+
 const Clipping = () => {
     return (
-        <div>Clipping</div>
+        <PostList/>  
     )
 }
 

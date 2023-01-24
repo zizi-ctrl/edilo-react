@@ -12,13 +12,17 @@ const StyledLink = styled(Link)`
     cursor: pointer;
 `
 
+const Nav = styled(FlexDiv)`
+    min-width: 160px;
+`
+
 const MyPageNav = () => {
     const path = useLocation().pathname
 
     console.log(path)
 
     return (
-        <FlexDiv width='18%' height='250px' padding='12px 0' borderRadius='30px' align='column-vertical-center' backgroundColor='white'>
+        <Nav width='18%' height='250px' padding='12px 0' borderRadius='30px' align='column-vertical-center' backgroundColor='white'>
             <StyledLink to="setting">   
                 <Img src={require(path == '/myPage/setting' ? '../../img/setting_full.svg' : '../../img/setting.svg').default} margin='0 10px 0 0' cursor='pointer'/>
                 <Div color={path == '/myPage/setting' ? '#51B7F6' : ''} cursor='pointer'>프로필 관리</Div>
@@ -31,7 +35,7 @@ const MyPageNav = () => {
                 <Img src={require(path == '/myPage/notice' ? '../../img/bell_full.svg' : '../../img/bell.svg').default} margin='0 10px 0 0' cursor='pointer'/>
                 <Div color={path == '/myPage/notice' ? '#51B7F6' : ''} cursor='pointer'>알림</Div>
             </StyledLink>
-        </FlexDiv>
+        </Nav>
     )
 }
 

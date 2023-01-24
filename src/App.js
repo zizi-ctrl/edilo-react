@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App =() => {
-    const isMobile = useMediaQuery({ maxWidth: 768 }) // 모바일 가로
+    const isMobile = useMediaQuery({ maxWidth: 480 }) // 모바일
 
     return(
         <React.Fragment>
