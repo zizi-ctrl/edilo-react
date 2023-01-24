@@ -1,5 +1,10 @@
 import { atom } from 'recoil'
 
+export const userImgState = atom({
+    key: 'userImg',
+    default: require('../img/userImg.svg').default
+})
+
 // atomFamily ... ?
 export const postListState = atom({
     key: 'postList',
