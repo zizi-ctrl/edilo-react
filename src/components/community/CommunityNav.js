@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import { FlexDiv, Img, Input } from "../../styles/style";
-import { cityListState } from "../../recoil/state";
+import { cityListState } from "../../recoil/backendState";
 import CommunityNavItem from "./CommunityNavItem";
 
 const StyledNav = styled(FlexDiv)`

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useRecoilState } from "recoil";
 
 import { FlexDiv, Div, Img, Button, Input } from "../../styles/style";
-import { userImgState } from "../../recoil/state";
+import { userImgState } from "../../recoil/backendState";
 import { UserImg, Icon } from "./Profile";
 
 const UserImgUpload = () => {

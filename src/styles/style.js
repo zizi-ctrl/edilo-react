@@ -30,7 +30,54 @@ const flexAlignFn = (align) => {
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const colorFn = (color) => {
+    if (color){
+        if (color == 'mainColor'){
+            return '#0097F5'
+        }
+        else if (color == 'black'){ 
+            return '#000000'
+        }
+        else if (color == 'white'){ 
+            return '#FFFFFF'
+        }
+        else if (color == 'backgroundGray'){ 
+            return '#F0F3F5'
+        }
+        else if (color == 'borderGray'){
+            return '#E1E4E6'
+        }
+        else if (color == 'letterGray'){
+            return '#919699'
+        }
+        else if (color == 'iconGray'){
+            return '#616466'
+        }
+        else if (color == 'red'){
+            return '#FF0000'
+        }
+        else if (color == 'hotel'){
+            return '#F06292'
+        }
+        else if (color == 'restaurant'){
+            return '#FF9900'
+        }
+        else if (color == 'shop'){
+            return '#5491F5'
+        }
+        else if (color == 'attraction'){
+            return '#12B5CB'
+        }
+        else if (color == 'park'){
+            return '#34A853'
+        }
+        else{
+            return color
+        }
+    }
+}
+
+/////////////////////////////////////////////
 
 export const Img = styled.img`
     display: ${(props) => props.display ? props.display : 'block'};
@@ -101,14 +148,14 @@ export const Button = styled.button`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
 
-    color : ${(props) => props.color ? props.color : ''};
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : 'transparent'};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
     
 
@@ -167,14 +214,14 @@ export const FlexDiv = styled.div`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
     
 
-    color : ${(props) => props.color ? props.color : ''};
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : ''};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
 
@@ -239,14 +286,14 @@ export const Header = styled.header`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
     
 
-    color : ${(props) => props.color ? props.color : ''};
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : ''};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
 
@@ -336,14 +383,14 @@ export const Footer = styled.footer`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
     
 
-    color : ${(props) => props.color ? props.color : ''};
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : ''};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
 
@@ -395,14 +442,14 @@ export const PTag = styled.p`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    color : ${(props) => props.color ? props.color : 'black'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : 'black'};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
 
     
@@ -454,14 +501,14 @@ export const Div = styled.div`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
 
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    color : ${(props) => props.color ? props.color : ''};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
     
 
@@ -511,14 +558,14 @@ export const H1 = styled.h1`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    color : ${(props) => props.color ? props.color : 'black'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : 'black'};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
 
     
@@ -568,14 +615,14 @@ export const H2 = styled.h2`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    color : ${(props) => props.color ? props.color : 'black'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : 'black'};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
 
     
@@ -625,14 +672,14 @@ export const H3 = styled.h3`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    color : ${(props) => props.color ? props.color : 'black'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : 'black'};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : '0px'};
 
     
@@ -676,14 +723,14 @@ export const Span = styled.span`
     left: ${(props) => props.left ? props.left : ''};  
 
 
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
-    color : ${(props) => props.color ? props.color : ''};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : ''};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
     
 
@@ -741,14 +788,14 @@ export const Input = styled.input`
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
     
 
-    color : ${(props) => props.color ? props.color : ''};
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
+    color : ${(props) => props.color ? colorFn(props.color) : ''};
+    background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : 'transparent'};
+    border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
     border: ${(props) => props.border ? props.border : ''};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
     border-left: ${(props) => props.borderLeft ? props.borderLeft : ''};
-    border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
     outline: ${(props) => props.outline ? props.outline : 'none'};

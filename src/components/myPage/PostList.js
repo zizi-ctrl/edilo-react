@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRecoilValue } from "recoil";
-import { postListState } from "../../recoil/state";
+import { postListState } from "../../recoil/backendState";
 import { useLocation } from "react-router-dom";
 
 import { Div } from "../../styles/style";
