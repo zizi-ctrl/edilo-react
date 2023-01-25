@@ -9,7 +9,7 @@ import CommunityPostPre from "../community/CommunityPostPre";
 const PostList = () => {
     //const [ post, setPost ] = useRecoilState(example)
 
-    // 폴더 위치 고민해보기
+    // PostList 컴포넌트 폴더 위치 고민해보기
     const path = useLocation().pathname
     const postList = useRecoilValue(postListState)
     const listLength = postList.length

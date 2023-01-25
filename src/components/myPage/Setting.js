@@ -41,10 +41,10 @@ const Setting = () => {
                     <LabelDiv margin='0 0 8px'>닉네임</LabelDiv>
                     <Nickname/>
                     <Btn width='96px'>비밀번호 변경</Btn>
-                    <Btn width='96px' color='#FF0000'>회원탈퇴</Btn>
+                    <Btn width='96px' color='red'>회원탈퇴</Btn>
                 </FlexDiv>
             </FlexDiv>
-            <Div fontSize='14px' color='#919699' margin='76px 0 0'>작성한 글 개수</Div>
+            <Div fontSize='14px' color='letterGray' margin='76px 0 0'>작성한 글 개수</Div>
             <PostList/>       
         </React.Fragment>
     )

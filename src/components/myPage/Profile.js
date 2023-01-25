@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import UserImgUpload from "./UserImgUpload";
-import { FlexDiv, Div, Img, Button, Input } from "../../styles/style";
+import { FlexDiv, Div, Img } from "../../styles/style";
 
 export const UserImg = styled(Img)`
     object-fit: cover;

@@ -13,7 +13,7 @@ const MyPage = () => {
     // 미디어 쿼리 중간 지점 950px (레이아웃 깨져서 안이쁘게 보임)
 
     return(
-        <FlexDiv backgroundColor='#F0F3F5' height='100%' padding='70px 0 70px 0' align='column-center'>
+        <FlexDiv backgroundColor='backgroundGray' height='100%' padding='70px 0 70px 0' align='column-center'>
             <Profile></Profile>
         
             <FlexDiv width='80%'>
