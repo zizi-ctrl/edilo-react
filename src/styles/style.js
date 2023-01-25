@@ -536,6 +536,7 @@ export const Input = styled.input`
     border-color: ${(props) => props.borderColor ? props.borderColor : ''};
     border-radius: ${(props) => props.borderRadius ? props.borderRadius : ''};
 
+    outline: ${(props) => props.outline ? props.outline : 'none'};
 
     padding: ${(props) => props.padding ? props.padding : ''};
     margin: ${(props) => props.margin ? props.margin : ''};

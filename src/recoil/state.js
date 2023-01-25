@@ -1,5 +1,46 @@
 import { atom } from 'recoil'
 
+export const cityListState = atom({
+    key: 'cityList',
+    default: [
+        {
+            'cityCategory' : '대한민국',
+            'cityCountry' : [],
+            'cityName' : []
+        },
+        {
+            'cityCategory' : '아시아',
+            'cityCountry' : [],
+            'cityName' : []
+        },
+        {
+            'cityCategory' : '유럽',
+            'cityCountry' : [],
+            'cityName' : []
+        },
+        {
+        'cityCategory' : '북아메리카',
+        'cityCountry' : ['미국', '멕시코', '캐나다'],
+        'cityName' : []
+        },
+        {
+            'cityCategory' : '남아메리카',
+            'cityCountry' : [],
+            'cityName' : []
+        },
+        {
+            'cityCategory' : '오세아니아',
+            'cityCountry' : [],
+            'cityName' : []
+        },
+        {
+            'cityCategory' : '아프리카',
+            'cityCountry' : [],
+            'cityName' : []
+        }   
+    ]
+})
+
 export const userImgState = atom({
     key: 'userImg',
     default: require('../img/userImg.svg').default
@@ -9,6 +50,303 @@ export const userImgState = atom({
 export const postListState = atom({
     key: 'postList',
     default: [
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '대한민국',
+                'cityCountry' : '',
+                'cityName' : '강릉'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-12-31',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : 'https://img.eomisae.co.kr/files/attach/images/100572/573/731/080/00f5f916a83dcc308af32c241e2dab20.jpg'
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '프랑스 파리',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
+        {
+            'areaTag' : {
+                'cityCategory' : '유럽',
+                'cityCountry' : '프랑스',
+                'cityName' : '파리'
+            },
+            'postTitle' : '강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행입니다/강릉 여행100자',
+            'postDate' : '2022-01-01',
+            'postWriter' : '뚜벅이 여행가',
+            'postImg' : ''
+        },
         {
             'areaTag' : {
                 'cityCategory' : '대한민국',

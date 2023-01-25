@@ -30,16 +30,18 @@ const CommunityPostPre = (props) => {
                 </LabelDiv>
             </FlexDiv>
             <FlexDiv justifyContent='space-between' margin='10px 0 0 0'>
-                <Div fontSize='20px' margin='0 10px 10px 0' cursor='pointer'>
+                <FlexDiv fontSize='20px' margin='0 10px 10px 0' cursor='pointer' flexDirection='column'>
                     {postTitle}
+                    <LabelDiv margin='32px 0 36px'>
+                    by {postWriter}
+                </LabelDiv>
+                </FlexDiv>
+                <Div width='100px' height='100px'>
+                    {
+                        postImg != '' && <PostImgTag src={postImg} alt='' width='100px' height='100px' borderRadius='14px'/>
+                    }
                 </Div>
-                {
-                    postImg != '' && <PostImgTag src={postImg} alt='' width='100px' height='100px' borderRadius='14px'/>
-                }
             </FlexDiv>
-            <LabelDiv margin='8px 0 36px'>
-                by {postWriter}
-            </LabelDiv>
         </FlexDiv>
     )
 }
