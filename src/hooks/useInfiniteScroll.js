@@ -16,6 +16,7 @@ import { useEffect, useState, useMemo, useRef } from 'react';
   endPoint?: number;
 }*/
 
+// usefetch hook 파기 (필수)
 /*
 const useInfiniteScroll = (props) => {              
     const { target, root, rootMargin, targetArray, threshold, endPoint } = props

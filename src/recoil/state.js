@@ -19,9 +19,9 @@ export const cityListState = atom({
             'cityName' : []
         },
         {
-        'cityCategory' : '북아메리카',
-        'cityCountry' : ['미국', '멕시코', '캐나다'],
-        'cityName' : []
+            'cityCategory' : '북아메리카',
+            'cityCountry' : ['미국', '멕시코', '캐나다'],
+            'cityName' : []
         },
         {
             'cityCategory' : '남아메리카',
@@ -46,7 +46,7 @@ export const userImgState = atom({
     default: require('../img/userImg.svg').default
 })
 
-// atomFamily ... ?
+// atomFamily ... ? 
 export const postListState = atom({
     key: 'postList',
     default: [
