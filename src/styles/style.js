@@ -4,28 +4,20 @@ const flexAlignFn = (align) => {
     if (align){
         if (align == 'row-center'){
             // 가로 가운데 정렬
-            return `justify-content: center;`
+            return 'justify-content: center;'
         }
         else if (align == 'column-center'){ 
             // 세로 가운데 정렬
-            return `
-                flex-direction: column;
-                align-items: center;
-            `
+            return 'flex-direction: column; align-items: center;'
         }
         else if (align == 'row-vertical-center'){
             // 가로 수직 가운데 정렬
-            return `
-                align-items: center;
-            `
+            return 'align-items: center;'
 
         }
         else if (align == 'column-vertical-center'){
             // 세로 수직 가운데 정렬
-            return `
-                flex-direction: column;
-                justify-content: center;
-            `
+            return 'flex-direction: column; justify-content: center;'
         }
     }
 }
@@ -326,33 +318,7 @@ export const Header = styled.header`
 
     ${(props) => {
         const align = props.align
-        if (align){
-            if (align == 'row-center'){
-                // 가로 가운데 정렬
-                return `justify-content: center;`
-            }
-            else if (align == 'column-center'){ 
-                // 세로 가운데 정렬
-                return `
-                    flex-direction: column;
-                    align-items: center;
-                `
-            }
-            else if (align == 'row-vertical-center'){
-                // 가로 수직 가운데 정렬
-                return `
-                    align-items: center;
-                `
-
-            }
-            else if (align == 'column-vertical-center'){
-                // 세로 수직 가운데 정렬
-                return `
-                    flex-direction: column;
-                    justify-content: center;
-                `
-            }
-        }
+        return flexAlignFn(align)
     }}
 `
 
@@ -422,6 +388,10 @@ export const Footer = styled.footer`
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
 
+    ${(props) => {
+        const align = props.align
+        return flexAlignFn(align)
+    }}
 
 `
 
@@ -480,6 +450,11 @@ export const PTag = styled.p`
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
+
+    ${(props) => {
+        const align = props.align
+        return flexAlignFn(align)
+    }}
 `
 
 export const Div = styled.div`
@@ -539,6 +514,11 @@ export const Div = styled.div`
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
+
+    ${(props) => {
+        const align = props.align
+        return flexAlignFn(align)
+    }}
 `
 
 export const H1 = styled.h1`
