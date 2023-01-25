@@ -44,7 +44,7 @@ const Setting = () => {
                     <Btn width='96px' color='#FF0000'>회원탈퇴</Btn>
                 </FlexDiv>
             </FlexDiv>
-            <Div fontSize='14px' color='#919699' margin='72px 0 0'>작성한 글 개수</Div>
+            <Div fontSize='14px' color='#919699' margin='76px 0 0'>작성한 글 개수</Div>
             <PostList/>       
         </React.Fragment>
     )

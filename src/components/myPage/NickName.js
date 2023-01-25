@@ -21,12 +21,12 @@ const Nickname = () => {
         <FlexDiv align='row-vertical-center'>
                     {
                         clickCheck ?
-                        <Input border='1px solid #E1E4E6' padding='4px'  borderRadius='12px' width='fit-content' type='text' value={inputValue} onChange={onChange}/> :
+                        <Input border='1px solid #E1E4E6' padding='4px 8px'  borderRadius='12px' width='fit-content' type='text' value={inputValue} onChange={onChange}/> :
                         <Div>여행가132</Div>
                     }
                     
-                    <Button onClick={changeNickname}>
-                        <Img src={require('../../img/pencil.svg').default} width='16px' margin='0 8px' cursor='pointer'/>
+                    <Button margin='0 8px' onClick={changeNickname}>
+                        <Img src={require('../../img/pencil.svg').default} width='16px' cursor='pointer'/>
                     </Button>
                 </FlexDiv>
     )

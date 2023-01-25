@@ -2,7 +2,7 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 
 import NoticeItem from "./NoticeItem";
-import { noticeListState } from "../../recoil/state";
+import { noticeListState } from "../../recoil/backendState";
 import { Button, Div } from "../../styles/style";
 
 const Notice = () => {
