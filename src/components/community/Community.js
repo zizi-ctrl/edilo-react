@@ -7,7 +7,7 @@ import CommunityNav from './CommunityNav'
 
 const Community = () => {
     return(
-        <FlexDiv backgroundColor='#F0F3F5' padding='70px 0 0 0'>
+        <FlexDiv backgroundColor='backgroundGray' padding='70px 0 0 0'>
             <CommunityNav/>
             <CommunityMain/>
         </FlexDiv>

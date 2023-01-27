@@ -8,8 +8,9 @@ import { Footer } from "../../styles/style";
 const Icon = styled(Img)`
     filter: 
     ${(props) => props.filter ? 
-        'invert(57%) sepia(66%) saturate(725%) hue-rotate(179deg) brightness(106%) contrast(93%);' : 
-        'invert(40%) sepia(0%) saturate(1774%) hue-rotate(260deg) brightness(94%) contrast(89%);'}}
+        'invert(42%) sepia(24%) saturate(5783%) hue-rotate(179deg) brightness(102%) contrast(101%);' : 
+        'invert(40%) sepia(0%) saturate(1774%) hue-rotate(260deg) brightness(94%) contrast(89%);'
+    }}
 `
 
 const FooterComponent = () => {

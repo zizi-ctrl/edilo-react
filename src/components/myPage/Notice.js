@@ -12,7 +12,7 @@ const Notice = () => {
     return (
         <React.Fragment>
             <Button position='relative' right='-60px' top='-16px'>
-                <Div textAlign='right' fontSize='14px' color='#919699' cursor='pointer'>전체 삭제</Div>
+                <Div textAlign='right' fontSize='14px' color='letterGray' cursor='pointer'>전체 삭제</Div>
             </Button>
             {
                 NoticeList.map((eachNotice) => <NoticeItem eachNotice={eachNotice}/>)

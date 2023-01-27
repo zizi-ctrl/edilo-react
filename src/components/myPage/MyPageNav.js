@@ -25,15 +25,15 @@ const MyPageNav = () => {
         <Nav width='18%' height='250px' padding='12px 0' borderRadius='30px' align='column-vertical-center' backgroundColor='white'>
             <StyledLink to="setting">   
                 <Img src={require(path == '/myPage/setting' ? '../../img/setting_full.svg' : '../../img/setting.svg').default} margin='0 10px 0 0' cursor='pointer'/>
-                <Div color={path == '/myPage/setting' ? '#51B7F6' : ''} cursor='pointer'>프로필 관리</Div>
+                <Div color={path == '/myPage/setting' ? 'mainColor' : ''} cursor='pointer'>프로필 관리</Div>
             </StyledLink>
             <StyledLink to="clipping">
                 <Img src={require(path == '/myPage/clipping' ? '../../img/star_full.svg' : '../../img/star.svg').default} margin='0 10px 0 0' cursor='pointer'/>
-                <Div color={path == '/myPage/clipping' ? '#51B7F6' : ''} cursor='pointer'>스크랩</Div>
+                <Div color={path == '/myPage/clipping' ? 'mainColor' : ''} cursor='pointer'>스크랩</Div>
             </StyledLink>
             <StyledLink to="notice">
                 <Img src={require(path == '/myPage/notice' ? '../../img/bell_full.svg' : '../../img/bell.svg').default} margin='0 10px 0 0' cursor='pointer'/>
-                <Div color={path == '/myPage/notice' ? '#51B7F6' : ''} cursor='pointer'>알림</Div>
+                <Div color={path == '/myPage/notice' ? 'mainColor' : ''} cursor='pointer'>알림</Div>
             </StyledLink>
         </Nav>
     )
