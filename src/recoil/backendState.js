@@ -5,38 +5,74 @@ export const cityListState = atom({
     default: [
         {
             'cityCategory' : '대한민국',
-            'cityCountry' : [],
-            'cityName' : []
+            'name' : [
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         },
         {
             'cityCategory' : '아시아',
-            'cityCountry' : [],
-            'cityName' : []
+            'name' : [
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         },
         {
             'cityCategory' : '유럽',
-            'cityCountry' : [],
-            'cityName' : []
+            'name' : [
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         },
         {
             'cityCategory' : '북아메리카',
-            'cityCountry' : ['미국', '멕시코', '캐나다'],
-            'cityName' : []
+            'name' : [                
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         },
         {
             'cityCategory' : '남아메리카',
-            'cityCountry' : [],
-            'cityName' : []
+            'name' : [
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         },
         {
             'cityCategory' : '오세아니아',
-            'cityCountry' : [],
-            'cityName' : []
+            'name' : [
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         },
         {
             'cityCategory' : '아프리카',
-            'cityCountry' : [],
-            'cityName' : []
+            'name' : [
+                {
+                    'cityCategory' : '미국',
+                    'name' : ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                },
+            ]
         }   
     ]
 })
