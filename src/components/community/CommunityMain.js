@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { Button, FlexDiv, Img, Input, Span } from "../../styles/style";
-import PostList from "../myPage/PostList";
+import PostList from "../community/PostList";
 
 const StyledLink = styled(Link)`
     color: black;

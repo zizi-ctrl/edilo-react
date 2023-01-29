@@ -2,20 +2,20 @@ import styled from 'styled-components'
 
 const flexAlignFn = (align) => {
     if (align){
-        if (align == 'row-center'){
+        if (align == 'row-center') {
             // 가로 가운데 정렬
             return 'justify-content: center;'
         }
-        else if (align == 'column-center'){ 
+        else if (align == 'column-center') { 
             // 세로 가운데 정렬
             return 'flex-direction: column; align-items: center;'
         }
-        else if (align == 'row-vertical-center'){
+        else if (align == 'row-vertical-center') { 
             // 가로 수직 가운데 정렬
             return 'align-items: center;'
 
         }
-        else if (align == 'column-vertical-center'){
+        else if (align == 'column-vertical-center') {
             // 세로 수직 가운데 정렬
             return 'flex-direction: column; justify-content: center;'
         }
@@ -23,47 +23,47 @@ const flexAlignFn = (align) => {
 }
 
 const colorFn = (color) => {
-    if (color){
-        if (color == 'mainColor'){
+    if (color) {
+        if (color == 'mainColor') {
             return '#0097F5'
         }
-        else if (color == 'black'){ 
+        else if (color == 'black') { 
             return '#000000'
         }
-        else if (color == 'white'){ 
+        else if (color == 'white') { 
             return '#FFFFFF'
         }
-        else if (color == 'backgroundGray'){ 
+        else if (color == 'backgroundGray') { 
             return '#F0F3F5'
         }
-        else if (color == 'borderGray'){
+        else if (color == 'borderGray') {
             return '#E1E4E6'
         }
-        else if (color == 'letterGray'){
+        else if (color == 'letterGray') {
             return '#919699'
         }
-        else if (color == 'iconGray'){
+        else if (color == 'iconGray') {
             return '#616466'
         }
-        else if (color == 'red'){
+        else if (color == 'red') {
             return '#FF0000'
         }
-        else if (color == 'hotel'){
+        else if (color == 'hotel') {
             return '#F06292'
         }
-        else if (color == 'restaurant'){
+        else if (color == 'restaurant') {
             return '#FF9900'
         }
-        else if (color == 'shop'){
+        else if (color == 'shop') {
             return '#5491F5'
         }
-        else if (color == 'attraction'){
+        else if (color == 'attraction') {
             return '#12B5CB'
         }
-        else if (color == 'park'){
+        else if (color == 'park') {
             return '#34A853'
         }
-        else{
+        else {
             return color
         }
     }
@@ -113,7 +113,7 @@ export const Img = styled.img`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -171,7 +171,7 @@ export const Button = styled.button`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -237,7 +237,7 @@ export const FlexDiv = styled.div`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -308,7 +308,7 @@ export const Header = styled.header`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -380,7 +380,7 @@ export const Footer = styled.footer`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -443,7 +443,7 @@ export const PTag = styled.p`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -507,7 +507,7 @@ export const Div = styled.div`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -569,7 +569,7 @@ export const H1 = styled.h1`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -626,7 +626,7 @@ export const H2 = styled.h2`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -683,7 +683,7 @@ export const H3 = styled.h3`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -739,7 +739,7 @@ export const Span = styled.span`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -795,8 +795,11 @@ export const Input = styled.input`
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
+    &::placeholder {
+        color : ${(props) => props.placeholderColor ? props.placeholderColor : ''};
+    }
     
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};

@@ -1,6 +1,6 @@
 import React from "react";
 
-import PostList from "./PostList";
+import PostList from "../community/PostList";
 
 const Clipping = () => {
     return (
