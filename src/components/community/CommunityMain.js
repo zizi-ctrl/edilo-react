@@ -1,9 +1,16 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Button, FlexDiv, Div, Img, Input, Span } from "../../styles/style";
+import { Button, FlexDiv, Img, Input, Span } from "../../styles/style";
 import PostList from "../myPage/PostList";
+
+const StyledLink = styled(Link)`
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+`
 
 const Btn = styled(Button)`
     width: 80px;
@@ -30,7 +37,10 @@ const CommunityMain = () => {
                 <Btn>질문</Btn>
                 <Btn>여행기</Btn>
             </FlexDiv>
-            <FlexDiv width='90%' justifyContent='right' padding='0 24px'>
+            <FlexDiv width='90%' justifyContent='space-between' padding='0 24px'>
+                <Btn height='32px'>
+                    <StyledLink to='/writepost' cursor='pointer' fontSize='14px' padding='0 2px'>글쓰기</StyledLink>
+                </Btn>
                 <Btn height='32px'>
                     <FlexDiv>
                         <Span cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Span>

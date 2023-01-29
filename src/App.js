@@ -8,6 +8,7 @@ import HeaderComponent from "./components/header/Header"
 import NotFound from "./components/NotFound";
 import MyPage from "./components/myPage/MyPage";
 import Community from "./components/community/Community";
+import Write from "./components/community/Write";
 
 const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -34,6 +35,7 @@ const App =() => {
                 <Route path="/schedule/*" element={<Schedule/>}/>
                 */}
                 <Route path="/community/*" element={<Community/>}/>
+                <Route path="/writepost" element={<Write/>}/>
                 <Route path="/myPage/*" element={<MyPage/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
