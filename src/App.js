@@ -30,7 +30,8 @@ const App =() => {
             <HeaderComponent isMobile={isMobile}></HeaderComponent>
             {isMobile && <FooterComponent></FooterComponent>}
             <Routes>
-                {/*
+                {
+                /*
                 <Route path="/" element={<Main/>}/>
                 <Route path="/schedule/*" element={<Schedule/>}/>
                 */}

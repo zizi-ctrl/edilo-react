@@ -99,12 +99,12 @@ export const Img = styled.img`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -157,12 +157,12 @@ export const Button = styled.button`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -219,12 +219,12 @@ export const FlexDiv = styled.div`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -291,12 +291,12 @@ export const Header = styled.header`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -362,12 +362,12 @@ export const Footer = styled.footer`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -425,12 +425,12 @@ export const PTag = styled.p`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -489,12 +489,12 @@ export const Div = styled.div`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -551,12 +551,12 @@ export const H1 = styled.h1`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -608,12 +608,12 @@ export const H2 = styled.h2`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -665,12 +665,12 @@ export const H3 = styled.h3`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -721,12 +721,12 @@ export const Span = styled.span`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -782,12 +782,12 @@ export const Input = styled.input`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
