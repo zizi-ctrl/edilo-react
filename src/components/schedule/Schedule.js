@@ -6,7 +6,7 @@ import { Div } from "../../styles/style";
 
 const containerStyle = {
   width: '100%',
-  height: '100vh'
+  height: 'calc(100vh - 70px)'
 };
 
 const center = {
@@ -15,11 +15,12 @@ const center = {
 };
 
 const Schedule = () => {
-  
+  const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY
+
   return (
     <React.Fragment>
       <Div width='100%' padding='70px 0 0 0'>
-       <LoadScript googleMapsApiKey="">
+       <LoadScript googleMapsApiKey={apiKey}>
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
