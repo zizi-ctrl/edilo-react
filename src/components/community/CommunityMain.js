@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Button, FlexDiv, Img, Input, Span } from "../../styles/style";
+import { Button, FlexDiv, Img, Input, Div } from "../../styles/style";
 import PostList from "../community/PostList";
 
 const StyledLink = styled(Link)`
@@ -23,7 +23,12 @@ const Btn = styled(Button)`
 `
 
 const CommunityMain = () => {
-    // useSetRecoilState로 post list 변경
+    // useSetRecoilState로 post list 변경해주기
+    /*
+    const btnCLickEvent = () => {
+
+    }
+    */
 
     return (
         <FlexDiv width='100%' align='column-center' padding='0 0 0 260px'>
@@ -43,7 +48,7 @@ const CommunityMain = () => {
                 </Btn>
                 <Btn height='32px'>
                     <FlexDiv>
-                        <Span cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Span>
+                        <Div cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Div>
                         <Img width='20px' display='inline' cursor='pointer' src={require('../../img/menudown.svg').default}/>
                     </FlexDiv>
                 </Btn>

@@ -8,6 +8,7 @@ import CommunityNavCategory from "./CommunityNavCategory";
 
 const StyledNav = styled(FlexDiv)`
     min-width: 260px;
+    overflow-y: auto;
 `
 
 const CommunityNav = () => {
