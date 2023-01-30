@@ -182,6 +182,9 @@ export const Button = styled.button`
 
 export const FlexDiv = styled.div`
     display: flex;
+
+    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
