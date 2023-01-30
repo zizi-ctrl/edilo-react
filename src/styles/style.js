@@ -126,6 +126,8 @@ export const Button = styled.button`
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
+    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 

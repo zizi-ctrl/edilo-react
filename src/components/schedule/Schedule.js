@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 import PlanNav from "./PlanNav";
 import SearchNav from "./SearchNav";
 import { Button, Div, Img } from "../../styles/style";
+import { openPlanNavState, openSearchNavState } from "../../recoil/state";
+import GoogleMapComponent from "./GoogleMapDiv";
 
 const Btn = styled(Button)`
   z-index: 200;
@@ -14,52 +16,35 @@ const Btn = styled(Button)`
   }
 `
 
-const containerStyle = {
-  width: '100%',
-  height: 'calc(100vh - 70px)'
-};
-
-const center = {
-  lat: 37,
-  lng: 127.523
-};
 
 const Schedule = () => {
-  const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY
-  
-  const [ openPlan, setOpenPlan ] = useState(true)
-  const [ openSearch, setSearch ] = useState(true)
+    const [openPlan, setOpenPlan] = useRecoilState(openPlanNavState)
+    const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
 
-  return (
-    <React.Fragment>
-      <Div width='100%' padding='70px 0 0 0'>
-        {
-          openPlan ?
-          <PlanNav/> :
-          <Btn width='36px' height='36px' position='fixed' backgroundColor='white' borderRadius='50%' border='1px solid #E1E4E6' left='160px' top='82px' cursor='pointer'>
-            <Img cursor='pointer' src={require('../../img/schedule_menu.svg').default}/>
-          </Btn>
-        }
-        {
-          openSearch ?
-          <SearchNav/> : 
-          <Btn width='36px' height='36px' position='fixed' backgroundColor='white' borderRadius='50%' border='1px solid #E1E4E6' right='66px' top='82px' cursor='pointer'>
-            <Img cursor='pointer' src={require('../../img/search2.svg').default}/>
-          </Btn>
-        }
-       <LoadScript googleMapsApiKey={apiKey}>
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-          >
-            { /* Child components, such as markers, info windows, etc. */ }
-            <></>
-          </GoogleMap>
-        </LoadScript>
-       </Div>
-    </React.Fragment>
-  )
+    const openPlanEvent = () => setOpenPlan(true)
+    const openSearchEvent = () => setOpenSearch(true)
+
+    return (
+        <React.Fragment>
+            <Div width='100%' padding='70px 0 0 0'>
+                {
+                    openPlan ?
+                        <PlanNav /> :
+                        <Btn width='36px' height='36px' position='fixed' backgroundColor='white' borderRadius='50%' border='1px solid #E1E4E6' left='160px' top='82px' cursor='pointer' onClick={openPlanEvent}>
+                            <Img cursor='pointer' src={require('../../img/schedule_menu.svg').default} />
+                        </Btn>
+                }
+                {
+                    openSearch ?
+                        <SearchNav /> :
+                        <Btn width='36px' height='36px' position='fixed' backgroundColor='white' borderRadius='50%' border='1px solid #E1E4E6' right='66px' top='82px' cursor='pointer' onClick={openSearchEvent}>
+                            <Img cursor='pointer' src={require('../../img/search2.svg').default} />
+                        </Btn>
+                }
+            </Div>
+            <GoogleMapComponent/>
+        </React.Fragment>
+    )
 
 }
 
