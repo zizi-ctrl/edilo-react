@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
-const App =() => {
+const App = () => {
     const isMobile = useMediaQuery({ maxWidth: 480 }) // 모바일
 
     return(

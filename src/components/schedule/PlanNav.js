@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 
 import { Button, FlexDiv, Img, Div, Input } from "../../styles/style";
 import { openPlanNavState } from "../../recoil/state";
+import PlanBlock from "./PlanBlock";
 
 const Btn = styled(Button)`
     background-color: white;
@@ -27,6 +28,8 @@ const PlanNav = () => {
         console.log('click')
     } */
 
+    // 오늘 날짜로 설정해주기
+
     return (
         <FlexDiv position='fixed' backgroundColor='backgroundGray' zIndex='300' width='300px' height='calc(100vh - 70px)' align='column-center'>
             <FlexDiv alignItems='center' height='66px' justifyContent='space-between' width='96%' margin='4px 0'>
@@ -44,19 +47,19 @@ const PlanNav = () => {
             </FlexDiv>
             <FlexDiv>
                 <Btn>
-                    <FlexDiv alignItems='center'>
+                    <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/time.svg').default}/>
-                        시차
+                        없음
                     </FlexDiv>
                 </Btn>
                 <Btn>
-                    <FlexDiv alignItems='center'>
+                    <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/weather.svg').default}/>
-                        0℃/0℃
+                        0℃ / 0℃
                     </FlexDiv>
                 </Btn>
                 <Btn>
-                    <FlexDiv alignItems='center'>
+                    <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/money.svg').default}/>
                         946.06원
                     </FlexDiv>
@@ -66,6 +69,8 @@ const PlanNav = () => {
                 <Input type='date' margin='0 0 0 56px' width='64%'/>
                 <Button backgroundColor='backgroundGray' position='absolute' borderRadius='8px' fontSize='14px' width='48px' height='24px' top='6px' right='12px' cursor='pointer' pointerEvent='none'>편집</Button>
             </FlexDiv>
+            {/* 나중에 map으로 돌리기 */}
+            <PlanBlock/>
         </FlexDiv>
     )
 }

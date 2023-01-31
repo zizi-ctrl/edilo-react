@@ -16,7 +16,6 @@ const Btn = styled(Button)`
   }
 `
 
-
 const Schedule = () => {
     const [openPlan, setOpenPlan] = useRecoilState(openPlanNavState)
     const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)

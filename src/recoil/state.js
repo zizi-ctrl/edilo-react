@@ -11,7 +11,5 @@ export const openSearchNavState = atom({
     default: true
 })
 
-
-
 //////// MyPage ////////
 
