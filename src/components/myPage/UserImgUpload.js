@@ -1,10 +1,9 @@
 import React, { useRef } from "react"
-import styled from "styled-components";
 import { useRecoilState } from "recoil";
 
-import { FlexDiv, Div, Img, Button, Input } from "../../styles/style";
+import { Div, Img, Button, Input } from "../../styles/style";
 import { userImgState } from "../../recoil/backendState";
-import { UserImg, Icon } from "./Profile";
+import { UserImg } from "./Profile";
 
 const UserImgUpload = () => {
     const [ userImg, setUserImg ] = useRecoilState(userImgState)

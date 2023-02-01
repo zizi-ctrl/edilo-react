@@ -192,7 +192,8 @@ export const FlexDiv = styled.div`
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     flex-direction: ${(props) => props.flexDirection ? props.flexDirection : 'row'}; 
-    flex-wrap: ${(props) => props.FlexWrap ? props.FlexWrap : ''};
+    flex-wrap: ${(props) => props.flexWrap ? props.flexWrap : ''};
+    flex-basis: ${(props) => props.flexBasis ? props.flexBasis : ''};
 
 
     position: ${(props) => props.position ? props.position : ''}; 
@@ -210,6 +211,8 @@ export const FlexDiv = styled.div`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
     
+    background-image: ${(props) =>  props.backgroundImg ? props.backgroundImg : ''};
+    background-size: ${(props) =>  props.backgroundSize ? props.backgroundSize : 'cover'};
 
     color : ${(props) => props.color ? colorFn(props.color) : ''};
     background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
@@ -404,6 +407,8 @@ export const PTag = styled.p`
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
+    flex-basis: ${(props) => props.flexBasis ? props.flexBasis : ''};
+
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 
@@ -467,7 +472,8 @@ export const Div = styled.div`
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
     
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
-
+    
+    flex-basis: ${(props) => props.flexBasis ? props.flexBasis : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 
     top: ${(props) => props.top ? props.top : ''};  
@@ -480,6 +486,8 @@ export const Div = styled.div`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
+    background-image: ${(props) =>  props.backgroundImg ? props.backgroundImg : ''};
+    background-size: ${(props) =>  props.backgroundSize ? props.backgroundSize : 'cover'};
 
     color : ${(props) => props.color ? colorFn(props.color) : ''};
     background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
@@ -756,6 +764,7 @@ export const Span = styled.span`
 export const Input = styled.input`
     display: ${(props) => props.display ? props.display : 'block'};
 
+    text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 
     top: ${(props) => props.top ? props.top : ''};  

@@ -12,9 +12,9 @@ const StyledLink = styled(Link)`
     cursor: pointer;
 `
 
-const Btn = styled(Button)`
+export const Btn = styled(Button)`
     width: 80px;
-    height: ${(props) => props.height ? props.height : '40px'};
+    height: ${(props) => props.height ? props.height : '36px'};
     color: ${(props) => props.color ? 'white' : 'black'};
     background-color: ${(props) => props.color ? '#0097F5' : 'white'};
     margin: 0 12px;

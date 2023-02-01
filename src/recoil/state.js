@@ -1,5 +1,8 @@
 import { atom } from 'recoil'
 
+//////// Main ////////
+
+
 //////// Schedule ////////
 export const openPlanNavState = atom({
     key: 'planNavOpen',
@@ -13,3 +16,12 @@ export const openSearchNavState = atom({
 
 //////// MyPage ////////
 
+
+//////// Community ////////
+
+
+//////// Write ////////
+export const attachImgState = atom({
+    key: 'attachImg',
+    default: []
+})

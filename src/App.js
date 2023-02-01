@@ -3,13 +3,15 @@ import { Routes, Route } from 'react-router-dom';
 import { useMediaQuery } from "react-responsive"
 import { createGlobalStyle } from "styled-components";
 
-import Schedule from "./components/schedule/Schedule";
 import FooterComponent from "./components/header/Footer"
 import HeaderComponent from "./components/header/Header"
+import Schedule from "./components/schedule/Schedule";
+import Main from "./components/Main/Main";
 import NotFound from "./components/NotFound";
 import MyPage from "./components/myPage/MyPage";
 import Community from "./components/community/Community";
 import Write from "./components/community/Write";
+import Login from "./components/login/Login";
 
 const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -30,13 +32,11 @@ const App = () => {
             <GlobalStyle/>
             <HeaderComponent isMobile={isMobile}></HeaderComponent>
             {isMobile && <FooterComponent></FooterComponent>}
-            <Routes>
-                {
-                /*
+            <Routes>               
                 <Route path="/" element={<Main/>}/>
-                */}
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/signin" element={<Schedule/>}/>
                 <Route path="/schedule/*" element={<Schedule/>}/>
-                
                 <Route path="/community/*" element={<Community/>}/>
                 <Route path="/writepost" element={<Write/>}/>
                 <Route path="/myPage/*" element={<MyPage/>}/>

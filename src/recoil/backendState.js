@@ -1,5 +1,96 @@
 import { atom } from 'recoil'
 
+export const mainCityState = atom({
+    key: 'mainCity',
+    defualt: [
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+        {
+            'cityName': '서울',
+            'cityEnglishName': 'SEOUL',
+            'cityImg': require('../img/seoul.svg').default
+        },
+    ]
+})
+
 export const cityListState = atom({
     key: 'cityList',
     default: [

@@ -28,7 +28,9 @@ const PlanNav = () => {
         console.log('click')
     } */
 
-    // 오늘 날짜로 설정해주기
+    const curr = new Date();
+    curr.setDate(curr.getDate());
+    const date = curr.toISOString().substring(0,10);
 
     return (
         <FlexDiv position='fixed' backgroundColor='backgroundGray' zIndex='300' width='300px' height='calc(100vh - 70px)' align='column-center'>
@@ -66,7 +68,7 @@ const PlanNav = () => {
                 </Btn>
             </FlexDiv>
             <FlexDiv width='90%' backgroundColor='white' borderRadius='12px' align='row-center' height='36px' position='relative' margin='8px 0'>
-                <Input type='date' margin='0 0 0 56px' width='64%'/>
+                <Input type='date' margin='0 0 0 56px' width='64%'  defaultValue={date}/>
                 <Button backgroundColor='backgroundGray' position='absolute' borderRadius='8px' fontSize='14px' width='48px' height='24px' top='6px' right='12px' cursor='pointer' pointerEvent='none'>편집</Button>
             </FlexDiv>
             {/* 나중에 map으로 돌리기 */}
