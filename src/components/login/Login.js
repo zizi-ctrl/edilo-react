@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 
 const Login = () => {
     return (
-        <FlexDiv padding='70px 0 0 0' width='100%' height='calc(100vh - 70px)' align='column-center' justifyContent='center'>
+        <FlexDiv padding='70px 0 0 0' width='100%' height='90vh' align='column-center' justifyContent='center'>
             <StyledLink to="/">
                 <Div cursor='pointer' color='mainColor' fontFamily='Pyunji R' fontSize='58px' fontWeight='bolder' textAlign='center'>EODILO</Div>
             </StyledLink>
@@ -35,7 +35,7 @@ const Login = () => {
                 <Button width='100%' backgroundColor='mainColor' color='white' borderRadius='8px' height='36px' fontSize='18px'>로그인</Button>
             </FlexDiv>
             <FlexDiv>
-                <StyledLink>회원가입</StyledLink>
+                <StyledLink to='/signin'>회원가입</StyledLink>
                 <StyledLink>아이디 찾기</StyledLink>
                 <StyledLink>비밀번호 찾기</StyledLink>
             </FlexDiv>

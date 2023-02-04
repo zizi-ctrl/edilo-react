@@ -21,7 +21,7 @@ const CommunityNavCategory = (props) => {
 
     if (typeof(cityObject) == 'string'){    // 더 이상 하위메뉴 존재하지 않음
         return(
-            <FlexDiv width='190px' align='row-vertical-center' height='40px' fontSize='18px' borderBottom='1px solid #E1E4E6' margin='12px 0' justifyContent='space-between' cursor='pointer'>
+            <FlexDiv width='190px' align='row-vertical-center' minHeight='40px' fontSize='18px' borderBottom='1px solid #E1E4E6' margin='12px 0' justifyContent='space-between' cursor='pointer'>
                 <StyledLink>{cityObject}</StyledLink>
             </FlexDiv>   
         )
@@ -29,7 +29,7 @@ const CommunityNavCategory = (props) => {
     else{
         return (
             <React.Fragment>
-                <FlexDiv width='190px' align='row-vertical-center' height='40px' fontSize='18px' borderBottom={!clickToggle && '1px solid #E1E4E6' || ''} borderTop={clickToggle && '1.5px solid black' || ''} fontWeight={clickToggle && '600' || ''} margin='12px 0' justifyContent='space-between' cursor='pointer' onClick={toggleControl}>
+                <FlexDiv width='190px' align='row-vertical-center' minHeight='40px' fontSize='18px' borderBottom={!clickToggle && '1px solid #E1E4E6' || ''} borderTop={clickToggle && '1.5px solid black' || ''} fontWeight={clickToggle && '600' || ''} margin='12px 0' justifyContent='space-between' cursor='pointer' onClick={toggleControl}>
                     {cityCategory}
                     { 
                         clickToggle ? 
@@ -39,7 +39,7 @@ const CommunityNavCategory = (props) => {
                 </FlexDiv> 
                 {
                     clickToggle &&
-                    <FlexDiv width='190px' align='row-vertical-center' height='40px' fontSize='18px' borderBottom='1px solid #E1E4E6' margin='12px 0' justifyContent='space-between' cursor='pointer'>
+                    <FlexDiv width='190px' align='row-vertical-center' minHeight='40px' height='40px' fontSize='18px' borderBottom='1px solid #E1E4E6' margin='12px 0' justifyContent='space-between' cursor='pointer'>
                         <StyledLink>{cityCategory} 전체</StyledLink>
                     </FlexDiv> 
                 }

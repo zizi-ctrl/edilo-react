@@ -22,8 +22,7 @@ const CityImg = styled(FlexDiv)`
 `
 
 const Main = () => {
-    // const mainCityList = useRecoilValue(mainCityState)
-    // console.log(mainCityList)
+    //const mainCityList = useRecoilValue(mainCityState)
 
     return (
         <FlexDiv width='100%' align='column-center' padding='130px 0 70px 0' backgroundColor='backgroundGray'>

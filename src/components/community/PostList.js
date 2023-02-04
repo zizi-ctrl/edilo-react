@@ -18,13 +18,13 @@ const PostList = () => {
     const listLength = postList.length
 
     const fetch = useCallback(async () => {
-        /*
+        /* 더 불러올거 없을때 false
         try {
           const { data } = await axios.get<Post[]>(
             `http: `
           );
           setPosts((prevPosts) => [...prevPosts, ...data]);
-          setHasNextPage(data.length === 10);
+          setHasNextPage(data.length == 10);
           if (data.length) {
             page.current += 1;
           }
@@ -49,7 +49,8 @@ const PostList = () => {
             fetch()
         }
     }, [fetch, hasNextPage, inView])
-    
+    // 페이지 이동할 때 등 state 초기화
+
     return (
         <React.Fragment>
             {

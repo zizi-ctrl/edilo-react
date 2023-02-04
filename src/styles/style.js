@@ -156,6 +156,8 @@ export const Button = styled.button`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
@@ -206,6 +208,8 @@ export const FlexDiv = styled.div`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -280,6 +284,8 @@ export const Header = styled.header`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -351,6 +357,8 @@ export const Footer = styled.footer`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -448,6 +456,8 @@ export const PTag = styled.p`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -515,6 +525,8 @@ export const Div = styled.div`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -577,6 +589,8 @@ export const H1 = styled.h1`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -634,6 +648,8 @@ export const H2 = styled.h2`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -691,6 +707,8 @@ export const H3 = styled.h3`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -747,6 +765,8 @@ export const Span = styled.span`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
     
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -776,6 +796,8 @@ export const Input = styled.input`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
