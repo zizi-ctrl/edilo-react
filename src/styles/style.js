@@ -2,20 +2,20 @@ import styled from 'styled-components'
 
 const flexAlignFn = (align) => {
     if (align){
-        if (align == 'row-center'){
+        if (align == 'row-center') {
             // 가로 가운데 정렬
             return 'justify-content: center;'
         }
-        else if (align == 'column-center'){ 
+        else if (align == 'column-center') { 
             // 세로 가운데 정렬
             return 'flex-direction: column; align-items: center;'
         }
-        else if (align == 'row-vertical-center'){
+        else if (align == 'row-vertical-center') { 
             // 가로 수직 가운데 정렬
             return 'align-items: center;'
 
         }
-        else if (align == 'column-vertical-center'){
+        else if (align == 'column-vertical-center') {
             // 세로 수직 가운데 정렬
             return 'flex-direction: column; justify-content: center;'
         }
@@ -23,47 +23,47 @@ const flexAlignFn = (align) => {
 }
 
 const colorFn = (color) => {
-    if (color){
-        if (color == 'mainColor'){
+    if (color) {
+        if (color == 'mainColor') {
             return '#0097F5'
         }
-        else if (color == 'black'){ 
+        else if (color == 'black') { 
             return '#000000'
         }
-        else if (color == 'white'){ 
+        else if (color == 'white') { 
             return '#FFFFFF'
         }
-        else if (color == 'backgroundGray'){ 
+        else if (color == 'backgroundGray') { 
             return '#F0F3F5'
         }
-        else if (color == 'borderGray'){
+        else if (color == 'borderGray') {
             return '#E1E4E6'
         }
-        else if (color == 'letterGray'){
+        else if (color == 'letterGray') {
             return '#919699'
         }
-        else if (color == 'iconGray'){
+        else if (color == 'iconGray') {
             return '#616466'
         }
-        else if (color == 'red'){
+        else if (color == 'red') {
             return '#FF0000'
         }
-        else if (color == 'hotel'){
+        else if (color == 'hotel') {
             return '#F06292'
         }
-        else if (color == 'restaurant'){
+        else if (color == 'restaurant') {
             return '#FF9900'
         }
-        else if (color == 'shop'){
+        else if (color == 'shop') {
             return '#5491F5'
         }
-        else if (color == 'attraction'){
+        else if (color == 'attraction') {
             return '#12B5CB'
         }
-        else if (color == 'park'){
+        else if (color == 'park') {
             return '#34A853'
         }
-        else{
+        else {
             return color
         }
     }
@@ -99,12 +99,12 @@ export const Img = styled.img`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -113,7 +113,7 @@ export const Img = styled.img`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -125,6 +125,8 @@ export const Img = styled.img`
 export const Button = styled.button`
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
+
+    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
 
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
@@ -154,15 +156,17 @@ export const Button = styled.button`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -171,7 +175,7 @@ export const Button = styled.button`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -182,12 +186,16 @@ export const Button = styled.button`
 
 export const FlexDiv = styled.div`
     display: flex;
+
+    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     flex-direction: ${(props) => props.flexDirection ? props.flexDirection : 'row'}; 
-    flex-wrap: ${(props) => props.FlexWrap ? props.FlexWrap : ''};
+    flex-wrap: ${(props) => props.flexWrap ? props.flexWrap : ''};
+    flex-basis: ${(props) => props.flexBasis ? props.flexBasis : ''};
 
 
     position: ${(props) => props.position ? props.position : ''}; 
@@ -200,11 +208,15 @@ export const FlexDiv = styled.div`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
     
+    background-image: ${(props) =>  props.backgroundImg ? props.backgroundImg : ''};
+    background-size: ${(props) =>  props.backgroundSize ? props.backgroundSize : 'cover'};
 
     color : ${(props) => props.color ? colorFn(props.color) : ''};
     background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
@@ -219,12 +231,12 @@ export const FlexDiv = styled.div`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -237,7 +249,7 @@ export const FlexDiv = styled.div`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -272,6 +284,8 @@ export const Header = styled.header`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -291,12 +305,12 @@ export const Header = styled.header`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -308,7 +322,7 @@ export const Header = styled.header`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -343,6 +357,8 @@ export const Footer = styled.footer`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -362,12 +378,12 @@ export const Footer = styled.footer`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -380,7 +396,7 @@ export const Footer = styled.footer`
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -399,6 +415,8 @@ export const PTag = styled.p`
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
+    flex-basis: ${(props) => props.flexBasis ? props.flexBasis : ''};
+
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 
@@ -425,12 +443,12 @@ export const PTag = styled.p`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -438,12 +456,14 @@ export const PTag = styled.p`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -462,7 +482,8 @@ export const Div = styled.div`
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
     
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
-
+    
+    flex-basis: ${(props) => props.flexBasis ? props.flexBasis : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 
     top: ${(props) => props.top ? props.top : ''};  
@@ -475,6 +496,8 @@ export const Div = styled.div`
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
 
+    background-image: ${(props) =>  props.backgroundImg ? props.backgroundImg : ''};
+    background-size: ${(props) =>  props.backgroundSize ? props.backgroundSize : 'cover'};
 
     color : ${(props) => props.color ? colorFn(props.color) : ''};
     background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
@@ -489,12 +512,12 @@ export const Div = styled.div`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -502,12 +525,14 @@ export const Div = styled.div`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -551,12 +576,12 @@ export const H1 = styled.h1`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -564,12 +589,14 @@ export const H1 = styled.h1`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -608,12 +635,12 @@ export const H2 = styled.h2`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -621,12 +648,14 @@ export const H2 = styled.h2`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -665,12 +694,12 @@ export const H3 = styled.h3`
     
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -678,12 +707,14 @@ export const H3 = styled.h3`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -721,12 +752,12 @@ export const Span = styled.span`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -734,12 +765,14 @@ export const Span = styled.span`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
     
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
 
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};
@@ -751,6 +784,7 @@ export const Span = styled.span`
 export const Input = styled.input`
     display: ${(props) => props.display ? props.display : 'block'};
 
+    text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
     position: ${(props) => props.position ? props.position : ''}; 
     top: ${(props) => props.top ? props.top : ''};  
@@ -762,6 +796,8 @@ export const Input = styled.input`
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
+    min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    min-height: ${(props) => props.minHeight ? props.minHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -771,7 +807,7 @@ export const Input = styled.input`
     color : ${(props) => props.color ? colorFn(props.color) : ''};
     background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : 'transparent'};
     border-color: ${(props) =>  props.borderColor ? colorFn(props.borderColor) : ''};
-    border: ${(props) => props.border ? props.border : ''};
+    border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
     border-bottom: ${(props) => props.borderBottom ? props.borderBottom : ''};
@@ -782,12 +818,12 @@ export const Input = styled.input`
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
-    padding-bomttom: ${(props) => props.paddingBomttom ? props.paddingBomttom : ''};
+    padding-Bottom: ${(props) => props.paddingBottom ? props.paddingBottom : ''};
     padding-right: ${(props) => props.paddingRight ? props.paddingRight : ''};
     padding-left: ${(props) => props.paddingLeft ? props.paddingLeft : ''};
     margin: ${(props) => props.margin ? props.margin : '' /* top right bottom left */}; 
     margin-top: ${(props) => props.marginTop ? props.marginTop : ''};
-    margin-bomttom: ${(props) => props.marginBomttom ? props.marginBomttom : ''};
+    margin-Bottom: ${(props) => props.marginBottom ? props.marginBottom : ''};
     margin-right: ${(props) => props.marginRight ? props.marginRight : ''};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : ''};
 
@@ -795,8 +831,11 @@ export const Input = styled.input`
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
 
+    &::placeholder {
+        color : ${(props) => props.placeholderColor ? props.placeholderColor : ''};
+    }
     
-    &:hover{
+    &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
         color : ${(props) => props.HoverColor ? props.HoverColor : ''};

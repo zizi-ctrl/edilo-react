@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
     color: ${(props) => props.color ? props.color : '#919699'};
     display: flex;
     text-decoration: none;
-    padding: 20px 28px;
+    padding: 20px 24px;
     cursor: pointer;
 `
 

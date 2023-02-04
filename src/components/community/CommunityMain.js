@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Button, FlexDiv, Div, Img, Input, Span } from "../../styles/style";
-import PostList from "../myPage/PostList";
+import { Button, FlexDiv, Img, Input, Div } from "../../styles/style";
+import PostList from "../community/PostList";
 
-const Btn = styled(Button)`
+const StyledLink = styled(Link)`
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+`
+
+export const Btn = styled(Button)`
     width: 80px;
-    height: ${(props) => props.height ? props.height : '40px'};
+    height: ${(props) => props.height ? props.height : '36px'};
     color: ${(props) => props.color ? 'white' : 'black'};
     background-color: ${(props) => props.color ? '#0097F5' : 'white'};
     margin: 0 12px;
@@ -16,7 +23,12 @@ const Btn = styled(Button)`
 `
 
 const CommunityMain = () => {
-    // useSetRecoilState로 post list 변경
+    // useSetRecoilState로 post list 변경해주기
+    /*
+    const btnCLickEvent = () => {
+
+    }
+    */
 
     return (
         <FlexDiv width='100%' align='column-center' padding='0 0 0 260px'>
@@ -30,10 +42,13 @@ const CommunityMain = () => {
                 <Btn>질문</Btn>
                 <Btn>여행기</Btn>
             </FlexDiv>
-            <FlexDiv width='90%' justifyContent='right' padding='0 24px'>
+            <FlexDiv width='90%' justifyContent='space-between' padding='0 24px'>
+                <Btn height='32px'>
+                    <StyledLink to='/writepost' cursor='pointer' fontSize='14px' padding='0 2px'>글쓰기</StyledLink>
+                </Btn>
                 <Btn height='32px'>
                     <FlexDiv>
-                        <Span cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Span>
+                        <Div cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Div>
                         <Img width='20px' display='inline' cursor='pointer' src={require('../../img/menudown.svg').default}/>
                     </FlexDiv>
                 </Btn>

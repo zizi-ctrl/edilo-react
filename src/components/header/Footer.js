@@ -19,7 +19,7 @@ const FooterComponent = () => {
     console.log(path)
 
     return (
-        <Footer display='flex' justifyContent='space-around' align='row-vertical-center' position='fixed' bottom='0px' width='100%' height='70px' backgroundColor='white' borderTop='1px solid #F0F3F5'>
+        <Footer display='flex' justifyContent='space-around' align='row-vertical-center' position='fixed' bottom='0px' width='100%' height='70px' backgroundColor='white' borderTop='1px solid #F0F3F5' zIndex='10000'>
             <Link to="/">
                 <Icon src={require('../../img/home.svg').default} filter={path == '/' ? 'true' : undefined}/>
             </Link>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Div,Button, FlexDiv } from "../../styles/style"
 import Nickname from "./Nickname";
-import PostList from "./PostList";
+import PostList from "../community/PostList";
 
 const LabelDiv = styled(Div)`
     font-size: 14px;
