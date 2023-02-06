@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 
 import { Button, FlexDiv, Img, Div, Input } from "../../styles/style";
 import { openPlanNavState } from "../../recoil/state";
+import { planListState } from "../../recoil/backendState"
 import PlanBlock from "./PlanBlock";
 
 const Btn = styled(Button)`
@@ -19,25 +20,25 @@ const Icon = styled(Img)`
 `
 
 const PlanNav = () => {
+    // nav 닫기
     const setOpenPlanNav = useSetRecoilState(openPlanNavState)
     const openPlanEvent = () => setOpenPlanNav(false)
-    /*
-    const inputRef = useRef(null)
-    const inputClickEvent= () => {
-        inputRef.currunt.click()
-        console.log('click')
-    } */
 
+    // 기본 날짜 설정
     const curr = new Date();
     curr.setDate(curr.getDate());
     const date = curr.toISOString().substring(0,10);
+
+    // Plan List
+    const planList = useRecoilValue(planListState)
+    console.log(planList)
 
     return (
         <FlexDiv position='fixed' backgroundColor='backgroundGray' zIndex='300' width='300px' height='calc(100vh - 70px)' align='column-center'>
             <FlexDiv alignItems='center' height='66px' justifyContent='space-between' width='96%' margin='4px 0'>
                 <FlexDiv borderRadius='12px' backgroundColor='white' justifyContent='space-between' alignItems='center' width='240px' height='52px' margin='0 0 0 8px' padding='0 8px'>
                     <Div fontSize='24px' overflow='hidden' width='100%' textAlign='center'>
-                        도쿄 여행
+                        {planList[0].cityIndex} 여행
                     </Div>
                     <Button>
                         <Img width='20px' src={require('../../img/delete.svg').default} cursor='pointer'/>
@@ -51,7 +52,7 @@ const PlanNav = () => {
                 <Btn>
                     <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/time.svg').default}/>
-                        없음
+                        {'없음'}
                     </FlexDiv>
                 </Btn>
                 <Btn>
@@ -71,7 +72,9 @@ const PlanNav = () => {
                 <Input type='date' margin='0 0 0 56px' width='64%'  defaultValue={date}/>
                 <Button backgroundColor='backgroundGray' position='absolute' borderRadius='8px' fontSize='14px' width='48px' height='24px' top='6px' right='12px' cursor='pointer' pointerEvent='none'>편집</Button>
             </FlexDiv>
-            {/* 나중에 map으로 돌리기 */}
+            {
+                planList[0].scheduleList.map((eachPlan, id) => <PlanBlock eachPlan={eachPlan} label={id + 1}/>)
+            }
             <PlanBlock/>
         </FlexDiv>
     )

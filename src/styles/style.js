@@ -60,7 +60,7 @@ const colorFn = (color) => {
         else if (color == 'attraction') {
             return '#12B5CB'
         }
-        else if (color == 'park') {
+        else if (color == 'cafe') {
             return '#34A853'
         }
         else {
@@ -116,7 +116,7 @@ export const Img = styled.img`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -157,7 +157,9 @@ export const Button = styled.button`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     padding: ${(props) => props.padding ? props.padding : '' /* top right bottom left */};
     padding-top: ${(props) => props.paddingTop ? props.paddingTop : ''};
@@ -178,7 +180,7 @@ export const Button = styled.button`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -209,7 +211,9 @@ export const FlexDiv = styled.div`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -252,7 +256,7 @@ export const FlexDiv = styled.div`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -285,7 +289,9 @@ export const Header = styled.header`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -325,7 +331,7 @@ export const Header = styled.header`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -358,7 +364,9 @@ export const Footer = styled.footer`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -399,7 +407,7 @@ export const Footer = styled.footer`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -457,7 +465,9 @@ export const PTag = styled.p`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -466,7 +476,7 @@ export const PTag = styled.p`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -526,7 +536,9 @@ export const Div = styled.div`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -535,7 +547,7 @@ export const Div = styled.div`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -590,7 +602,9 @@ export const H1 = styled.h1`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -599,7 +613,7 @@ export const H1 = styled.h1`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -649,7 +663,9 @@ export const H2 = styled.h2`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -658,7 +674,7 @@ export const H2 = styled.h2`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -708,7 +724,9 @@ export const H3 = styled.h3`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -717,7 +735,7 @@ export const H3 = styled.h3`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -766,7 +784,9 @@ export const Span = styled.span`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
     
     pointer-events: ${(props) => props.pointerEvent ? props.pointerEvent : ''};
     cursor: ${(props) => props.cursor ? props.cursor : 'default'};
@@ -775,7 +795,7 @@ export const Span = styled.span`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }
@@ -797,7 +817,9 @@ export const Input = styled.input`
     height: ${(props) => props.height ? props.height : ''};
 
     min-width: ${(props) => props.minWidth ? props.minWidth : ''};
+    max-width: ${(props) => props.maxWidth ? props.maxWidth : ''};
     min-height: ${(props) => props.minHeight ? props.minHeight : ''};
+    max-height: ${(props) => props.maxHeight ? props.maxHeight : ''};
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
@@ -838,7 +860,7 @@ export const Input = styled.input`
     &:hover {
         cursor: ${(props) => props.hoverCursor ? props.hoverCursor : ''};
         background-color: ${(props) => props.hoverBackgroundColor ? props.hoverBackgroundColor : ''};
-        color : ${(props) => props.HoverColor ? props.HoverColor : ''};
+        color : ${(props) => props.hoverColor ? props.hoverColor : ''};
         border: ${(props) => props.hoverBorder ? props.hoverBorder : ''};
         border-radius: ${(props) => props.HoverBorderRadius ? props.HoverBorderRadius : ''};
     }

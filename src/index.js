@@ -5,4 +5,4 @@ import { BrowserRouter } from "react-router-dom"
 
 import App from "./App"
 
-ReactDOM.createRoot(document.getElementById("root")).render(<BrowserRouter><RecoilRoot><App/></RecoilRoot></BrowserRouter>)
+ReactDOM.createRoot(document.getElementById("root")).render(<RecoilRoot><BrowserRouter><App/></BrowserRouter></RecoilRoot>)

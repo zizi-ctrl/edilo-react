@@ -1,5 +1,33 @@
 import { atom } from 'recoil'
 
+// atomFamily 적용해보기
+export const planListState = atom({
+    key: 'planListState',
+    default: [
+        {
+            "date": "2023-02-14",
+            "cityIndex": '도쿄', // 나중에 백엔드 number 맞춰서 수정
+            "scheduleList": [
+                {
+                    "blockName": '시부야 스카이',
+                    "blockTime": "hh:mm:ss",
+                    "blockCategory": 'tourist_attraction',
+                    "blockXCoordinate": 139.7022513688183, // lng
+                    "blockYCoordinate": 35.65849864918091, // lat
+                    "blockCost": null
+                },
+                {
+                    "blockName": '라케루',
+                    "blockTime": "hh:mm:ss",
+                    "blockCategory": 'restaurant',
+                    "blockXCoordinate": 139.7043604, // lng
+                    "blockYCoordinate": 35.6601234, // lat
+                    "blockCost": null
+                }
+            ]
+        }
+    ]
+})
 
 export const mainCityState = atom({
     key: 'mainCity',
@@ -321,7 +349,7 @@ export const postListState = atom({
 
 export const currentPostState = atom({
     key: 'currentPost',
-    default:{
+    default: {
         'areaTag': {
             'cityCategory': '유럽',
             'cityCountry': '프랑스',

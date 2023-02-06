@@ -1,36 +1,64 @@
-import React from "react";
-import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api';
+import React, { useRef, useEffect, useCallback, useState } from "react";
+import { GoogleMap, LoadScript, Marker, Polyline, StandaloneSearchBox } from '@react-google-maps/api';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
+import styled from "styled-components";
+
+import { Button, Div, Img, Input, FlexDiv } from "../../styles/style";
+import { curMarkerPosState, openPlanNavState, openSearchNavState } from "../../recoil/state";
+import { planListState } from "../../recoil/backendState";
+import SearchItem from "./SearchItem";
+
+
+const SearchNav = styled(FlexDiv)`
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #E1E4E5;
+        border-radius: 30px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #CCCCCC;
+        border-radius: 30px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #F0F3F5;
+    }
+`
+
 
 const GoogleMapComponent = () => {
+    const planList = useRecoilValue(planListState)
+    const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
     const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY
 
-    /* 
-     백엔드 스테이트에 정보 넣어두기
-     일정 블록 만들어야 함
-     검색 기능 구현해야함 -> 이건 최대한 블로그 따라서 만들자 .. 시간없
-     center 값, 순서대로 icon 들어가도록, 순서대로 lebel 붙도록
-    */
+    // search nav close
+    const openSearchEvent = () => setOpenSearch(false)
+
+
+    // google map style 
     /*
     mapTypeControl: false,
     fullscreenControl: false,
     streetViewControl: false,
     */
-
     const containerStyle = {
         width: '100%',
         height: 'calc(100vh - 70px)'
     };
-    
-    const onLoad = polyline => {
-        console.log('polyline: ', polyline)
-    };
-    
+
     const lineSymbol = {
         path: "M 0,-1 0,1",
         strokeOpacity: 1,
         scale: 2
     };
-    
+
     const options = {
         strokeOpacity: 0,
         fillOpacity: 0,
@@ -43,38 +71,100 @@ const GoogleMapComponent = () => {
             }
         ]
     };
-    
-    const center = {
+
+    const center = {    // 1번 장소
         lat: 35.65849864918091,
         lng: 139.7022513688183
     };
-    
+
     const center2 = {
-        lat: 37.5,
-        lng: 127.323
+        lat: 35.6601234,
+        lng: 139.7043604
     };
-    
-    const center3 = {
-        lat: 37.6,
-        lng: 127.323
-    };
-    
+
     const someCoords = [
         center, center2
     ]
-    
-    const someCoords2 = [
-        center2, center3
-    ]    
+
+    // google map
+    const [map, setMap] = useState(null)
+    const [mapBounds, setMapBounds] = useState(null)
+    const mapOnLoad = useCallback((map) => {
+        setMap(map)
+    }, [])
+
+    const boundsHandler = () => {
+        setMapBounds(map.getBounds())
+    }
+
+    const onSBLoad = useCallback((ref) => {
+        setSearchBox(ref);
+    })
+
+    // 검색 기능 (autocomplete)
+    const [searchBox, setSearchBox] = useState(null);
+    const [mapCenter, setMapCenter] = useState(center)
+    const [curMarkerPos, setCurMarkerPos] = useRecoilState(curMarkerPosState)
+    const [searchResult, setSearchResult] = useState(null)
+
+    const onPlacesChanged = () => {
+        // 검색하고나서 검색범위 설정됨, 현재 map 기준으로는 어떻게 설정하지 ㅇㅅㅇ
+        setMapBounds(map.getBounds())
+        const places = searchBox.getPlaces()
+        console.log(places)
+
+        if (places.length == 1) {
+            const resultLocation = places[0].geometry.location
+            const resultCoord = [{
+                lat: resultLocation.lat(),
+                lng: resultLocation.lng()
+            }]
+            setMapCenter(resultCoord[0])
+            setCurMarkerPos(resultCoord)
+            setSearchResult(null)
+        }
+        else {
+            let searchList = []
+            let markerPosList = []
+            places.forEach(element => {
+                searchList.push({
+                    'name': element.name,
+                    'types': element.types ? element.types : '',
+                    'img': element.photos ? element.photos[0].getUrl() : '',
+                    'position': {
+                        lat: element.geometry.location.lat(),
+                        lng: element.geometry.location.lng()
+                    }
+                })
+
+                markerPosList.push({
+                    lat: element.geometry.location.lat(),
+                    lng: element.geometry.location.lng()
+                })
+            });
+            setSearchResult(searchList)
+            setCurMarkerPos(markerPosList)
+        }
+    }
+
 
     return (
-        <LoadScript googleMapsApiKey={apiKey}>
+        <LoadScript googleMapsApiKey={apiKey} libraries={["places"]}>
             <GoogleMap
+                onLoad={mapOnLoad}
                 mapContainerStyle={containerStyle}
-                center={center}
-                zoom={12}
+                center={mapCenter}
+                zoom={14}
+                onBoundsChanged={boundsHandler}
             >
                 { /* Child components, such as markers, info windows, etc. */}
+                {/* 검색 결과 marker */}
+                {
+                    curMarkerPos &&
+                    curMarkerPos.map((pos) => <Marker position={pos} />)
+                }
+
+                {/* 여행 일정 marker & line */}
                 <Marker
                     label="1"
                     icon={{
@@ -93,28 +183,41 @@ const GoogleMapComponent = () => {
                     }}
                     position={center2}
                 />
-                <Marker
-                    label="3"
-                    icon={{
-                        url: require('../../img/marker_attraction.svg').default,
-                        scaledSize: { width: 30, height: 30 },
-                        anchor: { x: 15, y: 15 }
-                    }}
-                    position={center3}
-                />
                 <Polyline
-                    onLoad={onLoad}
                     path={someCoords}
                     options={options}
                 />
-                <Polyline
-                    onLoad={onLoad}
-                    path={someCoords2}
-                    options={options}
-                />
+                {
+                    openSearch &&
+                    <SearchNav position='fixed' backgroundColor='backgroundGray' zIndex='300' width='300px' height='calc(100vh - 70px)' align='column-center' right='0px'>
+                        <FlexDiv>
+                            <Button onClick={openSearchEvent}>
+                                <Img cursor='pointer' zIndex='4000' width='18px' src={require('../../img/menuclose_right.svg').default} />
+                            </Button>
+                            <FlexDiv backgroundColor='white' height='39px' alignItems='center' margin='18px 8px' padding='8px' borderRadius='24px'>
+                                <StandaloneSearchBox
+                                    onPlacesChanged={onPlacesChanged}
+                                    onLoad={onSBLoad}
+                                    bounds={mapBounds}
+                                >
+                                    <Input placeholder='장소 검색' border='none' width='200px' outline='none' fontSize='14px' height='20px' padding='0 22px 0 12px' />
+                                </StandaloneSearchBox>
+                                <Img src={require('../../img/search2.svg').default} position='relative' right='8px' />
+                            </FlexDiv>
+                        </FlexDiv>
+                        {
+                            searchResult != null &&
+                            searchResult.map((eachResult) =>
+                                <SearchItem eachResult={eachResult}/>
+                            )
+                        }
+                    </SearchNav>
+                }
             </GoogleMap>
-        </LoadScript>
+        </LoadScript >
     )
 }
 
-export default GoogleMapComponent
+export default React.memo(GoogleMapComponent)
+
+//

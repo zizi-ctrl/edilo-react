@@ -14,6 +14,11 @@ export const openSearchNavState = atom({
     default: true
 })
 
+export const curMarkerPosState = atom({
+    key: 'curMarkerPos',
+    default: null
+})
+
 //////// MyPage ////////
 
 
