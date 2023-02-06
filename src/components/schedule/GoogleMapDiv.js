@@ -4,7 +4,7 @@ import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import { Button, Div, Img, Input, FlexDiv } from "../../styles/style";
-import { curMarkerPosState, openPlanNavState, openSearchNavState } from "../../recoil/state";
+import { curMarkerPosState, mapCenterState, openPlanNavState, openSearchNavState, tempPlanListState } from "../../recoil/state";
 import { planListState } from "../../recoil/backendState";
 import SearchItem from "./SearchItem";
 
@@ -34,7 +34,8 @@ const SearchNav = styled(FlexDiv)`
 
 
 const GoogleMapComponent = () => {
-    const planList = useRecoilValue(planListState)
+    const savedPlanList = useRecoilValue(planListState)
+    const [planList, setPlanList] = useRecoilState(tempPlanListState)
     const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
     const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY
 
@@ -88,6 +89,7 @@ const GoogleMapComponent = () => {
 
     // google map
     const [map, setMap] = useState(null)
+    const [mapCenter, setMapCenter] = useRecoilState(mapCenterState)
     const [mapBounds, setMapBounds] = useState(null)
     const mapOnLoad = useCallback((map) => {
         setMap(map)
@@ -101,15 +103,12 @@ const GoogleMapComponent = () => {
         setSearchBox(ref);
     })
 
-    // 검색 기능 (autocomplete)
+    // 검색 기능
     const [searchBox, setSearchBox] = useState(null);
-    const [mapCenter, setMapCenter] = useState(center)
     const [curMarkerPos, setCurMarkerPos] = useRecoilState(curMarkerPosState)
     const [searchResult, setSearchResult] = useState(null)
 
     const onPlacesChanged = () => {
-        // 검색하고나서 검색범위 설정됨, 현재 map 기준으로는 어떻게 설정하지 ㅇㅅㅇ
-        setMapBounds(map.getBounds())
         const places = searchBox.getPlaces()
         console.log(places)
 
@@ -131,10 +130,10 @@ const GoogleMapComponent = () => {
                     'name': element.name,
                     'types': element.types ? element.types : '',
                     'img': element.photos ? element.photos[0].getUrl() : '',
-                    'position': {
+                    'position': [{
                         lat: element.geometry.location.lat(),
                         lng: element.geometry.location.lng()
-                    }
+                    }]
                 })
 
                 markerPosList.push({
@@ -146,6 +145,24 @@ const GoogleMapComponent = () => {
             setCurMarkerPos(markerPosList)
         }
     }
+
+    const markerClickEvent = (pos) => {
+        console.log(pos)
+        // info 박스로 바꿔서 일정 추가 버튼 넣기
+    }
+
+    // 마운트 될 때
+    useEffect(() => {
+        if (savedPlanList) {
+            const plan = savedPlanList[0].scheduleList[0]
+            const center = {
+                lat: plan.blockYCoordinate,
+                lng: plan.blockXCoordinate
+            }
+            setMapCenter(center)
+            setPlanList(savedPlanList)
+        }
+    }, [])
 
 
     return (
@@ -161,10 +178,15 @@ const GoogleMapComponent = () => {
                 {/* 검색 결과 marker */}
                 {
                     curMarkerPos &&
-                    curMarkerPos.map((pos) => <Marker position={pos} />)
+                    curMarkerPos.map((pos) => <Marker position={pos} onClick={(pos) => {
+                        markerClickEvent(pos)
+                    }}/>)
                 }
 
                 {/* 여행 일정 marker & line */}
+                {
+                    
+                }
                 <Marker
                     label="1"
                     icon={{

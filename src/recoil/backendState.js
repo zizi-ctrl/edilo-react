@@ -1,8 +1,9 @@
 import { atom } from 'recoil'
 
-// atomFamily 적용해보기
+
+// 백엔드에서 가져오는 일정
 export const planListState = atom({
-    key: 'planListState',
+    key: 'planList',
     default: [
         {
             "date": "2023-02-14",
@@ -11,7 +12,7 @@ export const planListState = atom({
                 {
                     "blockName": '시부야 스카이',
                     "blockTime": "hh:mm:ss",
-                    "blockCategory": 'tourist_attraction',
+                    "blockCategory": '관광명소',
                     "blockXCoordinate": 139.7022513688183, // lng
                     "blockYCoordinate": 35.65849864918091, // lat
                     "blockCost": null
@@ -19,7 +20,7 @@ export const planListState = atom({
                 {
                     "blockName": '라케루',
                     "blockTime": "hh:mm:ss",
-                    "blockCategory": 'restaurant',
+                    "blockCategory": '음식점',
                     "blockXCoordinate": 139.7043604, // lng
                     "blockYCoordinate": 35.6601234, // lat
                     "blockCost": null

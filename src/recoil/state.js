@@ -1,4 +1,5 @@
-import { atom } from 'recoil'
+import { atom, selector } from 'recoil'
+import { planListState } from './backendState'
 
 //////// Main ////////
 
@@ -17,6 +18,21 @@ export const openSearchNavState = atom({
 export const curMarkerPosState = atom({
     key: 'curMarkerPos',
     default: null
+})
+
+export const mapCenterState = atom({
+    key: 'mapCenter',
+    default:  {
+        lat: 37.5666805,
+        lng: 126.9784147
+    }
+})
+
+// atomFamily 적용해보기
+// 수정할 수 있는 plan, 저장 시 이 state를 백엔드로 전송
+export const tempPlanListState = atom({
+    key: 'tempPlanList',
+    default: []
 })
 
 //////// MyPage ////////
