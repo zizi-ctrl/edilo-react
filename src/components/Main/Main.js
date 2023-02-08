@@ -23,6 +23,8 @@ const CityImg = styled(FlexDiv)`
 
 const Main = () => {
     //const cityList = useRecoilValue(mainCityState)
+    const isLogin = sessionStorage.getItem('isLogin')
+
     const cityList = [{
         'cityName': '서울',
         'cityEnglishName': 'SEOUL',
@@ -128,7 +130,7 @@ const Main = () => {
             <FlexDiv width='60%' flexWrap='wrap' margin='50px 0' justifyContent='space-between'>
                 {
                     cityList.map((city) =>
-                        <StyledLink to='/login'>
+                        <StyledLink to={isLogin ? '/schedule' : '/login'}>
                             <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + city.cityImg + ')'} borderRadius='20px'>
                                 <CityDiv fontSize='40px'>{city.cityEnglishName}</CityDiv>
                                 <CityDiv fontSize='20px'>{city.cityName}</CityDiv>
