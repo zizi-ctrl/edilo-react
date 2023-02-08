@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useCallback, useState } from "react";
+import React, { useRef, useEffect, useCallback, useState, Suspense } from "react";
 import { GoogleMap, LoadScript, Marker, Polyline, StandaloneSearchBox } from '@react-google-maps/api';
 import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import { Button, Div, Img, Input, FlexDiv } from "../../styles/style";
-import { curMarkerPosState, mapCenterState, openPlanNavState, openSearchNavState, tempPlanListState } from "../../recoil/state";
+import { curMarkerPosState, lineCoordListState, mapCenterState, openPlanNavState, openSearchNavState, planModifyCheckState, tempPlanBlockListState, tempPlanListState } from "../../recoil/state";
 import { planListState } from "../../recoil/backendState";
 import SearchItem from "./SearchItem";
 
@@ -34,16 +34,7 @@ const SearchNav = styled(FlexDiv)`
 
 
 const GoogleMapComponent = () => {
-    const savedPlanList = useRecoilValue(planListState)
-    const [planList, setPlanList] = useRecoilState(tempPlanListState)
-    const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
-    const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY
-
-    // search nav close
-    const openSearchEvent = () => setOpenSearch(false)
-
-
-    // google map style 
+    // google map, line style 모아둠
     /*
     mapTypeControl: false,
     fullscreenControl: false,
@@ -73,24 +64,34 @@ const GoogleMapComponent = () => {
         ]
     };
 
-    const center = {    // 1번 장소
-        lat: 35.65849864918091,
-        lng: 139.7022513688183
-    };
 
-    const center2 = {
-        lat: 35.6601234,
-        lng: 139.7043604
-    };
+    // plan 저장관련 변수들 정리좀 해야함 ㅜㅜ
+    const savedPlanList = useRecoilValue(planListState)
+    const [planList, setPlanList] = useRecoilState(tempPlanListState)
+    const tempPlanBlockList = useRecoilValue(tempPlanBlockListState)
+    const lineCoordList = useRecoilValue(lineCoordListState)
 
-    const someCoords = [
-        center, center2
-    ]
+    const setPlanModifyCheck = useSetRecoilState(planModifyCheckState)
+
+    const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
 
     // google map
+    const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY
+
     const [map, setMap] = useState(null)
     const [mapCenter, setMapCenter] = useRecoilState(mapCenterState)
     const [mapBounds, setMapBounds] = useState(null)
+
+    // 검색 기능
+    const [searchBox, setSearchBox] = useState(null);
+    const [curMarkerPos, setCurMarkerPos] = useRecoilState(curMarkerPosState)
+    const [searchResult, setSearchResult] = useState(null)
+
+
+    // search nav close
+    const openSearchEvent = () => setOpenSearch(false)
+
+    // google map
     const mapOnLoad = useCallback((map) => {
         setMap(map)
     }, [])
@@ -103,47 +104,33 @@ const GoogleMapComponent = () => {
         setSearchBox(ref);
     })
 
-    // 검색 기능
-    const [searchBox, setSearchBox] = useState(null);
-    const [curMarkerPos, setCurMarkerPos] = useRecoilState(curMarkerPosState)
-    const [searchResult, setSearchResult] = useState(null)
 
+    // 검색 기능
     const onPlacesChanged = () => {
         const places = searchBox.getPlaces()
         console.log(places)
 
-        if (places.length == 1) {
-            const resultLocation = places[0].geometry.location
-            const resultCoord = [{
-                lat: resultLocation.lat(),
-                lng: resultLocation.lng()
-            }]
-            setMapCenter(resultCoord[0])
-            setCurMarkerPos(resultCoord)
-            setSearchResult(null)
-        }
-        else {
-            let searchList = []
-            let markerPosList = []
-            places.forEach(element => {
-                searchList.push({
-                    'name': element.name,
-                    'types': element.types ? element.types : '',
-                    'img': element.photos ? element.photos[0].getUrl() : '',
-                    'position': [{
-                        lat: element.geometry.location.lat(),
-                        lng: element.geometry.location.lng()
-                    }]
-                })
 
-                markerPosList.push({
+        let searchList = []
+        let markerPosList = []
+        places.forEach(element => {
+            searchList.push({
+                'name': element.name,
+                'types': element.types ? element.types : '',
+                'img': element.photos ? element.photos[0].getUrl() : '',
+                'position': [{
                     lat: element.geometry.location.lat(),
                     lng: element.geometry.location.lng()
-                })
-            });
-            setSearchResult(searchList)
-            setCurMarkerPos(markerPosList)
-        }
+                }]
+            })
+
+            markerPosList.push({
+                lat: element.geometry.location.lat(),
+                lng: element.geometry.location.lng()
+            })
+        });
+        setSearchResult(searchList)
+        setCurMarkerPos(markerPosList)
     }
 
     const markerClickEvent = (pos) => {
@@ -159,8 +146,10 @@ const GoogleMapComponent = () => {
                 lat: plan.blockYCoordinate,
                 lng: plan.blockXCoordinate
             }
+            setCurMarkerPos([]) // 페이지 이동할 때 marker 초기화
             setMapCenter(center)
             setPlanList(savedPlanList)
+            setPlanModifyCheck(false)
         }
     }, [])
 
@@ -171,7 +160,7 @@ const GoogleMapComponent = () => {
                 onLoad={mapOnLoad}
                 mapContainerStyle={containerStyle}
                 center={mapCenter}
-                zoom={14}
+                zoom={14.5}
                 onBoundsChanged={boundsHandler}
             >
                 { /* Child components, such as markers, info windows, etc. */}
@@ -180,36 +169,38 @@ const GoogleMapComponent = () => {
                     curMarkerPos &&
                     curMarkerPos.map((pos) => <Marker position={pos} onClick={(pos) => {
                         markerClickEvent(pos)
-                    }}/>)
+                    }} />)
                 }
 
                 {/* 여행 일정 marker & line */}
                 {
-                    
+                    tempPlanBlockList &&
+                    tempPlanBlockList.map((item, key) =>
+                        <Marker
+                            label={`${key + 1}`}
+                            icon={{
+                                url: require('../../img/marker_attraction.svg').default,
+                                scaledSize: { width: 30, height: 30 },
+                                anchor: { x: 15, y: 15 }
+                            }}
+                            position={{
+                                lat: item.blockYCoordinate,
+                                lng: item.blockXCoordinate
+                            }}
+                        />
+                    )
                 }
-                <Marker
-                    label="1"
-                    icon={{
-                        url: require('../../img/marker_attraction.svg').default,
-                        scaledSize: { width: 30, height: 30 },
-                        anchor: { x: 15, y: 15 }
-                    }}
-                    position={center}
-                />
-                <Marker
-                    label="2"
-                    icon={{
-                        url: require('../../img/marker_attraction.svg').default,
-                        scaledSize: { width: 30, height: 30 },
-                        anchor: { x: 15, y: 15 }
-                    }}
-                    position={center2}
-                />
-                <Polyline
-                    path={someCoords}
-                    options={options}
-                />
                 {
+                    lineCoordList &&
+                    lineCoordList.map((item) =>
+                        <Polyline
+                            path={item}
+                            options={options}
+                        />
+                    )
+                }
+                {
+                    // search Nav - 따로 빼고 싶었는데 serachbox 때문에 못 뺌
                     openSearch &&
                     <SearchNav position='fixed' backgroundColor='backgroundGray' zIndex='300' width='300px' height='calc(100vh - 70px)' align='column-center' right='0px'>
                         <FlexDiv>
@@ -229,9 +220,11 @@ const GoogleMapComponent = () => {
                         </FlexDiv>
                         {
                             searchResult != null &&
+
                             searchResult.map((eachResult) =>
-                                <SearchItem eachResult={eachResult}/>
+                                <SearchItem eachResult={eachResult} />
                             )
+
                         }
                     </SearchNav>
                 }

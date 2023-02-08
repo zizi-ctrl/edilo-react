@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { curMarkerPosState, mapCenterState, tempPlanListState } from "../../recoil/state";
+import { curMarkerPosState, mapCenterState, planModifyCheckState, tempPlanBlockListState, tempPlanListState } from "../../recoil/state";
 
 import { Img, FlexDiv, Div, Button } from "../../styles/style";
 
@@ -21,28 +21,30 @@ const SearchItem = (props) => {
 
     const setCurMarkerPos = useSetRecoilState(curMarkerPosState)
     const setMapCenter = useSetRecoilState(mapCenterState)
-    const [tempPlanList, setTempPlanList] = useRecoilState(tempPlanListState)
+    const [tempPlanBlockList, setTempPlanBlockList] = useRecoilState(tempPlanBlockListState)
+    const setPlanModifyCheck = useSetRecoilState(planModifyCheckState)
 
+    //const type
     let type
     if (types.includes('convenience_store')) {
         type = '편의점'
     }
     else if (types.includes('cafe')) {
-        type ='카페'
+        type = '카페'
     }
     else if (types.includes('lodging')) {
-        type ='숙소'
+        type = '숙소'
     }
     else if (types.includes('restaurant')) {
-        type ='음식점'
+        type = '음식점'
     }
     else if (types.includes('shopping_mall')) {
-        type ='쇼핑'
+        type = '쇼핑'
     }
     else if (types.includes('tourist_attraction')) {
-        type ='관광명소'
+        type = '관광명소'
     }
-    else{
+    else {
         type = '기타'
     }
 
@@ -52,18 +54,24 @@ const SearchItem = (props) => {
     }
 
     const addPlanBlockEvent = () => {
-        const newPlanBlock = {
-            "blockName": name,
-            "blockTime": "hh:mm:ss",
-            "blockCategory": type,
-            "blockXCoordinate": position[0].lng, // lng
-            "blockYCoordinate": position[0].lat, // lat
-            "blockCost": null
+        if (tempPlanBlockList.length == 12) { 
+            alert('더 이상 블록을 추가할 수 없습니다.')
         }
+        else {
+            const newPlanBlock = {
+                "blockName": name,
+                "blockTime": "hh:mm:ss",
+                "blockCategory": type,
+                "blockXCoordinate": position[0].lng, // lng
+                "blockYCoordinate": position[0].lat, // lat
+                "blockCost": null
+            }
 
-        // let temp = [tempPlanList]
-        // console.log(temp)
-        //temp
+            setPlanModifyCheck(true)
+
+            let tempList = [...tempPlanBlockList, newPlanBlock]
+            setTempPlanBlockList(tempList)
+        }
     }
 
     return (

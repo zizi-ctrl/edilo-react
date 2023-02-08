@@ -7,7 +7,7 @@ export const planListState = atom({
     default: [
         {
             "date": "2023-02-14",
-            "cityIndex": '도쿄', // 나중에 백엔드 number 맞춰서 수정
+            "cityIndex": '도쿄', // 백엔드 number 맞춰서 수정
             "scheduleList": [
                 {
                     "blockName": '시부야 스카이',
