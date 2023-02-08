@@ -12,7 +12,7 @@ import MyPage from "./components/myPage/MyPage";
 import Community from "./components/community/Community";
 import Write from "./components/community/Write";
 import Login from "./components/login/Login";
-import Signin from "./components/signin/Signin";
+import SignUp from "./components/signup/SignUp";
 
 // min-width, max-width (헤더 푸터 안 쪽)
 const GlobalStyle = createGlobalStyle`
@@ -56,7 +56,7 @@ const App = () => {
             <Routes>               
                 <Route path="/" element={<Main/>}/>
                 <Route path="/login" element={<Login/>}/>
-                <Route path="/signin" element={<Signin/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/schedule/*" element={<Schedule/>}/>
                 <Route path="/community/*" element={<Community/>}/>
                 <Route path="/writepost" element={<Write/>}/>

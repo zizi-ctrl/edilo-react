@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { mainCityState } from "../../recoil/backendState";
@@ -22,7 +22,93 @@ const CityImg = styled(FlexDiv)`
 `
 
 const Main = () => {
-    //const mainCityList = useRecoilValue(mainCityState)
+    //const cityList = useRecoilValue(mainCityState)
+    const cityList = [{
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../../img/seoul.svg').default
+    },
+    ]
 
     return (
         <FlexDiv width='100%' align='column-center' padding='130px 0 70px 0' backgroundColor='backgroundGray'>
@@ -40,57 +126,16 @@ const Main = () => {
                 <Btn>오세아니아</Btn>
             </FlexDiv>
             <FlexDiv width='60%' flexWrap='wrap' margin='50px 0' justifyContent='space-between'>
-                {/* 임시 */}
-                <StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink>
-                <StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink><StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink><StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink><StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink><StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink><StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink><StyledLink to='/login'>
-                    <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + require('../../img/seoul.svg').default + ')'} borderRadius='20px'>
-                        {/* <Img width='180px' height='180px' src={require('../../img/seoul.svg').default} borderRadius='20px'/> */}
-                        <CityDiv fontSize='40px'>SEOUL</CityDiv>
-                        <CityDiv fontSize='20px'>대한민국 서울</CityDiv>
-                    </CityImg>
-                </StyledLink>
+                {
+                    cityList.map((city) =>
+                        <StyledLink to='/login'>
+                            <CityImg height='180px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + city.cityImg + ')'} borderRadius='20px'>
+                                <CityDiv fontSize='40px'>{city.cityEnglishName}</CityDiv>
+                                <CityDiv fontSize='20px'>{city.cityName}</CityDiv>
+                            </CityImg>
+                        </StyledLink>
+                    )
+                }
             </FlexDiv>
         </FlexDiv>
     )

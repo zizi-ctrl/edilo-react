@@ -1,6 +1,35 @@
 import { atom } from 'recoil'
 
 
+// 백엔드에서 가져오는 일정
+export const planListState = atom({
+    key: 'planList',
+    default: [
+        {
+            "date": "2023-02-14",
+            "cityIndex": '도쿄', // 백엔드 number 맞춰서 수정
+            "scheduleList": [
+                {
+                    "blockName": '시부야 스카이',
+                    "blockTime": "hh:mm:ss",
+                    "blockCategory": '관광명소',
+                    "blockXCoordinate": 139.7022513688183, // lng
+                    "blockYCoordinate": 35.65849864918091, // lat
+                    "blockCost": null
+                },
+                {
+                    "blockName": '라케루',
+                    "blockTime": "hh:mm:ss",
+                    "blockCategory": '음식점',
+                    "blockXCoordinate": 139.7043604, // lng
+                    "blockYCoordinate": 35.6601234, // lat
+                    "blockCost": null
+                }
+            ]
+        }
+    ]
+})
+
 export const mainCityState = atom({
     key: 'mainCity',
     defualt: [
@@ -321,7 +350,7 @@ export const postListState = atom({
 
 export const currentPostState = atom({
     key: 'currentPost',
-    default:{
+    default: {
         'areaTag': {
             'cityCategory': '유럽',
             'cityCountry': '프랑스',
