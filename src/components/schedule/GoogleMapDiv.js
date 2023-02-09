@@ -133,10 +133,6 @@ const GoogleMapComponent = () => {
         setCurMarkerPos(markerPosList)
     }
 
-    const markerClickEvent = (pos) => {
-        console.log(pos)
-        // info 박스로 바꿔서 일정 추가 버튼 넣기
-    }
 
     // 마운트 될 때
     useEffect(() => {
@@ -167,9 +163,7 @@ const GoogleMapComponent = () => {
                 {/* 검색 결과 marker */}
                 {
                     curMarkerPos &&
-                    curMarkerPos.map((pos) => <Marker position={pos} onClick={(pos) => {
-                        markerClickEvent(pos)
-                    }} />)
+                    curMarkerPos.map((pos) => <Marker position={pos} />)
                 }
 
                 {/* 여행 일정 marker & line */}
@@ -179,7 +173,13 @@ const GoogleMapComponent = () => {
                         <Marker
                             label={`${key + 1}`}
                             icon={{
-                                url: require('../../img/marker_attraction.svg').default,
+                                url: item.blockCategory == '숙소' && require('../../img/marker_hotel.svg').default
+                                || item.blockCategory == '편의점' && require('../../img/marker_convenience_store.svg').default
+                                || item.blockCategory == '음식점' && require('../../img/marker_restaurant.svg').default
+                                || item.blockCategory == '쇼핑' && require('../../img/marker_shop.svg').default
+                                || item.blockCategory == '관광명소' && require('../../img/marker_attraction.svg').default
+                                || require('../../img/marker_etc.svg').default
+                                ,
                                 scaledSize: { width: 30, height: 30 },
                                 anchor: { x: 15, y: 15 }
                             }}
@@ -224,7 +224,6 @@ const GoogleMapComponent = () => {
                             searchResult.map((eachResult) =>
                                 <SearchItem eachResult={eachResult} />
                             )
-
                         }
                     </SearchNav>
                 }

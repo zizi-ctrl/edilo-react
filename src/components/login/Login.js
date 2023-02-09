@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import useFetch from "../../hooks/useFetch";
 import { Button, Div, FlexDiv, Img, Input, Span } from "../../styles/style";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { isLoginState } from "../../recoil/state";
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -17,9 +18,12 @@ const StyledLink = styled(Link)`
 
 const Login = () => {
     const navigate = useNavigate()
-    const isLogin = sessionStorage.getItem('isLogin')
+
+    const [isLogin, setIsLogin] = useRecoilState(isLoginState)
 
     useEffect(() => {
+        const Login = sessionStorage.getItem('isLogin')
+        setIsLogin(Login)
         if (isLogin) {
             navigate('/')
         }
@@ -37,7 +41,7 @@ const Login = () => {
         pwRef.current.value = ''
     }
 
-    const inputLengthControl = (e) => {
+    const inputLengthControl = (e) => { // hook로 빼기, 회원가입 페이지 쪽 코드로
         if (e.target.value.length > 20) {
             e.target.value = e.target.value.substr(0, 20);
         }
@@ -66,6 +70,8 @@ const Login = () => {
             //     alert(`ERR : ${result.message}`)
             // }
             //React Hook "useFetch" is called in function "submitEvent" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"
+            // event 함수 안에서 custom hook 호출하기 검색
+            // 
             try {
                 const response = await fetch("http://3.35.230.139:3000/account/login", {
                     "method": "POST",
@@ -80,15 +86,17 @@ const Login = () => {
                 const result = await response.json()
 
                 if (result.success) {
+                    console.log(result)
+                    console.log(document.cookie)
                     sessionStorage.setItem('isLogin', true)
                     navigate('/')
                 }
                 else {
-                    alert(`${result.message}`)
+                    console.log(`${result.message}`)
                 }
             }
             catch (err) {
-                alert(`ERR : ${err}`)
+                console.log(`ERR : ${err}`)
             }
         }
     }

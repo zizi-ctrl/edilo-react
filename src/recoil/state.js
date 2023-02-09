@@ -2,6 +2,11 @@ import { atom, atomFamily, selector, selectorFamily } from 'recoil'
 import { planListState } from './backendState'
 
 
+export const isLoginState = atom({
+    key: 'isLogin',
+    default: false
+})
+
 //////// Main ////////
 
 
