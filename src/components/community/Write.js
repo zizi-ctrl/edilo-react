@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import WriteTagNav from "./WriteTagNav";
 import WriteImgAttach from "./WriteImgAttach";
 import { Div, FlexDiv, Input, Img, Button } from "../../styles/style";
-import { attachImgState } from "../../recoil/state";
+import { attachImgState, isLoginState } from "../../recoil/state";
+import { useNavigate } from "react-router-dom";
 
 const ColoredImg = styled(Img)`
     filter: invert(19%) sepia(15%) saturate(0%) hue-rotate(143deg) brightness(94%) contrast(79%);
@@ -25,6 +26,16 @@ const Btn = styled(Button)`
 `
 
 const Write = () => {
+    const isLogin = sessionStorage.getItem('isLogin')
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!isLogin) {
+            navigate('/login')
+        }
+    })
+
+
     const textareaRef = useRef(null)
     const [plan, setPlan] = useState('일정 첨부') // 일정 제목
 
@@ -67,8 +78,6 @@ const Write = () => {
     const italicBtnClickEvent = () => {
         const selection = window.getSelection().toString()
     }
-
-    console.log(textareaRef)
 
     return (
         <FlexDiv padding='70px 0 0 0' align='column-center'>

@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { GoogleMap, LoadScript, Marker, Polyline, Autocomplete } from '@react-google-maps/api';
+import React, { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import PlanNav from "./PlanNav";
 import { Button, Div, Img, Input, FlexDiv } from "../../styles/style";
-import { mapApiObjState, mapState, openPlanNavState, openSearchNavState } from "../../recoil/state";
+import { isLoginState, openPlanNavState, openSearchNavState } from "../../recoil/state";
 import GoogleMapComponent from "./GoogleMapDiv";
+import { useNavigate } from "react-router-dom";
 
 
 const Btn = styled(Button)`
@@ -18,6 +18,16 @@ const Btn = styled(Button)`
 `
 
 const Schedule = () => {
+    const isLogin = sessionStorage.getItem('isLogin')
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!isLogin) {
+            navigate('/login')
+        }
+    })
+
+
     const [openPlan, setOpenPlan] = useRecoilState(openPlanNavState)
     const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
 

@@ -1,9 +1,11 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import useFetch from "../../hooks/useFetch";
 import { Button, Div, FlexDiv, Img, Input, Span } from "../../styles/style";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { isLoginState } from "../../recoil/state";
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -15,6 +17,18 @@ const StyledLink = styled(Link)`
 
 
 const Login = () => {
+    const navigate = useNavigate()
+
+    const [isLogin, setIsLogin] = useRecoilState(isLoginState)
+
+    useEffect(() => {
+        const Login = sessionStorage.getItem('isLogin')
+        setIsLogin(Login)
+        if (isLogin) {
+            navigate('/')
+        }
+    })
+    
     const idRef = useRef(null)
     const pwRef = useRef(null)
 
@@ -27,7 +41,7 @@ const Login = () => {
         pwRef.current.value = ''
     }
 
-    const inputLengthControl = (e) => {
+    const inputLengthControl = (e) => { // hook로 빼기, 회원가입 페이지 쪽 코드로
         if (e.target.value.length > 20) {
             e.target.value = e.target.value.substr(0, 20);
         }
@@ -56,6 +70,8 @@ const Login = () => {
             //     alert(`ERR : ${result.message}`)
             // }
             //React Hook "useFetch" is called in function "submitEvent" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"
+            // event 함수 안에서 custom hook 호출하기 검색
+            // 
             try {
                 const response = await fetch("http://3.35.230.139:3000/account/login", {
                     "method": "POST",
@@ -70,15 +86,17 @@ const Login = () => {
                 const result = await response.json()
 
                 if (result.success) {
-                    alert("통신 성공")
                     console.log(result)
+                    console.log(document.cookie)
+                    sessionStorage.setItem('isLogin', true)
+                    navigate('/')
                 }
                 else {
-                    alert(`${result.message}`)
+                    console.log(`${result.message}`)
                 }
             }
             catch (err) {
-                alert(`ERR : ${err}`)
+                console.log(`ERR : ${err}`)
             }
         }
     }
@@ -100,7 +118,11 @@ const Login = () => {
                     <Input type='password' placeholder='비밀번호 입력' width='300px' ref={pwRef} onChange={inputLengthControl} cursor='pointer' />
                     <Img width='14px' cursor='pointer' src={require('../../img/close.svg').default} onClick={pwResetEvent} />
                 </FlexDiv>
-                <Button margin='24px 0 0 0' width='100%' backgroundColor='mainColor' color='white' borderRadius='8px' height='36px' fontSize='18px' cursor='pointer' onClick={submitEvent}>로그인</Button>
+                <FlexDiv alignItems='center' width='100%' margin='10px 0 22px'>
+                    <Img width='16px' src={require('../../img/check.svg').default} margin='0 8px 0 0'/>
+                    <Span color='letterGray' fontSize='14px'>로그인 상태 유지</Span>
+                </FlexDiv>
+                <Button width='100%' backgroundColor='mainColor' color='white' borderRadius='8px' height='36px' fontSize='18px' cursor='pointer' onClick={submitEvent}>로그인</Button>
             </FlexDiv>
             <FlexDiv>
                 <StyledLink to='/signup'>회원가입</StyledLink>

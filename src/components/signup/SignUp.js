@@ -33,7 +33,7 @@ const SignUp = () => {
     const [authCodeCheck, setAuthCodeCheck] = useState(true)
 
 
-    const inputLengthCheck = (str, length) => {
+    const inputLengthCheck = (str, length) => { // hook로 빼기
         console.log(str)
         if (str.length > length) {
             return str.substr(0, length);
@@ -145,7 +145,7 @@ const SignUp = () => {
     // 백엔드 통신 필요한 내용 - 중복확인, 이메일 발송, 회원가입
     const idCheckEvent = async () => {
         try {
-            const response = await fetch("http://3.35.230.139:80/account/id/confirm", {
+            const response = await fetch("http://3.35.230.139:3000/account/id/confirm", {
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json"
@@ -170,7 +170,7 @@ const SignUp = () => {
 
     const nicknameCheckEvent = async () => {
         try {
-            const response = await fetch("http://3.35.230.139:80/account/nickname/confirm", {
+            const response = await fetch("http://3.35.230.139:3000/account/nickname/confirm", {
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json"
@@ -196,7 +196,7 @@ const SignUp = () => {
 
     const emailSendEvent = async () => {
         try {
-            const response = await fetch("http://3.35.230.139:80/auth/email/signUp", {
+            const response = await fetch("http://3.35.230.139:3000/auth/email/signUp", {
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json"
@@ -221,8 +221,9 @@ const SignUp = () => {
     }
 
     const confirmAuthCodeEvent = async () => {
+        console.log(authCode)
         try {
-            const response = await fetch("http://3.35.230.139:80/auth/email/signUp/confirm", {
+            const response = await fetch("http://3.35.230.139:3000/auth/email/signUp/confirm", {
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json"
@@ -238,11 +239,11 @@ const SignUp = () => {
                 console.log(result)
             }
             else {
-                alert(`${result.message}`)
+                console.log(`${result.message}`)
             }
         }
         catch (err) {
-            alert(`ERR : ${err}`)
+            console.log(`ERR : ${err}`)
         }
     }
 
@@ -276,7 +277,7 @@ const SignUp = () => {
         }
         else {
             try {
-                const response = await fetch("http://3.35.230.139:80/account", {
+                const response = await fetch("http://3.35.230.139:3000/account", {
                     "method": "POST",
                     "headers": {
                         "Content-Type": "application/json"
