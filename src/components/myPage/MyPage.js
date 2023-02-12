@@ -12,7 +12,7 @@ import { isLoginState } from "../../recoil/state"
 
 const MyPage = () => {
     // 미디어 쿼리 중간 지점 950px (레이아웃 깨져서 안이쁘게 보임)
-    const isLogin = sessionStorage.getItem('isLogin')
+    const isLogin = useRecoilValue(isLoginState)
     const navigate = useNavigate()
 
     useEffect(() => {

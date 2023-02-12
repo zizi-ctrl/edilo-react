@@ -58,6 +58,8 @@ const Login = () => {
             alert('비밀번호를 입력해주세요.')
         }
         else {
+            sessionStorage.setItem('isLogin', true)
+            setIsLogin(sessionStorage.getItem('isLogin'))
             // const result = useFetch({
             //     "idValue": id,
             //     "pwValue": pw
@@ -73,7 +75,7 @@ const Login = () => {
             // event 함수 안에서 custom hook 호출하기 검색
             // 
             try {
-                const response = await fetch("http://3.35.230.139:3000/account/login", {
+                const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/account/login", {
                     "method": "POST",
                     "headers": {
                         "Content-Type": "application/json"
@@ -89,6 +91,7 @@ const Login = () => {
                     console.log(result)
                     console.log(document.cookie)
                     sessionStorage.setItem('isLogin', true)
+                    setIsLogin(sessionStorage.getItem('isLogin'))
                     navigate('/')
                 }
                 else {
@@ -96,6 +99,7 @@ const Login = () => {
                 }
             }
             catch (err) {
+                alert('로그인 실패')
                 console.log(`ERR : ${err}`)
             }
         }
