@@ -68,6 +68,7 @@ const PlanBlock = (props) => {
                             || blockCategory == '음식점' && require('../../img/marker_restaurant.svg').default
                             || blockCategory == '쇼핑' && require('../../img/marker_shop.svg').default
                             || blockCategory == '관광명소' && require('../../img/marker_attraction.svg').default
+                            || blockCategory == '카페' && require('../../img/marker_cafe.svg').default
                             || require('../../img/marker_etc.svg').default} />
                     <Div position='absolute' top='2px' left={label > 9 ? '6px' : '10px'}>
                         {label}

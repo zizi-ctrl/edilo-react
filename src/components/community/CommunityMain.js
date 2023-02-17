@@ -24,11 +24,15 @@ export const Btn = styled(Button)`
 
 const CommunityMain = () => {
     // useSetRecoilState로 post list 변경해주기
-    /*
-    const btnCLickEvent = () => {
+   
+    
+    const [clickedBtn, setClickedBtn] = useState('all')
 
+
+    const btnClickEvent = (category) => {
+        setClickedBtn(category)
     }
-    */
+    
 
     return (
         <FlexDiv width='100%' align='column-center' padding='0 0 0 260px'>
@@ -37,10 +41,10 @@ const CommunityMain = () => {
                 <Img cursor='pointer' position='relative' right='24px' src={require('../../img/search2.svg').default}/>
             </FlexDiv>
             <FlexDiv>
-                <Btn color='true'>전체</Btn>
-                <Btn>정보</Btn>
-                <Btn>질문</Btn>
-                <Btn>여행기</Btn>
+                <Btn color={clickedBtn == 'all' && 'true'} onClick={() => btnClickEvent('all')}>전체</Btn>
+                <Btn color={clickedBtn == 'info' && 'true'} onClick={() => btnClickEvent('info')}>정보</Btn>
+                <Btn color={clickedBtn == 'qna' && 'true'} onClick={() => btnClickEvent('qna')}>질문</Btn>
+                <Btn color={clickedBtn == 'travel' && 'true'} onClick={() => btnClickEvent('travel')}>여행기</Btn>
             </FlexDiv>
             <FlexDiv width='90%' justifyContent='space-between' padding='0 24px'>
                 <Btn height='32px'>
@@ -48,7 +52,9 @@ const CommunityMain = () => {
                 </Btn>
                 <Btn height='32px'>
                     <FlexDiv>
+                        {/* 여기 아닌 곳 클릭하면 닫히도록 */}
                         <Div cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Div>
+                        {/* <Div cursor='pointer' fontSize='14px' padding='0 4px'>좋아요순</Div> */}
                         <Img width='20px' display='inline' cursor='pointer' src={require('../../img/menudown.svg').default}/>
                     </FlexDiv>
                 </Btn>

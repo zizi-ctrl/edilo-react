@@ -1,4 +1,4 @@
-import { atom } from 'recoil'
+import { atom, selector } from 'recoil'
 
 
 // 백엔드에서 가져오는 일정
@@ -32,93 +32,114 @@ export const planListState = atom({
 
 export const mainCityState = atom({
     key: 'mainCity',
-    defualt: [
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
-        //     {
-        //         'cityName': '서울',
-        //         'cityEnglishName': 'SEOUL',
-        //         'cityImg': require('../img/seoul.svg').default
-        //     },
+    default: [{
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
+    {
+        'cityName': '서울',
+        'cityEnglishName': 'SEOUL',
+        'cityImg': require('../img/seoul.svg').default
+    },
     ]
+    // get: 
+    // async () => {
+    //     try {
+    //         const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/city/all", {
+    //             "method": "GET",
+    //             "headers": {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         })
+    //         const result = await response.json()
+
+    //         if (result.success) {
+    //             console.log(result)
+    //         }
+    //         else {
+    //             alert(`${result.message}`)
+    //         }
+    //     }
+    //     catch (err) {
+    //         alert(`ERR : ${err}`)
+    //     }
+    // }
 })
 
 export const cityListState = atom({

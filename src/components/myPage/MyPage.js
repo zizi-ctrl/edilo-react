@@ -15,11 +15,13 @@ const MyPage = () => {
     const isLogin = useRecoilValue(isLoginState)
     const navigate = useNavigate()
 
+    
     useEffect(() => {
         if (!isLogin) {
             navigate('/login')
         }
     })
+
 
     return (
         <FlexDiv backgroundColor='backgroundGray' height='100%' padding='70px 0 70px 0' align='column-center'>
