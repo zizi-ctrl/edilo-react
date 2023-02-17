@@ -18,14 +18,14 @@ const Btn = styled(Button)`
 `
 
 const Schedule = () => {
-    const isLogin = sessionStorage.getItem('isLogin')
-    const navigate = useNavigate()
+    // const isLogin = sessionStorage.getItem('isLogin')
+    // const navigate = useNavigate()
 
-    useEffect(() => {
-        if (!isLogin) {
-            navigate('/login')
-        }
-    })
+    // useEffect(() => {
+    //     if (!isLogin) {
+    //         navigate('/login')
+    //     }
+    // })
 
 
     const [openPlan, setOpenPlan] = useRecoilState(openPlanNavState)

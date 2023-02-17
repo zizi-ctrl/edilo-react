@@ -15,7 +15,7 @@ const useFetch = (url, data) => {
             return result
         }
         catch (err) {
-            alert(`ERR : ${err}`)
+            console.log(`ERR : ${err}`)
         }
     }
 

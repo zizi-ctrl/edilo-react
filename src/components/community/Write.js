@@ -26,14 +26,14 @@ const Btn = styled(Button)`
 `
 
 const Write = () => {
-    const isLogin = sessionStorage.getItem('isLogin')
-    const navigate = useNavigate()
+    // const isLogin = sessionStorage.getItem('isLogin')
+    // const navigate = useNavigate()
 
-    useEffect(() => {
-        if (!isLogin) {
-            navigate('/login')
-        }
-    })
+    // useEffect(() => {
+    //     if (!isLogin) {
+    //         navigate('/login')
+    //     }
+    // })
 
 
     const textareaRef = useRef(null)
@@ -71,12 +71,20 @@ const Write = () => {
     }
 
     // Text Editor
+    const setStyle = (style) => {
+        //navigator.clipboard.writeText
+        document.execCommand(style) 
+        //focusEditor() 
+    }
+    
     const boldBtnClickEvent = () => {
-        const selection = window.getSelection().toString()
+        //const selection = window.getSelection().toString()
+        setStyle('bold') 
     }
 
     const italicBtnClickEvent = () => {
-        const selection = window.getSelection().toString()
+        //const selection = window.getSelection().toString()
+        setStyle('italic') 
     }
 
     return (

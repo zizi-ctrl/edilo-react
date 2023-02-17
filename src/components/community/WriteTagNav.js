@@ -11,6 +11,7 @@ const ColoredImg = styled(Img)`
 
 const WriteTagNav = () => {
     const [plan, setPlan] = useState('일정 첨부') // 일정 제목
+    //const 
 
     const [AttachImg, setAttachImg] = useRecoilState(attachImgState)
     const inputRef = useRef(null)
@@ -43,6 +44,13 @@ const WriteTagNav = () => {
         });
     }
 
+    const openToggle = (category) => {
+
+    }
+
+    const continentCLickEvent = () => openToggle('continent')
+    const countryCLickEvent = () => openToggle('country')
+    const cityCLickEvent = () => openToggle('city')
 
     return (
         <>
@@ -55,15 +63,21 @@ const WriteTagNav = () => {
             </FlexDiv>
             <FlexDiv align='row-vertical-center' padding='0 0 0 36px'>
                 <Div color='letterGray' cursor='pointer'>대륙</Div>
-                <ColoredImg width='24px' cursor='pointer' src={require('../../img/menudown.svg').default} />
+                <Button>
+                    <ColoredImg width='24px' cursor='pointer' src={require('../../img/menudown.svg').default} onClick={continentCLickEvent}/>
+                </Button>
             </FlexDiv>
             <FlexDiv align='row-vertical-center' padding='0 0 0 36px'>
                 <Div color='letterGray' cursor='pointer'>나라</Div>
-                <ColoredImg width='24px' cursor='pointer' src={require('../../img/menudown.svg').default} />
+                <Button>
+                    <ColoredImg width='24px' cursor='pointer' src={require('../../img/menudown.svg').default} onClick={countryCLickEvent}/>
+                </Button>
             </FlexDiv>
             <FlexDiv align='row-vertical-center' padding='0 0 0 36px'>
                 <Div color='letterGray' cursor='pointer'>도시</Div>
-                <ColoredImg width='24px' cursor='pointer' src={require('../../img/menudown.svg').default} />
+                <Button>
+                    <ColoredImg width='24px' cursor='pointer' src={require('../../img/menudown.svg').default} onClick={cityCLickEvent}/>
+                </Button>
             </FlexDiv>
         </>
     )

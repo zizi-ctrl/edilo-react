@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { Header, Div, FlexDiv } from "../../styles/style";
 import { isLoginState } from "../../recoil/state"
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -14,18 +14,24 @@ const HeaderComponent = (props) => {
     const { isMobile } = props
     const [login, setLogin] = useState('')
 
-    const isLogin = sessionStorage.getItem('isLogin')
+    const [isLogin, setIsLogin] = useRecoilState(isLoginState)
 
-    const [profileClick, setProfilceClick] = useState(false)
-
+    const [profileClick, setProfileClick] = useState(false)
+    const outside = useRef()
 
     const profileShowEvnet = () => {
-        profileClick ? setProfilceClick(false) : setProfilceClick(true)
+        setProfileClick(true)
     }
 
-    useEffect(() => {
-        setLogin(isLogin)
-    }, [login])
+    const profileHideEvent = () => {
+        setProfileClick(false)
+    }
+
+    const logoutEvent = () => {
+        setProfileClick(false)
+        sessionStorage.clear()
+        setIsLogin(sessionStorage.getItem('isLogin'))
+    }
 
 
     return (
@@ -45,14 +51,14 @@ const HeaderComponent = (props) => {
                     {
                         isLogin ?
                             <React.Fragment>
-                                <Div cursor='pointer' color='black' fontSize='14px' onMouseOver={profileShowEvnet}>PROFILE</Div>
+                                <Div cursor='pointer' color='black' fontSize='14px' onClick={profileShowEvnet}>PROFILE</Div>
                                 {
                                     profileClick &&
-                                    <FlexDiv flexDirection='column' position='absolute' backgroundColor='white' right='38px' top='68px' padding='12px' borderRadius='12px' onMouseLeave={profileShowEvnet}>
-                                        <StyledLink to="/myPage/setting">
-                                            <Div cursor='pointer' color='black' fontSize='14px' margin='8px 0'>MY PAGE</Div>
+                                    <FlexDiv flexDirection='column' position='absolute' backgroundColor='white' right='32px' top='68px' padding='4px 18px' borderRadius='0 0 12px 12px' onMouseLeave={profileHideEvent}>
+                                        <StyledLink to="/myPage/setting" onClick={profileHideEvent}>
+                                            <Div cursor='pointer' color='black' fontSize='14px' padding='8px 0'>MY PAGE</Div>
                                         </StyledLink>
-                                        <Div cursor='pointer' color='black' fontSize='14px' margin='8px 0' onClick={sessionStorage.clear()}>LOG OUT</Div>
+                                        <Div cursor='pointer' color='black' fontSize='14px' padding='18px 0' onClick={logoutEvent}>LOG OUT</Div>
                                     </FlexDiv>
                                 }
                             </React.Fragment>
