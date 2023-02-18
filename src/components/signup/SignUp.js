@@ -43,6 +43,7 @@ const SignUp = () => {
         }
     }
 
+    
     // onChange
     const idInputChange = (e) => {
         const target = e.target
