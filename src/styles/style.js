@@ -84,6 +84,9 @@ export const Img = styled.img`
     left: ${(props) => props.left ? props.left : ''};  
 
 
+    opacity: ${(props) => props.opacity ? props.opacity : ''};  
+
+
     border: ${(props) => props.border ? props.border : 'none'};
     border-top: ${(props) => props.borderTop ? props.borderTop : ''};
     border-right: ${(props) => props.borderRight ? props.borderRight : ''};
@@ -135,6 +138,9 @@ export const Button = styled.button`
     right: ${(props) => props.right ? props.right : ''};  
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};      
+
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
 
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
@@ -205,6 +211,9 @@ export const FlexDiv = styled.div`
     right: ${(props) => props.right ? props.right : ''};  
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};  
+
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
 
 
     width: ${(props) => props.width ? props.width : ''};
@@ -285,6 +294,9 @@ export const Header = styled.header`
     left: ${(props) => props.left ? props.left : ''};  
 
 
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
+
+
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};
 
@@ -358,6 +370,9 @@ export const Footer = styled.footer`
     right: ${(props) => props.right ? props.right : ''};  
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};  
+
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
 
 
     width: ${(props) => props.width ? props.width : ''};
@@ -434,6 +449,9 @@ export const PTag = styled.p`
     left: ${(props) => props.left ? props.left : ''};  
 
 
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
+
+
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
@@ -500,6 +518,9 @@ export const Div = styled.div`
     right: ${(props) => props.right ? props.right : ''};  
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};  
+
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
 
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
@@ -571,6 +592,9 @@ export const H1 = styled.h1`
     left: ${(props) => props.left ? props.left : ''};  
 
 
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
+
+
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
@@ -630,6 +654,9 @@ export const H2 = styled.h2`
     right: ${(props) => props.right ? props.right : ''};  
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};  
+
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
 
 
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
@@ -693,6 +720,9 @@ export const H3 = styled.h3`
     left: ${(props) => props.left ? props.left : ''};  
 
 
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
+
+
     font-family: ${(props) => props.fontFamily ? props.fontFamily : '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'};
     font-size: ${(props) => props.fontSize ? props.fontSize : '16px'};
     font-weight: ${(props) => props.fontWeight ? props.fontWeight : '400'};
@@ -751,6 +781,9 @@ export const Span = styled.span`
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};  
 
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
+    
 
     color : ${(props) => props.color ? colorFn(props.color) : ''};
     background-color: ${(props) =>  props.backgroundColor ? colorFn(props.backgroundColor) : ''};
@@ -812,6 +845,9 @@ export const Input = styled.input`
     bottom: ${(props) => props.bottom ? props.bottom : ''};  
     left: ${(props) => props.left ? props.left : ''};  
 
+
+    opacity: ${(props) => props.opacity ? props.opacity : ''}; 
+    
 
     width: ${(props) => props.width ? props.width : ''};
     height: ${(props) => props.height ? props.height : ''};

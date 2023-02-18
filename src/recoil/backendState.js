@@ -122,10 +122,7 @@ export const mainCityState = atom({
     // async () => {
     //     try {
     //         const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/city/all", {
-    //             "method": "GET",
-    //             "headers": {
-    //                 "Content-Type": "application/json"
-    //             }
+    //             "method": "GET"
     //         })
     //         const result = await response.json()
 
@@ -133,11 +130,11 @@ export const mainCityState = atom({
     //             console.log(result)
     //         }
     //         else {
-    //             alert(`${result.message}`)
+    //             console.log(`${result.message}`)
     //         }
     //     }
     //     catch (err) {
-    //         alert(`ERR : ${err}`)
+    //         console.log(`ERR : ${err}`)
     //     }
     // }
 })

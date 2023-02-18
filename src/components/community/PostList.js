@@ -6,8 +6,10 @@ import { useLocation } from "react-router-dom";
 import { Div } from "../../styles/style";
 import CommunityPostPre from "./CommunityPostPre";
 import { useInView } from "react-intersection-observer";
+import useFetch from "../../hooks/useFetch";
 
-const PostList = () => {
+const PostList = (props) => {
+    const { url, params } = props
     const [ posts, setPosts ] = useState([])
     const [ hasNextPage, setHasNextPage ] = useState(true)  // 다음페이지 존재하면 true
     const page = useRef(1)
@@ -16,6 +18,8 @@ const PostList = () => {
     const path = useLocation().pathname
     const postList = useRecoilValue(postListState)
     const listLength = postList.length
+
+    const test = useFetch(url, params, 'GET', true)
 
     const fetch = useCallback(async () => {
         /* 더 불러올거 없을때 false
@@ -45,6 +49,8 @@ const PostList = () => {
     //console.log(posts, page)
 
     useEffect(() => {
+
+        console.log(test)
         if (inView && hasNextPage) {
             fetch()
         }

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Button, FlexDiv, Img, Input, Div } from "../../styles/style";
-import PostList from "../community/PostList";
+import PostList from './PostList'
+import { Button, FlexDiv, Img, Input } from "../../styles/style";
+import { postListState } from "../../recoil/backendState";
+import OrderSelect from "./OrderSelect";
+import useFetch from "../../hooks/useFetch";
 
 const StyledLink = styled(Link)`
     color: black;
@@ -13,7 +16,7 @@ const StyledLink = styled(Link)`
 `
 
 export const Btn = styled(Button)`
-    width: 80px;
+    width: ${(props) => props.width ? props.width : '80px'};
     height: ${(props) => props.height ? props.height : '36px'};
     color: ${(props) => props.color ? 'white' : 'black'};
     background-color: ${(props) => props.color ? '#0097F5' : 'white'};
@@ -23,10 +26,13 @@ export const Btn = styled(Button)`
 `
 
 const CommunityMain = () => {
-    // useSetRecoilState로 post list 변경해주기
-   
-    
+    // useSetRecoilState로 post list 변경해주기   
+    const outSideRef = useRef()
     const [clickedBtn, setClickedBtn] = useState('all')
+    const postListSet = useSetRecoilState(postListState)
+
+    const url = '/post/all'
+    const params = `?postCategory=${1}&postPage=${1}`
 
 
     const btnClickEvent = (category) => {
@@ -35,7 +41,7 @@ const CommunityMain = () => {
     
 
     return (
-        <FlexDiv width='100%' align='column-center' padding='0 0 0 260px'>
+        <FlexDiv width='100%' align='column-center' padding='0 0 0 260px' ref={outSideRef}>
             <FlexDiv backgroundColor='white' width='55%' borderRadius='30px' height='50px' alignItems='center' margin='30px 0' border='1px solid #E1E4E6'>
                 <Input fontSize='18px' placeholder='검색' border='none' width='100%' padding='0 40px 0 32px'/>
                 <Img cursor='pointer' position='relative' right='24px' src={require('../../img/search2.svg').default}/>
@@ -50,17 +56,10 @@ const CommunityMain = () => {
                 <Btn height='32px'>
                     <StyledLink to='/writepost' cursor='pointer' fontSize='14px' padding='0 2px'>글쓰기</StyledLink>
                 </Btn>
-                <Btn height='32px'>
-                    <FlexDiv>
-                        {/* 여기 아닌 곳 클릭하면 닫히도록 */}
-                        <Div cursor='pointer' fontSize='14px' padding='0 4px'>최신순</Div>
-                        {/* <Div cursor='pointer' fontSize='14px' padding='0 4px'>좋아요순</Div> */}
-                        <Img width='20px' display='inline' cursor='pointer' src={require('../../img/menudown.svg').default}/>
-                    </FlexDiv>
-                </Btn>
+                <OrderSelect outside={outSideRef}/>
             </FlexDiv>
-            <FlexDiv backgroundColor='white' width='90%' padding='24px 96px' margin='20px 0 0 0' borderRadius='30px' flexDirection='column'>
-                <PostList/>
+            <FlexDiv backgroundColor='white' width='90%' padding='24px 96px' margin='30px 0 0 0' borderRadius='30px' flexDirection='column'>
+                <PostList url={url} params={params}/>
             </FlexDiv>
         </FlexDiv>
     )

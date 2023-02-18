@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 
-import useFetch from "../../hooks/useFetch";
 import { Button, Div, FlexDiv, Img, Input, Span } from "../../styles/style";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { isLoginState } from "../../recoil/state";
@@ -18,12 +17,9 @@ const StyledLink = styled(Link)`
 
 const Login = () => {
     const navigate = useNavigate()
-
     const [isLogin, setIsLogin] = useRecoilState(isLoginState)
 
     useEffect(() => {
-        const Login = sessionStorage.getItem('isLogin')
-        setIsLogin(Login)
         if (isLogin) {
             navigate('/')
         }
@@ -58,8 +54,6 @@ const Login = () => {
             alert('비밀번호를 입력해주세요.')
         }
         else {
-            sessionStorage.setItem('isLogin', true)
-            setIsLogin(sessionStorage.getItem('isLogin'))
             // const result = useFetch({
             //     "idValue": id,
             //     "pwValue": pw
@@ -89,9 +83,7 @@ const Login = () => {
 
                 if (result.success) {
                     console.log(result)
-                    console.log(document.cookie)
-                    sessionStorage.setItem('isLogin', true)
-                    setIsLogin(sessionStorage.getItem('isLogin'))
+                    setIsLogin(true)
                     navigate('/')
                 }
                 else {
@@ -99,7 +91,7 @@ const Login = () => {
                 }
             }
             catch (err) {
-                alert('로그인 실패')
+                alert('로그인에 실패했습니다.')
                 console.log(`ERR : ${err}`)
             }
         }

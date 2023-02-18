@@ -31,7 +31,7 @@ const Main = () => {
                 <Btn color={clickedBtn == 'afr' && 'true'} onClick={() => btnClickEvent('afr')}>아프리카</Btn>
                 <Btn color={clickedBtn == 'oce' && 'true'} onClick={() => btnClickEvent('oce')}>오세아니아</Btn>
             </FlexDiv>
-            <Suspense fallback={<Div margi='120px'>도시를 불러오는 중...</Div>}>
+            <Suspense fallback={<Div margin='120px 0'>✈️ 도시를 불러오는 중입니다... ✈️</Div>}>
                 <CitysBox/>
             </Suspense>
         </FlexDiv>

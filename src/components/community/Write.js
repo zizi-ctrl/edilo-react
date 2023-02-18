@@ -10,6 +10,10 @@ import { useNavigate } from "react-router-dom";
 
 const ColoredImg = styled(Img)`
     filter: invert(19%) sepia(15%) saturate(0%) hue-rotate(143deg) brightness(94%) contrast(79%);
+
+    &:active {
+        opacity: 50%;
+    }
 `
 
 const Textarea = styled(Div)`
@@ -36,11 +40,12 @@ const Write = () => {
     // })
 
 
-    const textareaRef = useRef(null)
+    
     const [plan, setPlan] = useState('일정 첨부') // 일정 제목
 
     const [AttachImg, setAttachImg] = useRecoilState(attachImgState)
     const inputRef = useRef(null)
+    const textareaRef = useRef(null)
 
     console.log(AttachImg)
     // https://cdn.pixabay.com/photo/2021/08/24/01/44/cat-6569156__340.jpg
@@ -74,7 +79,7 @@ const Write = () => {
     const setStyle = (style) => {
         //navigator.clipboard.writeText
         document.execCommand(style) 
-        //focusEditor() 
+        textareaRef.current.focus()
     }
     
     const boldBtnClickEvent = () => {
@@ -87,6 +92,7 @@ const Write = () => {
         setStyle('italic') 
     }
 
+    
     return (
         <FlexDiv padding='70px 0 0 0' align='column-center'>
             <FlexDiv align='row-center' width='900px' height='56px' borderBottom='1px solid #E1E4E6'>
@@ -102,7 +108,7 @@ const Write = () => {
                 </FlexDiv>
                 <FlexDiv align='row-vertical-center' padding='0 0 0 24px'>
                     <Button onClick={boldBtnClickEvent}>
-                        <Img width='24px' cursor='pointer' src={require('../../img/bold.svg').default} />
+                        <ColoredImg width='24px' cursor='pointer' src={require('../../img/bold.svg').default} />
                     </Button>
                     <Button height='30px' borderRight='1px solid #E1E4E6' padding='0 24px 0 8px' onClick={italicBtnClickEvent}>
                         <ColoredImg width='24px' cursor='pointer' src={require('../../img/italic.svg').default} />

@@ -9,7 +9,9 @@ import City from "./City";
 const CitysBox = () => {
     const [cityList, setCityList] = useRecoilState(mainCityState)
 
+    console.log(cityList)
 
+    
     return (
         <FlexDiv width='60%' minWidth='800px' maxWidth='999px' flexWrap='wrap' margin='50px 0' justifyContent='space-between'>
             {
