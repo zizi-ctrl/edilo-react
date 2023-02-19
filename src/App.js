@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        background-color: #F0F3F5;
         font-family: 'NanumGothic', sans-serif;
         margin: 0px;
         min-width: 1024px;

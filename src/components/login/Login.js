@@ -19,6 +19,7 @@ const Login = () => {
     const navigate = useNavigate()
     const [isLogin, setIsLogin] = useRecoilState(isLoginState)
 
+
     useEffect(() => {
         if (isLogin) {
             navigate('/')
@@ -82,7 +83,6 @@ const Login = () => {
                 const result = await response.json()
 
                 if (result.success) {
-                    console.log(result)
                     setIsLogin(true)
                     navigate('/')
                 }
@@ -99,7 +99,7 @@ const Login = () => {
 
 
     return (
-        <FlexDiv padding='70px 0 0 0' width='100%' height='90vh' align='column-center' justifyContent='center'>
+        <FlexDiv backgroundColor='white' padding='70px 0 0 0' width='100%' height='100vh' align='column-center' justifyContent='center'>
             <StyledLink to="/">
                 <Div cursor='pointer' color='mainColor' fontFamily='Pyunji R' fontSize='58px' fontWeight='bolder' textAlign='center'>EODILO</Div>
             </StyledLink>

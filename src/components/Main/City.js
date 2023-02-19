@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import useFetch from '../../hooks/useFetch'
-import { FlexDiv, Div } from "../../styles/style";
+import { FlexDiv, Div, Img, Button } from "../../styles/style";
+import { useRecoilValue } from "recoil";
+import { isLoginState } from "../../recoil/state";
+import CityInfo from "./CityInfo";
 
 
 const StyledLink = styled(Link)`
@@ -26,17 +29,28 @@ const City = (props) => {
     const { cityEnglishName, cityImg, cityName } = city
     const [showCityInfo, setShowCityInfo] = useState(false)
     const cityIndex = 0
-
+    // "cityEnglishName": string,
+    // 		"timeDiff": number,
+    // 		"exchangeRate": number,
+    // 		"flightTime": string,
+    // 		"visa":string
     const useCityClickEvent = async () => {
-        const data = await useFetch('/city/info', `?cityIndex=${cityIndex}`, 'GET', true)
-        console.log(data)
-
-        
         setShowCityInfo(true)
-    }
 
-    const closeCityInfoEvent = () => {
-        setShowCityInfo(false)
+        // 게시글 불러오기 test
+        const url = '/post/all'
+        const params = `?postCategory=${1}`
+        try {
+            const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + url + params + `&postPage=${1}`, {
+                "method": "GET",
+                "mode": 'cors', // no-cors, *cors, same-origin
+                "credentials": "include"
+            })
+            const result = await response.json()
+        }
+        catch (err) {
+            console.log(`ERR : ${err}`)
+        }
     }
 
 
@@ -49,12 +63,7 @@ const City = (props) => {
                 </CityImg>
             </StyledLink>
             {
-                showCityInfo &&
-                <React.Fragment>
-                    <FlexDiv backgroundColor='#0000008a' width='100%' height='100vh' top='0' left='0' position='fixed' zIndex='1000' justifyContent='center' alignItems='center' onClick={closeCityInfoEvent}>
-                        <Div color='black' backgroundColor='white'>안녕하세요</Div>
-                    </FlexDiv>
-                </React.Fragment>
+                showCityInfo && <CityInfo cityIndex={cityIndex} cityEnglishName={cityEnglishName} cityImg={cityImg} cityName={cityName} setShowCityInfo={setShowCityInfo} />
             }
         </React.Fragment>
     )

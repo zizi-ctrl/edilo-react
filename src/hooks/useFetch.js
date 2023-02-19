@@ -1,8 +1,6 @@
-import { useEffect } from "react";
-
-
-// url , data, method, query (boolean)
-const useFetch = async (url, data, method, query) => {
+// url , method, data, query (boolean)
+const useFetch = async (url, method, data, query) => {
+    console.log(url, method, data, query)
     if (method == 'POST') {
         try {
             const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + url, {
@@ -14,26 +12,32 @@ const useFetch = async (url, data, method, query) => {
             })
             const result = await response.json()
 
+            console.log(result)
             return result
         }
         catch (err) {
             console.log(`ERR : ${err}`)
         }
     }
-    else if (method == 'GET' && query) {
+
+    else if (method == 'GET' && query != null) {
         try {
             const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + url + data, {
-                "method": "GET"
+                "method": "GET",
+                "mode": 'cors', // no-cors, *cors, same-origin
+                "credentials": "include"
             })
             const result = await response.json()
 
+            console.log(result)
             return result
         }
         catch (err) {
             console.log(`ERR : ${err}`)
         }
     }
-    else {
+    
+    else if (method=='GET') {
         //console.log(process.env.REACT_APP_BACK_HOST_IP + url)
         try {
             const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + url, {
@@ -43,6 +47,28 @@ const useFetch = async (url, data, method, query) => {
             })
             const result = await response.json()
 
+            console.log(result)
+            return result
+        }
+        catch (err) {
+            console.log(`ERR : ${err}`)
+        }
+    }
+
+    else {
+        try {
+            const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + url, {
+                "method": method,
+                "mode": 'cors', // no-cors, *cors, same-origin
+                "credentials": "include",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": JSON.stringify(data)
+            })
+            const result = await response.json()
+
+            console.log(result)
             return result
         }
         catch (err) {

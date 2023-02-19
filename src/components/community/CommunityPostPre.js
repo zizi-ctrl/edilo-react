@@ -21,8 +21,11 @@ const StyledLink = styled(Link)`
 `
 
 const CommunityPostPre = (props) => {
-    const { areaTag, postTitle, postDate, postWriter, postImg } = props.eachPost
-    const [year, month, day] = postDate.split('-')
+    const { eachPost } = props
+    const { posttitle, postdate, postwriter, postimgurl } = eachPost
+    console.log(postdate)
+    const date = postdate.substr(0, 10)
+    const [year, month, day] = date?.split('-')
 
     // 클릭해서 게시글 상세페이지로 넘어갈 때, 현재 게시글 state 초기화
 
@@ -30,9 +33,9 @@ const CommunityPostPre = (props) => {
         <FlexDiv flexDirection='column' borderBottom='1px solid #E1E4E6'>
             <FlexDiv justifyContent='space-between'>
                 <LabelDiv>
-                    {areaTag.cityCategory +
+                    {/* {areaTag.cityCategory +
                         (areaTag.cityCountry ? ' · ' + areaTag.cityCountry : '') +
-                        (areaTag.cityName ? ' · ' + areaTag.cityName : '')}
+                        (areaTag.cityName ? ' · ' + areaTag.cityName : '')} */}
                 </LabelDiv>
                 <LabelDiv>
                     {year}.{month}.{day}
@@ -41,14 +44,14 @@ const CommunityPostPre = (props) => {
             <StyledLink to='post'>
                 <FlexDiv justifyContent='space-between' margin='10px 0 0 0'>
                     <FlexDiv fontSize='20px' margin='0 10px 10px 0' cursor='pointer' flexDirection='column'>
-                        {postTitle}
+                        {posttitle}
                         <LabelDiv margin='32px 0 36px'>
-                            by {postWriter}
+                            by {postwriter}
                         </LabelDiv>
                     </FlexDiv>
                     <Div width='100px' height='100px'>
                         {
-                            postImg != '' && <PostImgTag cursor='pointer' src={postImg} alt='' width='100px' height='100px' borderRadius='14px' />
+                            postimgurl != null && <PostImgTag cursor='pointer' src={postimgurl} alt='' width='100px' height='100px' borderRadius='14px' />
                         }
                     </Div>
                 </FlexDiv>

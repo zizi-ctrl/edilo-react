@@ -54,30 +54,38 @@ const SearchItem = (props) => {
     }
 
     const addPlanBlockEvent = () => {
-        if (tempPlanBlockList.length == 12) { 
+        const newPlanBlock = {
+            "blockName": name,
+            "blockTime": "hh:mm:ss",
+            "blockCategory": type,
+            "blockXCoordinate": position[0].lng, // lng
+            "blockYCoordinate": position[0].lat, // lat
+            "blockCost": null
+        }
+
+        if (tempPlanBlockList?.length == 12) { 
             alert('더 이상 블록을 추가할 수 없습니다.')
         }
-        else {
-            const newPlanBlock = {
-                "blockName": name,
-                "blockTime": "hh:mm:ss",
-                "blockCategory": type,
-                "blockXCoordinate": position[0].lng, // lng
-                "blockYCoordinate": position[0].lat, // lat
-                "blockCost": null
-            }
+        else if (tempPlanBlockList) {
 
             setPlanModifyCheck(true)
 
+            console.log(tempPlanBlockList)
             let tempList = [...tempPlanBlockList, newPlanBlock]
             setTempPlanBlockList(tempList)
+        }
+        else{
+            setTempPlanBlockList([newPlanBlock])
         }
     }
 
     return (
-        <FlexDiv width='270px' backgroundColor='white' borderRadius='12px' margin='8px 0'>
-            <Image width='80px' height='80px' borderRadius='12px 0 0 12px' src={img ? img : require('../../img/attach_image.svg').default} />
-            <FlexDiv flexDirection='column' padding='0 8px' width='190px'>
+        <FlexDiv width='270px' backgroundColor='white' borderRadius='12px' minHeight='80px' margin='8px 0'>
+            {
+                img &&
+                <Image width='80px' height='80px' borderRadius='12px 0 0 12px' src={img}/>
+            }
+            <FlexDiv flexDirection='column' padding='0 8px' width={img ? '190px' : '100%'}>
                 <FlexDiv alignItems='baseline'>
                     <PlaceNameDiv fontSize='16px' maxWidth='134px' padding='10px 4px 2px' cursor='pointer' onClick={curMarkersettingEvent}>
                         {name}

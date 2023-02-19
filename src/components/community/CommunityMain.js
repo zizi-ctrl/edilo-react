@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useSetRecoilState } from "recoil";
+import React, { useEffect, useRef, useState } from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -7,7 +7,8 @@ import PostList from './PostList'
 import { Button, FlexDiv, Img, Input } from "../../styles/style";
 import { postListState } from "../../recoil/backendState";
 import OrderSelect from "./OrderSelect";
-import useFetch from "../../hooks/useFetch";
+import { postCategoryState } from "../../recoil/state";
+
 
 const StyledLink = styled(Link)`
     color: black;
@@ -25,20 +26,19 @@ export const Btn = styled(Button)`
     cursor: pointer;
 `
 
+
 const CommunityMain = () => {
     // useSetRecoilState로 post list 변경해주기   
     const outSideRef = useRef()
-    const [clickedBtn, setClickedBtn] = useState('all')
-    const postListSet = useSetRecoilState(postListState)
-
-    const url = '/post/all'
-    const params = `?postCategory=${1}&postPage=${1}`
+    const [clickedBtn, setClickedBtn] = useState(1)
+    const url = `/post/all`
+    const [postCategory, setPostCategory] = useRecoilState(postCategoryState)
 
 
     const btnClickEvent = (category) => {
-        setClickedBtn(category)
+        setPostCategory(category)
     }
-    
+
 
     return (
         <FlexDiv width='100%' align='column-center' padding='0 0 0 260px' ref={outSideRef}>
@@ -47,10 +47,10 @@ const CommunityMain = () => {
                 <Img cursor='pointer' position='relative' right='24px' src={require('../../img/search2.svg').default}/>
             </FlexDiv>
             <FlexDiv>
-                <Btn color={clickedBtn == 'all' && 'true'} onClick={() => btnClickEvent('all')}>전체</Btn>
-                <Btn color={clickedBtn == 'info' && 'true'} onClick={() => btnClickEvent('info')}>정보</Btn>
-                <Btn color={clickedBtn == 'qna' && 'true'} onClick={() => btnClickEvent('qna')}>질문</Btn>
-                <Btn color={clickedBtn == 'travel' && 'true'} onClick={() => btnClickEvent('travel')}>여행기</Btn>
+                <Btn color={postCategory == 1 && 'true'} onClick={() => btnClickEvent(1)}>전체</Btn>
+                <Btn color={postCategory == 2 && 'true'} onClick={() => btnClickEvent(2)}>정보</Btn>
+                <Btn color={postCategory == 3 && 'true'} onClick={() => btnClickEvent(3)}>질문</Btn>
+                <Btn color={postCategory == 4 && 'true'} onClick={() => btnClickEvent(4)}>여행기</Btn>
             </FlexDiv>
             <FlexDiv width='90%' justifyContent='space-between' padding='0 24px'>
                 <Btn height='32px'>
@@ -58,8 +58,8 @@ const CommunityMain = () => {
                 </Btn>
                 <OrderSelect outside={outSideRef}/>
             </FlexDiv>
-            <FlexDiv backgroundColor='white' width='90%' padding='24px 96px' margin='30px 0 0 0' borderRadius='30px' flexDirection='column'>
-                <PostList url={url} params={params}/>
+            <FlexDiv backgroundColor='white' width='90%' padding='24px 96px' margin='30px 0 70px 0' borderRadius='30px' flexDirection='column'>
+                <PostList url={url}/>
             </FlexDiv>
         </FlexDiv>
     )

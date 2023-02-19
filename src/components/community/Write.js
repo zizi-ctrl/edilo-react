@@ -7,6 +7,7 @@ import WriteImgAttach from "./WriteImgAttach";
 import { Div, FlexDiv, Input, Img, Button } from "../../styles/style";
 import { attachImgState, isLoginState } from "../../recoil/state";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const ColoredImg = styled(Img)`
     filter: invert(19%) sepia(15%) saturate(0%) hue-rotate(143deg) brightness(94%) contrast(79%);
@@ -30,25 +31,27 @@ const Btn = styled(Button)`
 `
 
 const Write = () => {
-    // const isLogin = sessionStorage.getItem('isLogin')
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
+    const isLogin = useRecoilValue(isLoginState)
 
-    // useEffect(() => {
-    //     if (!isLogin) {
-    //         navigate('/login')
-    //     }
-    // })
+    useEffect(() => {
+        if (!isLogin) {
+            navigate('/login')
+        }
+    })
 
 
-    
+
     const [plan, setPlan] = useState('일정 첨부') // 일정 제목
 
     const [AttachImg, setAttachImg] = useRecoilState(attachImgState)
+    const [planModal, setPlanModal] = useState(false)
     const inputRef = useRef(null)
     const textareaRef = useRef(null)
 
     console.log(AttachImg)
     // https://cdn.pixabay.com/photo/2021/08/24/01/44/cat-6569156__340.jpg
+
 
     const onUploadImageBtnClick = () => {
         inputRef.current.click()
@@ -75,24 +78,51 @@ const Write = () => {
         });
     }
 
+
+    const data = []
+
+    const usePlanClickEvent = () => {
+        //const data = useFetch('/schedule/all', null, 'GET')
+        if (data.length == 0) setPlan('일정이 존재하지 않습니다.')
+        else {
+            setPlanModal(true)
+            setPlan(data)
+        }
+        console.log(data)
+    }
+
     // Text Editor
     const setStyle = (style) => {
         //navigator.clipboard.writeText
-        document.execCommand(style) 
+        document.execCommand(style)
         textareaRef.current.focus()
     }
-    
+
     const boldBtnClickEvent = () => {
         //const selection = window.getSelection().toString()
-        setStyle('bold') 
+        setStyle('bold')
     }
 
     const italicBtnClickEvent = () => {
         //const selection = window.getSelection().toString()
-        setStyle('italic') 
+        setStyle('italic')
     }
 
-    
+    const usePostSendEvent = async () => {
+        await useFetch('/post', 'POST',
+            {
+                "userIndex": 'number',
+                "postTitle": 'string',
+                "postContent": 'string',
+                "scheduleIndex": 'number',
+                "postCategory": 'number',
+                "cityName": 'string',
+                "cityCategory": 'string'
+            }, null)
+        navigate('/community')
+    }
+
+
     return (
         <FlexDiv padding='70px 0 0 0' align='column-center'>
             <FlexDiv align='row-center' width='900px' height='56px' borderBottom='1px solid #E1E4E6'>
@@ -104,7 +134,10 @@ const Write = () => {
                     <Button padding='0 14px 0 24px'>
                         <ColoredImg width='24px' cursor='pointer' src={require('../../img/map.svg').default} />
                     </Button>
-                    <Div width='140px' height='30px' padding='4px' color={plan == '일정 첨부' && 'letterGray'} borderRight='1px solid #E1E4E6'>{plan}</Div>
+                    <Div width='140px' height='30px' padding='4px' color={plan == '일정 첨부' && 'letterGray'} borderRight='1px solid #E1E4E6' onClick={usePlanClickEvent}>{plan}</Div>
+                    {
+
+                    }
                 </FlexDiv>
                 <FlexDiv align='row-vertical-center' padding='0 0 0 24px'>
                     <Button onClick={boldBtnClickEvent}>
@@ -126,7 +159,7 @@ const Write = () => {
                     <WriteImgAttach />
                 </FlexDiv>
                 <FlexDiv>
-                    <Btn color='white' backgroundColor='mainColor'>발행</Btn>
+                    <Btn color='white' backgroundColor='mainColor' onClick={usePostSendEvent}>발행</Btn>
                     <Btn color='black' border='1px solid #919699'>취소</Btn>
                 </FlexDiv>
             </FlexDiv>
