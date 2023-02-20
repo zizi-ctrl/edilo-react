@@ -7,6 +7,7 @@ import { openPlanNavState, planModifyCheckState, tempPlanBlockListState } from "
 import { eachPlanBlockState, eachPlanState, planListState } from "../../recoil/backendState"
 import PlanBlock from "./PlanBlock";
 import useFetch from "../../hooks/useFetch";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Btn = styled(Button)`
     background-color: white;
@@ -45,9 +46,16 @@ const PlanNavDiv = styled(FlexDiv)`
 
 
 const PlanNav = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+
     const [planDate, setPlanDate] = useState(null)
     const [newPlan, setNewPlan] = useState(true)
     const [planModifyCheck, setPlanModifyCheck] = useRecoilState(planModifyCheckState)
+
+    const [exchange, setExchange] = useState(null)
+    const [timeDiff, setTimeDiff] = useState(null)
+    const [temperature, setTemperature] = useState(null)
 
     // nav 닫기
     const setOpenPlanNav = useSetRecoilState(openPlanNavState)
@@ -72,9 +80,12 @@ const PlanNav = () => {
     }
 
     const useDeleteEvent = () => {
-        useFetch('/schedule', 'DELETE', {
+        const result = useFetch('/schedule', 'DELETE', {
             "scheduleIndex": planList.scheduleindex
         }, null)
+        if (result.success) {
+            navigate('/')   
+        }
     }
 
     const useSavePlanEvent = () => {
@@ -118,6 +129,29 @@ const PlanNav = () => {
             curr.setDate(curr.getDate());
             setPlanDate(curr.toISOString().substring(0, 10))
         }
+
+        const fc = async () => {
+            try {
+                const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + '/city' + `?cityIndex=${planList.cityindex}`, {
+                    "method": "GET",
+                    "mode": 'cors', // no-cors, *cors, same-origin
+                    "credentials": "include"
+                })
+                const result = await response.json()
+    
+                console.log(result)
+                if (result.success) {
+                    setExchange(result.data.cityExchange)
+                    setTemperature(result.data.cityTemperature)
+                    setTimeDiff(result.data.cityTimeDiff)
+                }
+            }
+            catch (err) {
+                console.log(`ERR : ${err}`)
+            }
+        }
+
+        fc()
     }, [])
 
 
@@ -140,19 +174,19 @@ const PlanNav = () => {
                 <Btn>
                     <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/time.svg').default} />
-                        {'없음'}
+                        {timeDiff != null ? timeDiff : '정보 없음'}
                     </FlexDiv>
                 </Btn>
                 <Btn>
                     <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/weather.svg').default} />
-                        {'0℃ / 0℃'}
+                        {temperature != null ? temperature : '정보 없음'}
                     </FlexDiv>
                 </Btn>
                 <Btn>
                     <FlexDiv alignItems='center' fontSize='14px'>
                         <Icon src={require('../../img/money.svg').default} />
-                        {'946.06원'}
+                        {exchange != null ? exchange : '정보 없음'}
                     </FlexDiv>
                 </Btn>
             </FlexDiv>
