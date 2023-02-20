@@ -1,9 +1,14 @@
-import React from "react";
+import React, { Suspense, useEffect } from "react";
 import styled from "styled-components";
 
-import { Div,Button, FlexDiv } from "../../styles/style"
+import { Div, Button, FlexDiv } from "../../styles/style"
 import Nickname from "./Nickname";
 import PostList from "../community/PostList";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { userDataState } from "../../recoil/backendState";
+import { isLoginState } from "../../recoil/state";
+import { useNavigate } from "react-router-dom";
+
 
 const LabelDiv = styled(Div)`
     font-size: 14px;
@@ -25,28 +30,45 @@ const EmailDiv = styled(Div)`
     overflow: hidden;
 `
 
-const Setting = () => { 
+
+const Setting = () => {
+    const userData = useRecoilValue(userDataState)
+    const isLogin = useRecoilValue(isLoginState)
+    const navigate = useNavigate()
+
+    console.log(userData)
+
+    const url = '/post/my/all'
+
+    useEffect(() => {
+        if (!isLogin) {
+            navigate('/login')
+        }
+    })
+
     return (
-        <React.Fragment>
-            <FlexDiv>
-                <FlexDiv width='38%' flexDirection='column' borderRight='4px dotted #E1E4E6' padding='0 14px 0 0'>
-                    <LabelDiv margin='0 0 8px'>이름</LabelDiv>
-                    <Div>홍길동</Div>
-                    <LabelDiv>아이디</LabelDiv>
-                    <Div>asdf</Div>
-                    <LabelDiv>이메일</LabelDiv>
-                    <EmailDiv>asdf@asdf.com</EmailDiv>
+        <Suspense fallback={<Div>로딩중...</Div>}>
+            <React.Fragment>
+                <FlexDiv>
+                    <FlexDiv width='38%' flexDirection='column' borderRight='4px dotted #E1E4E6' padding='0 14px 0 0'>
+                        <LabelDiv margin='0 0 8px'>이름</LabelDiv>
+                        <Div>{userData && userData.userInfo.userName}</Div>
+                        <LabelDiv>아이디</LabelDiv>
+                        <Div>{userData && userData.userInfo.userId}</Div>
+                        <LabelDiv>이메일</LabelDiv>
+                        <EmailDiv>{userData && userData.userInfo.userEmail}</EmailDiv>
+                    </FlexDiv>
+                    <FlexDiv margin='0 30px' width='50%' flexDirection='column'>
+                        <LabelDiv margin='0 0 8px'>닉네임</LabelDiv>
+                        <Nickname userNickname={userData && userData.userInfo.userNickname} />
+                        <Btn width='96px'>비밀번호 변경</Btn>
+                        <Btn width='96px' color='red'>회원탈퇴</Btn>
+                    </FlexDiv>
                 </FlexDiv>
-                <FlexDiv margin='0 30px' width='50%' flexDirection='column'>
-                    <LabelDiv margin='0 0 8px'>닉네임</LabelDiv>
-                    <Nickname/>
-                    <Btn width='96px'>비밀번호 변경</Btn>
-                    <Btn width='96px' color='red'>회원탈퇴</Btn>
-                </FlexDiv>
-            </FlexDiv>
-            <Div fontSize='14px' color='letterGray' margin='76px 0 0'>작성한 글 개수</Div>
-            <PostList/>       
-        </React.Fragment>
+                <Div fontSize='14px' color='letterGray' margin='76px 0 4px' padding='0 0 12px' borderBottom='4px dotted #E1E4E6'>내가 작성한 글</Div>
+                <PostList url={url}/>
+            </React.Fragment>
+        </Suspense>
     )
 }
 

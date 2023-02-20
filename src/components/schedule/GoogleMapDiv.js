@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { Button, Div, Img, Input, FlexDiv } from "../../styles/style";
 import { curMarkerPosState, lineCoordListState, mapCenterState, openPlanNavState, openSearchNavState, planModifyCheckState, tempPlanBlockListState, tempPlanListState } from "../../recoil/state";
-import { planListState } from "../../recoil/backendState";
+import { eachPlanBlockState, eachPlanState, planListState } from "../../recoil/backendState";
 import SearchItem from "./SearchItem";
 
 
@@ -54,7 +54,7 @@ const GoogleMapComponent = () => {
     const options = {
         strokeOpacity: 0,
         fillOpacity: 0,
-        zIndex: 1,
+        //zIndex: 1,
         icons: [
             {
                 icon: lineSymbol,
@@ -66,7 +66,7 @@ const GoogleMapComponent = () => {
 
 
     // plan 저장관련 변수들 정리좀 해야함 ㅜㅜ
-    const savedPlanList = useRecoilValue(planListState)
+    const savedPlanList = useRecoilValue(eachPlanBlockState)
     const [planList, setPlanList] = useRecoilState(tempPlanListState)
     const tempPlanBlockList = useRecoilValue(tempPlanBlockListState)
     const lineCoordList = useRecoilValue(lineCoordListState)
@@ -108,8 +108,6 @@ const GoogleMapComponent = () => {
     // 검색 기능
     const onPlacesChanged = () => {
         const places = searchBox.getPlaces()
-        console.log(places)
-
 
         let searchList = []
         let markerPosList = []
@@ -137,10 +135,11 @@ const GoogleMapComponent = () => {
     // 마운트 될 때
     useEffect(() => {
         if (savedPlanList) {
-            const plan = savedPlanList[0].scheduleList[0]
+            console.log(savedPlanList)
+            const plan = savedPlanList
             const center = {
-                lat: plan.blockYCoordinate,
-                lng: plan.blockXCoordinate
+                lat: plan?.blockYCoordinate ? plan?.blockYCoordinate : 37.5666805,
+                lng: plan?.blockXCoordinate ? plan?.blockXCoordinate : 126.9784147
             }
             setCurMarkerPos([]) // 페이지 이동할 때 marker 초기화
             setMapCenter(center)
@@ -202,10 +201,10 @@ const GoogleMapComponent = () => {
                 {
                     // search Nav - 따로 빼고 싶었는데 serachbox 때문에 못 뺌
                     openSearch &&
-                    <SearchNav position='fixed' backgroundColor='backgroundGray' zIndex='300' width='300px' height='calc(100vh - 70px)' align='column-center' right='0px'>
+                    <SearchNav position='fixed' backgroundColor='backgroundGray' zIndex='1' width='300px' height='calc(100vh - 70px)' align='column-center' right='0px'>
                         <FlexDiv>
                             <Button onClick={openSearchEvent}>
-                                <Img cursor='pointer' zIndex='4000' width='18px' src={require('../../img/menuclose_right.svg').default} />
+                                <Img cursor='pointer' zIndex='1' width='18px' src={require('../../img/menuclose_right.svg').default} />
                             </Button>
                             <FlexDiv backgroundColor='white' height='39px' alignItems='center' margin='18px 8px' padding='8px' borderRadius='24px'>
                                 <StandaloneSearchBox

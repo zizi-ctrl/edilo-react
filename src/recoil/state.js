@@ -52,7 +52,7 @@ export const lineCoordListState = selector({
         const planBlock = get(tempPlanBlockListState)
         let coordList = []
         let temp = []
-        planBlock.forEach((item) => {
+        planBlock?.forEach((item) => {
             const coord = {
                 lat: item.blockYCoordinate,
                 lng: item.blockXCoordinate
@@ -94,7 +94,10 @@ export const dragLabelState = atom({
 
 
 //////// Community ////////
-
+export const postCategoryState = atom({
+    key: 'postCategory',
+    default: 1
+})
 
 //////// Write ////////
 export const attachImgState = atom({

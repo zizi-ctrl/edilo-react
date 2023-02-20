@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import PlanNav from "./PlanNav";
 import { Button, Div, Img, Input, FlexDiv } from "../../styles/style";
-import { isLoginState, openPlanNavState, openSearchNavState } from "../../recoil/state";
-import GoogleMapComponent from "./GoogleMapDiv";
-import { useNavigate } from "react-router-dom";
+import { isLoginState, openPlanNavState, openSearchNavState } from "../../recoil/state"
+import GoogleMapComponent from "./GoogleMapDiv"
+import { eachPlanBlockState, eachPlanState, planListState } from "../../recoil/backendState";
+import useFetch from "../../hooks/useFetch";
 
 
 const Btn = styled(Button)`
@@ -18,15 +20,16 @@ const Btn = styled(Button)`
 `
 
 const Schedule = () => {
-    // const isLogin = sessionStorage.getItem('isLogin')
-    // const navigate = useNavigate()
+    const isLogin = useRecoilValue(isLoginState)
+    const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     if (!isLogin) {
-    //         navigate('/login')
-    //     }
-    // })
+    useEffect(() => {
+        if (!isLogin) {
+            navigate('/login')
+        }
+    })
 
+    const location = useLocation()
 
     const [openPlan, setOpenPlan] = useRecoilState(openPlanNavState)
     const [openSearch, setOpenSearch] = useRecoilState(openSearchNavState)
@@ -34,9 +37,40 @@ const Schedule = () => {
     const openPlanEvent = () => setOpenPlan(true)
     const openSearchEvent = () => openSearch ? setOpenSearch(false) : setOpenSearch(true)
 
+    const [planList, setPlanList] = useRecoilState(eachPlanState)
+    const [blockList, setBlockList] = useRecoilState(eachPlanBlockState)
+    //const planData = useFetch(location.pathname, "GET", location.search, true)
+
+
+    useEffect(() => {
+        const fc = async () => {
+            try {
+                const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + location.pathname + location.search, {
+                    "method": "GET",
+                    "mode": 'cors', // no-cors, *cors, same-origin
+                    "credentials": "include"
+                })
+                const result = await response.json()
+    
+                console.log(result)
+                if (result.success) {
+                    console.log(result.scheduleData[0][0], result.scheduleBlockData)
+                    setPlanList(result.scheduleData[0][0])
+                    setBlockList(result.scheduleBlockData)
+                }
+            }
+            catch (err) {
+                console.log(`ERR : ${err}`)
+            }
+        }
+
+        fc()
+    }, [])
+
 
     return (
         <React.Fragment>
+            {/* <Suspense fallback={<Div>로딩 중 입니다...✈️</Div>}> */}
             <Div width='100%' padding='70px 0 0 0'>
                 {
                     openPlan ?
@@ -54,6 +88,7 @@ const Schedule = () => {
             </Div>
             {/* 구글맵 기능 (지도, 마커, 검색) 쓰는 컴포넌트 분리 & PlanNav 리렌더링 방지 */}
             <GoogleMapComponent/>
+            {/* </Suspense> */}
         </React.Fragment>
     )
 

@@ -129,7 +129,7 @@ export const Button = styled.button`
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
-    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+    z-index: ${(props) => props.zIndex ? props.zIndex : ''};
 
     text-align: ${(props) => props.textAlign ? props.textAlign : ''};
 
@@ -195,7 +195,7 @@ export const Button = styled.button`
 export const FlexDiv = styled.div`
     display: flex;
 
-    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+    z-index: ${(props) => props.zIndex ? props.zIndex : ''};
 
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
 
@@ -277,7 +277,7 @@ export const FlexDiv = styled.div`
 `
 
 export const Header = styled.header`
-    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+    z-index: ${(props) => props.zIndex ? props.zIndex : ''};
 
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
@@ -355,7 +355,7 @@ export const Header = styled.header`
 `
 
 export const Footer = styled.footer`
-    z-index: ${(props) => props.zIndex ? props.zIndex : '100'};
+    z-index: ${(props) => props.zIndex ? props.zIndex : ''};
 
     display: ${(props) => props.display ? props.display : 'block'};
     box-sizing: ${(props) => props.boxSizing ? props.boxSizing : ''}; 
