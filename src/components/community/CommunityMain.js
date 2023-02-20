@@ -36,30 +36,44 @@ const CommunityMain = () => {
 
 
     const btnClickEvent = (category) => {
-        setPostCategory(category)
+        setClickedBtn(category)
     }
+
+    useEffect(() => {
+        return () => {
+            setPostCategory(clickedBtn)
+        }
+    }, clickedBtn)
 
 
     return (
         <FlexDiv width='100%' align='column-center' padding='0 0 0 260px' ref={outSideRef}>
             <FlexDiv backgroundColor='white' width='55%' borderRadius='30px' height='50px' alignItems='center' margin='30px 0' border='1px solid #E1E4E6'>
-                <Input fontSize='18px' placeholder='검색' border='none' width='100%' padding='0 40px 0 32px'/>
-                <Img cursor='pointer' position='relative' right='24px' src={require('../../img/search2.svg').default}/>
+                <Input fontSize='18px' placeholder='검색' border='none' width='100%' padding='0 40px 0 32px' />
+                <Img cursor='pointer' position='relative' right='24px' src={require('../../img/search2.svg').default} />
             </FlexDiv>
             <FlexDiv>
-                <Btn color={postCategory == 1 && 'true'} onClick={() => btnClickEvent(1)}>전체</Btn>
-                <Btn color={postCategory == 2 && 'true'} onClick={() => btnClickEvent(2)}>정보</Btn>
-                <Btn color={postCategory == 3 && 'true'} onClick={() => btnClickEvent(3)}>질문</Btn>
-                <Btn color={postCategory == 4 && 'true'} onClick={() => btnClickEvent(4)}>여행기</Btn>
+                <StyledLink to={`?postCategory=1`} onClick={() => btnClickEvent(1)}>
+                    <Btn color={clickedBtn == 1 && 'true'} >전체</Btn>
+                </StyledLink>
+                <StyledLink to={`?postCategory=2`} onClick={() => btnClickEvent(2)}>
+                    <Btn color={clickedBtn == 2 && 'true'} >정보</Btn>
+                </StyledLink>
+                <StyledLink to={`?postCategory=3`} onClick={() => btnClickEvent(3)}>
+                    <Btn color={clickedBtn == 3 && 'true'} >질문</Btn>
+                </StyledLink>
+                <StyledLink to={`?postCategory=4`} onClick={() => btnClickEvent(4)}>
+                    <Btn color={clickedBtn == 4 && 'true'} >여행기</Btn>
+                </StyledLink>
             </FlexDiv>
             <FlexDiv width='90%' justifyContent='space-between' padding='0 24px'>
                 <Btn height='32px'>
                     <StyledLink to='/writepost' cursor='pointer' fontSize='14px' padding='0 2px'>글쓰기</StyledLink>
                 </Btn>
-                <OrderSelect outside={outSideRef}/>
+                <OrderSelect outside={outSideRef} />
             </FlexDiv>
             <FlexDiv backgroundColor='white' width='90%' padding='24px 96px' margin='30px 0 70px 0' borderRadius='30px' flexDirection='column'>
-                <PostList url={url}/>
+                <PostList url={url} />
             </FlexDiv>
         </FlexDiv>
     )

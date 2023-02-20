@@ -54,113 +54,114 @@ export const eachPlanState = atom({
 
 
 //// main ////
-export const mainCityState = atom({
+export const mainCityState = selector({
     key: 'mainCity',
-    default: [{
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    {
-        'cityName': '서울',
-        'cityEnglishName': 'SEOUL',
-        'cityImg': require('../img/seoul.svg').default
-    },
-    ]
-    // get: 
-    // async () => {
-    //     try {
-    //         const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/city/all", {
-    //             "method": "GET"
-    //         })
-    //         const result = await response.json()
+    // default: [{
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // {
+    //     'cityName': '서울',
+    //     'cityEnglishName': 'SEOUL',
+    //     'cityImg': require('../img/seoul.svg').default
+    // },
+    // ]
+    get: 
+    async () => {
+        try {
+            const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/city/all", {
+                "method": "GET"
+            })
+            const result = await response.json()
 
-    //         if (result.success) {
-    //             console.log(result)
-    //         }
-    //         else {
-    //             console.log(`${result.message}`)
-    //         }
-    //     }
-    //     catch (err) {
-    //         console.log(`ERR : ${err}`)
-    //     }
-    // }
+            if (result.success) {
+                console.log(result)
+                return result.cityIndex
+            }
+            else {
+                console.log(`${result.message}`)
+            }
+        }
+        catch (err) {
+            console.log(`ERR : ${err}`)
+        }
+    }
 })
 
 export const cityListState = atom({
@@ -169,72 +170,40 @@ export const cityListState = atom({
         {
             'cityCategory': '대한민국',
             'name': [
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
             ]
         },
         {
             'cityCategory': '아시아',
             'name': [
                 {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
+                    'cityCategory': '일본',
+                    'name': ['도쿄']
                 },
             ]
         },
         {
             'cityCategory': '유럽',
             'name': [
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
             ]
         },
         {
             'cityCategory': '북아메리카',
             'name': [
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
             ]
         },
         {
             'cityCategory': '남아메리카',
             'name': [
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
             ]
         },
         {
             'cityCategory': '오세아니아',
             'name': [
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
             ]
         },
         {
             'cityCategory': '아프리카',
             'name': [
-                {
-                    'cityCategory': '미국',
-                    'name': ['뉴욕', '라스베이가스', '로스앤젤레스', '샌프란시스코', '하와이']
-                },
             ]
         }
     ]
@@ -242,7 +211,7 @@ export const cityListState = atom({
 
 export const userImgState = atom({
     key: 'userImg',
-    default: 'https://www.sisain.co.kr/news/photo/202110/45791_82634_4851.jpg'//require('../img/userImg.svg').default
+    default: require('../img/userImg.svg').default
 })
 
 

@@ -25,7 +25,7 @@ const Login = () => {
             navigate('/')
         }
     })
-    
+
     const idRef = useRef(null)
     const pwRef = useRef(null)
 
@@ -72,17 +72,20 @@ const Login = () => {
             try {
                 const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/account/login", {
                     "method": "POST",
+                    "mode": 'cors', // no-cors, *cors, same-origin
+                    "credentials": "include",
                     "headers": {
                         "Content-Type": "application/json"
                     },
                     "body": JSON.stringify({
-                            "idValue": id,
-                            "pwValue": pw
-                        })
+                        "idValue": id,
+                        "pwValue": pw
+                    })
                 })
                 const result = await response.json()
 
                 if (result.success) {
+                    console.log(result)
                     setIsLogin(true)
                     navigate('/')
                 }
@@ -115,7 +118,7 @@ const Login = () => {
                     <Img width='14px' cursor='pointer' src={require('../../img/close.svg').default} onClick={pwResetEvent} />
                 </FlexDiv>
                 <FlexDiv alignItems='center' width='100%' margin='10px 0 22px'>
-                    <Img width='16px' src={require('../../img/check.svg').default} margin='0 8px 0 0'/>
+                    <Img width='16px' src={require('../../img/check.svg').default} margin='0 8px 0 0' />
                     <Span color='letterGray' fontSize='14px'>로그인 상태 유지</Span>
                 </FlexDiv>
                 <Button width='100%' backgroundColor='mainColor' color='white' borderRadius='8px' height='36px' fontSize='18px' cursor='pointer' onClick={submitEvent}>로그인</Button>

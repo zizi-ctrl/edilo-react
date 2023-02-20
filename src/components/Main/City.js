@@ -4,14 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import useFetch from '../../hooks/useFetch'
 import { FlexDiv, Div, Img, Button } from "../../styles/style";
-import { useRecoilValue } from "recoil";
-import { isLoginState } from "../../recoil/state";
 import CityInfo from "./CityInfo";
 
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-`
 
 const CityDiv = styled(Div)`
     color: white;
@@ -26,44 +20,32 @@ const CityImg = styled(FlexDiv)`
 
 const City = (props) => {
     const { city } = props
-    const { cityEnglishName, cityImg, cityName } = city
+    const { cityIndex, cityEnglishName, cityImgUrl, cityName } = city
     const [showCityInfo, setShowCityInfo] = useState(false)
-    const cityIndex = 0
+    const [cityInfo, setCityInfo] = useState([])
+    // const cityIndex = 0
     // "cityEnglishName": string,
     // 		"timeDiff": number,
     // 		"exchangeRate": number,
     // 		"flightTime": string,
     // 		"visa":string
     const useCityClickEvent = async () => {
+        const data = useFetch('/city/info', 'GET', `?cityIndex=${cityIndex}`, true)
+        setCityInfo(data)
         setShowCityInfo(true)
-
-        // 게시글 불러오기 test
-        const url = '/post/all'
-        const params = `?postCategory=${1}`
-        try {
-            const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + url + params + `&postPage=${1}`, {
-                "method": "GET",
-                "mode": 'cors', // no-cors, *cors, same-origin
-                "credentials": "include"
-            })
-            const result = await response.json()
-        }
-        catch (err) {
-            console.log(`ERR : ${err}`)
-        }
     }
 
 
     return (
         <React.Fragment>
-            <StyledLink>
-                <CityImg height='160px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={'url(' + cityImg + ')'} borderRadius='20px' cursor='pointer' onClick={useCityClickEvent}>
-                    <CityDiv fontSize='40px' cursor='pointer'>{cityEnglishName}</CityDiv>
+            <Div>
+                <CityImg height='160px' margin='20px' flexBasis='25%' align='column-center' justifyContent='center' backgroundImg={cityImgUrl ? 'url(' + cityImgUrl + ')' : 'url(https://www.gotokyo.org/shared/images/pages/destinations/western-tokyo/shibuya/images/78_0153_2.jpg)'} borderRadius='20px' cursor='pointer' onClick={useCityClickEvent}>
+                    <CityDiv fontSize='40px' cursor='pointer'>{cityEnglishName ? cityEnglishName : 'TOKYO'}</CityDiv>
                     <CityDiv fontSize='20px' cursor='pointer'>{cityName}</CityDiv>
                 </CityImg>
-            </StyledLink>
+            </Div>
             {
-                showCityInfo && <CityInfo cityIndex={cityIndex} cityEnglishName={cityEnglishName} cityImg={cityImg} cityName={cityName} setShowCityInfo={setShowCityInfo} />
+                showCityInfo && <CityInfo cityEnglishName={cityEnglishName ? cityEnglishName : 'TOKYO'} cityImg={cityImgUrl ? cityImgUrl : 'https://www.gotokyo.org/shared/images/pages/destinations/western-tokyo/shibuya/images/78_0153_2.jpg'} cityName={cityName} cityInfo={cityInfo} setShowCityInfo={setShowCityInfo} />
             }
         </React.Fragment>
     )

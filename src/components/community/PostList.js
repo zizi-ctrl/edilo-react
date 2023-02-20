@@ -5,10 +5,12 @@ import { postCategoryState } from "../../recoil/state";
 import { Div, FlexDiv } from "../../styles/style";
 import CommunityPostPre from "./CommunityPostPre";
 import { useInView } from "react-intersection-observer";
+import { useLocation } from "react-router-dom";
 
 
 const PostList = (props) => {
-    const { url } = props
+    const location = useLocation()
+    const url = location.pathname + location.search
     // const [posts, setPosts] = useState([])
     // const [hasNextPage, setHasNextPage] = useState(true)  // 다음페이지 존재하면 true
     // const page = useRef(1)
@@ -26,21 +28,20 @@ const PostList = (props) => {
     const postCategory = useRecoilValue(postCategoryState)
 
 
-    console.log(process.env.REACT_APP_BACK_HOST_IP + url + `?postCategory=${postCategory}&postPage=${page}`)
+    //console.log(process.env.REACT_APP_BACK_HOST_IP + url + `?postCategory=${postCategory}&postPage=${page}`)
 
     const fetchURL = () => {
-        if (url == '/post/all') {
-            return url + `?postCategory=${postCategory}&postPage=${page}`
+        if (url == '/post') {
+            return url + `/all?postCategory=1&postPage=${page}`
         }
-        else if (url == '/post/my/all') {
-            return url + `?postPage=${page}`
-        }
+        else return url + `&postPage=${page}`
     }
 
 
     const getPosts = useCallback(async () => {    //서버에 데이터 페이지마다 요청
+        console.log(fetchURL())
         try {
-            const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + fetchURL, {
+            const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + fetchURL(), {
                 "method": "GET",
                 "mode": 'cors', // no-cors, *cors, same-origin
                 "credentials": "include"
@@ -67,7 +68,11 @@ const PostList = (props) => {
 
     useEffect(() => {  // getPosts가 바뀔때 마다 데이터 불러오기
         getPosts()
-    }, [getPosts, postCategory, url]) // 카테고리 바뀌면
+
+        return () => {
+            setPosts([])
+        }
+    }, [getPosts, url]) // 카테고리 바뀌면
 
     useEffect(() => {
         // 사용자가 마지막 요소를 보고 있고, 로딩 중이 아니라면 page+=1
@@ -77,6 +82,10 @@ const PostList = (props) => {
             setIsLoading(false)
         }
     }, [inView])
+
+    // useEffect(() => {
+    //     setPosts([])
+    // }, )
 
     // useEffect(() => {
     //     setPosts([])

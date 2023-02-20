@@ -5,9 +5,11 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import WriteTagNav from "./WriteTagNav";
 import WriteImgAttach from "./WriteImgAttach";
 import { Div, FlexDiv, Input, Img, Button } from "../../styles/style";
-import { attachImgState, isLoginState } from "../../recoil/state";
+import { attachImgState, isLoginState, userSelectPlan } from "../../recoil/state";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import PlanModal from "./PlanModal";
+import { userPlanDataState } from "../../recoil/backendState";
 
 const ColoredImg = styled(Img)`
     filter: invert(19%) sepia(15%) saturate(0%) hue-rotate(143deg) brightness(94%) contrast(79%);
@@ -40,17 +42,12 @@ const Write = () => {
         }
     })
 
-
-
-    const [plan, setPlan] = useState('일정 첨부') // 일정 제목
-
-    const [AttachImg, setAttachImg] = useRecoilState(attachImgState)
-    const [planModal, setPlanModal] = useState(false)
+    const [plan, setPlan] = useRecoilState(userPlanDataState) // 목록
+    const [AttachImg, setAttachImg] = useRecoilState(attachImgState)    // 첨부한 이미지
+    const [selectPlan, setSelectPlan] = useRecoilState(userSelectPlan) // 유저가 선택한 일정
+    const [planModal, setPlanModal] = useState(false)   // 모달 보여줄지 말지
     const inputRef = useRef(null)
     const textareaRef = useRef(null)
-
-    console.log(AttachImg)
-    // https://cdn.pixabay.com/photo/2021/08/24/01/44/cat-6569156__340.jpg
 
 
     const onUploadImageBtnClick = () => {
@@ -58,8 +55,6 @@ const Write = () => {
     }
 
     let imgs = []
-
-    // 한 개씩 추가하면서 업로드할 수 있게 수정하기
     const onUploadImage = () => {
         const file = inputRef.current.files;
         console.log(file)
@@ -73,22 +68,21 @@ const Write = () => {
                 //console.log(reader.result)
                 imgs = [...imgs, reader.result]
                 setAttachImg(imgs)
-                // 비동기 함수라 set 이상하게 되는 듯? 수정해야 함
             }
         });
     }
 
-
-    const data = []
-
     const usePlanClickEvent = () => {
-        //const data = useFetch('/schedule/all', null, 'GET')
-        if (data.length == 0) setPlan('일정이 존재하지 않습니다.')
-        else {
+        const result = useFetch('/schedule/all', 'GET')
+
+        if (result.success) {
+            const data = result.data
+            data.length != 0 && setPlan(data[0])
             setPlanModal(true)
-            setPlan(data)
+
+            console.log(data[0])
         }
-        console.log(data)
+
     }
 
     // Text Editor
@@ -124,7 +118,7 @@ const Write = () => {
 
 
     return (
-        <FlexDiv padding='70px 0 0 0' align='column-center'>
+        <FlexDiv padding='70px 0 0 0' align='column-center' backgroundColor='white'>
             <FlexDiv align='row-center' width='900px' height='56px' borderBottom='1px solid #E1E4E6'>
                 <FlexDiv align='row-vertical-center'>
                     <Button onClick={onUploadImageBtnClick}>
@@ -132,11 +126,12 @@ const Write = () => {
                         <Img width='24px' cursor='pointer' src={require('../../img/attach_image.svg').default} />
                     </Button>
                     <Button padding='0 14px 0 24px'>
-                        <ColoredImg width='24px' cursor='pointer' src={require('../../img/map.svg').default} />
+                        <ColoredImg width='24px' cursor='pointer' src={require('../../img/map.svg').default} onClick={usePlanClickEvent}/>
                     </Button>
-                    <Div width='140px' height='30px' padding='4px' color={plan == '일정 첨부' && 'letterGray'} borderRight='1px solid #E1E4E6' onClick={usePlanClickEvent}>{plan}</Div>
+                    <Div width='140px' height='30px' padding='4px' color={plan.length == 0 && 'letterGray'} borderRight='1px solid #E1E4E6' onClick={usePlanClickEvent}>{selectPlan}</Div>
                     {
-
+                        planModal &&
+                        <PlanModal setPlanModal={setPlanModal} plna={plan}/>
                     }
                 </FlexDiv>
                 <FlexDiv align='row-vertical-center' padding='0 0 0 24px'>

@@ -9,8 +9,7 @@ import Clipping from './Clipping'
 import Notice from './Notice'
 import { FlexDiv } from "../../styles/style"
 import { isLoginState } from "../../recoil/state"
-import { userDataState } from "../../recoil/backendState"
-import useFetch from "../../hooks/useFetch"
+
 
 const MyPage = () => {
     // 미디어 쿼리 중간 지점 950px (레이아웃 깨져서 안이쁘게 보임)

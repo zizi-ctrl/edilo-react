@@ -22,7 +22,8 @@ const StyledLink = styled(Link)`
 
 const CommunityPostPre = (props) => {
     const { eachPost } = props
-    const { posttitle, postdate, postwriter, postimgurl } = eachPost
+    console.log(eachPost)
+    const { posttitle, postdate, postwriter, postimgurl, postindex } = eachPost
     console.log(postdate)
     const date = postdate.substr(0, 10)
     const [year, month, day] = date?.split('-')
@@ -41,7 +42,7 @@ const CommunityPostPre = (props) => {
                     {year}.{month}.{day}
                 </LabelDiv>
             </FlexDiv>
-            <StyledLink to='post'>
+            <StyledLink to={`/post?postIndex=${postindex}`}>
                 <FlexDiv justifyContent='space-between' margin='10px 0 0 0'>
                     <FlexDiv fontSize='20px' margin='0 10px 10px 0' cursor='pointer' flexDirection='column'>
                         {posttitle}

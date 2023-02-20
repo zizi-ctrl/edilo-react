@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 
@@ -49,7 +49,10 @@ const PlanNav = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
+    const curr = new Date();
+    curr.setDate(curr.getDate());
     const [planDate, setPlanDate] = useState(null)
+    const [planName, setPlanName] = useState('여행 계획')
     const [newPlan, setNewPlan] = useState(true)
     const [planModifyCheck, setPlanModifyCheck] = useRecoilState(planModifyCheckState)
 
@@ -67,6 +70,10 @@ const PlanNav = () => {
 
     const [tempPlanBlockList, setTempPlanBlockList] = useRecoilState(tempPlanBlockListState)
 
+
+    const nameChangeEvent = (e) => {
+        setPlanName(e.target.value)
+    }
 
     const dateChangeEvent = (e) => {
         const value = e.target.value
@@ -101,35 +108,30 @@ const PlanNav = () => {
 
             indexBlockList.push(temp)
         })
-
-        console.log(indexBlockList)
         console.log(planList.scheduleindex)
-        console.log(planList.cityindex)
-        console.log(planDate)
 
-        useFetch('/schedule', 'PUT', {
-            "cityIndex": planList.cityindex,
-            "scheduleIndex": planList.scheduleindex,
-            "schduleDate": planDate,
-            "scheduleName": planList.scheduledate,
-            "scheduleList": indexBlockList
-        }, null)
+        // useFetch('/schedule', planList.scheduleindex ? 'PUT' : 'POST', {
+        //     "cityIndex": 1,
+        //     "scheduleIndex": planList.scheduleindex,
+        //     "scheduleDate": planDate ? planDate : curr.toISOString().substring(0, 10),
+        //     "scheduleName": planName,
+        //     "scheduleList": indexBlockList
+        // }, null, true)
     }
+
+    useEffect(() => {
+        
+    }, [])
 
     useEffect(() => {
         if (planList) { // 일정 불러올 수 있으면
             if (!planModifyCheck) { // 일정이 수정되지 않았다면 -> 처음 일정 불러왔을떄
                 setNewPlan(false)
-                setPlanDate(planList.scheduledate.substr(0,10))
+                setPlanDate(planList.scheduledate && planList.scheduledate.substr(0,10))
                 setTempPlanBlockList(planBlockList)
             }
         }
-        else {  // 아예 새로운 일정 생성할 때, 오늘 날짜로
-            const curr = new Date();
-            curr.setDate(curr.getDate());
-            setPlanDate(curr.toISOString().substring(0, 10))
-        }
-
+        
         const fc = async () => {
             try {
                 const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + '/city' + `?cityIndex=${planList.cityindex}`, {
@@ -138,8 +140,7 @@ const PlanNav = () => {
                     "credentials": "include"
                 })
                 const result = await response.json()
-    
-                console.log(result)
+
                 if (result.success) {
                     setExchange(result.data.cityExchange)
                     setTemperature(result.data.cityTemperature)
@@ -152,6 +153,7 @@ const PlanNav = () => {
         }
 
         fc()
+
     }, [])
 
 
@@ -159,9 +161,7 @@ const PlanNav = () => {
         <FlexDiv position='fixed' backgroundColor='backgroundGray' zIndex='1' width='300px' height='calc(100vh - 70px)' align='column-center' padding='0 0 40px 0'>
             <FlexDiv alignItems='center' height='66px' justifyContent='space-between' width='96%' margin='4px 0'>
                 <FlexDiv borderRadius='12px' backgroundColor='white' justifyContent='space-between' alignItems='center' width='240px' height='52px' margin='0 0 0 8px' padding='0 8px'>
-                    <Div fontSize='24px' overflow='hidden' width='100%' textAlign='center'>
-                        {planList && planList.schedulename}
-                    </Div>
+                    <Input fontSize='24px' overflow='hidden' width='100%' textAlign='center' value={planName} onChange={nameChangeEvent}/>
                     <Button>
                         <Img width='20px' src={require('../../img/delete.svg').default} cursor='pointer' onClick={useDeleteEvent}/>
                     </Button>
@@ -191,7 +191,7 @@ const PlanNav = () => {
                 </Btn>
             </FlexDiv>
             <FlexDiv width='90%' backgroundColor='white' borderRadius='12px' align='row-center' height='36px' minHeight='36px' position='relative' margin='8px 0'>
-                <Input type='date' margin='0 0 0 56px' width='64%' cursor='pointer' defaultValue={planDate} onChange={dateChangeEvent}/>
+                <Input type='date' margin='0 0 0 56px' width='64%' cursor='pointer' value={newPlan ?curr.toISOString().substring(0, 10) : planDate} onChange={dateChangeEvent}/>
                 <Button backgroundColor='backgroundGray' position='absolute' borderRadius='8px' fontSize='14px' width='48px' height='24px' top='6px' right='12px' pointerEvent='none'>편집</Button>
             </FlexDiv>
             <PlanNavDiv flexDirection='column' padding='0 0 18px 0'>

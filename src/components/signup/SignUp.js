@@ -29,7 +29,7 @@ const SignUp = () => {
     const [nicknameCheck, setNicknameCheck] = useState(2)
     const [emailCheck, setEmailCheck] = useState(2)
 
-    const [authSend, setAuthSend] = useState(true)
+    const [authSend, setAuthSend] = useState(false)
     const [authCode, setAuthCode] = useState('')
     const [authCodeCheck, setAuthCodeCheck] = useState(2)
 
@@ -191,6 +191,8 @@ const SignUp = () => {
         try {
             const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + "/auth/email/signUp", {
                 "method": "POST",
+                "mode": 'cors', // no-cors, *cors, same-origin
+                "credentials": "include",
                 "headers": {
                     "Content-Type": "application/json"
                 },
@@ -236,7 +238,7 @@ const SignUp = () => {
                     "Content-Type": "application/json"
                 },
                 "body": JSON.stringify({
-                            "authCode": '195759',
+                            "authCode": `${authCode}`,
                         })
             })
             const result = await response.json()

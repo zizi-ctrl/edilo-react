@@ -8,6 +8,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { userDataState } from "../../recoil/backendState";
 import { isLoginState } from "../../recoil/state";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 
 const LabelDiv = styled(Div)`
@@ -45,6 +46,8 @@ const Setting = () => {
             navigate('/login')
         }
     })
+
+    //useFetch('/post/my/all', 'GET', '?postPage=2', true)
 
     return (
         <Suspense fallback={<Div>로딩중...</Div>}>
