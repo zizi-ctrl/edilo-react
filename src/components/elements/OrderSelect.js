@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { Div, FlexDiv, Img } from "../../styles/style";
-import { Btn } from "./CommunityMain";
+import { Btn } from "../containers/CommunityMain";
 
 
 const OrderSelect = () => {

@@ -3,11 +3,11 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import PostList from './PostList'
-import { Button, FlexDiv, Img, Input } from "../../styles/style";
-import { postListState } from "../../recoil/backendState";
-import OrderSelect from "./OrderSelect";
+import PostList from '../elements/PostList'
+import OrderSelect from "../elements/OrderSelect";
 import { postCategoryState } from "../../recoil/state";
+import { postListState } from "../../recoil/backendState";
+import { Button, FlexDiv, Img, Input } from "../../styles/style";
 
 
 const StyledLink = styled(Link)`
@@ -78,5 +78,6 @@ const CommunityMain = () => {
         </FlexDiv>
     )
 }
+
 
 export default CommunityMain

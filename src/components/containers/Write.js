@@ -1,15 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
-
-import WriteTagNav from "./WriteTagNav";
-import WriteImgAttach from "./WriteImgAttach";
-import { Div, FlexDiv, Input, Img, Button } from "../../styles/style";
-import { attachImgState, isLoginState, userSelectPlan } from "../../recoil/state";
 import { useNavigate } from "react-router-dom";
+
 import useFetch from "../../hooks/useFetch";
-import PlanModal from "./PlanModal";
+import PlanModal from "../elements/PlanModal";
+import WriteTagNav from "../elements/WriteTagNav";
+import WriteImgAttach from "../elements/WriteImgAttach";
+import { attachImgState, isLoginState, userSelectPlan } from "../../recoil/state";
 import { userPlanDataState } from "../../recoil/backendState";
+import { Div, FlexDiv, Input, Img, Button } from "../../styles/style";
+
 
 const ColoredImg = styled(Img)`
     filter: invert(19%) sepia(15%) saturate(0%) hue-rotate(143deg) brightness(94%) contrast(79%);
@@ -31,6 +32,7 @@ const Btn = styled(Button)`
     border-radius: 10px;
     cursor: pointer;
 `
+
 
 const Write = () => {
     const navigate = useNavigate()
@@ -161,5 +163,6 @@ const Write = () => {
         </FlexDiv>
     )
 }
+
 
 export default Write

@@ -1,9 +1,8 @@
 import React, { Suspense, useState } from "react";
 
-import City from "./CitysBox";
+import { Btn } from "./CommunityMain";
+import CitysBox from "../elements/CitysBox";
 import { Div, FlexDiv, Img, Input } from "../../styles/style";
-import { Btn } from "../community/CommunityMain";
-import CitysBox from "./CitysBox";
 
 
 const Main = () => {
@@ -37,5 +36,6 @@ const Main = () => {
         </FlexDiv>
     )
 }
+
 
 export default Main

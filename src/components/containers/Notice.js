@@ -1,10 +1,11 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 
-import NoticeItem from "./NoticeItem";
+import useFetch from "../../hooks/useFetch";
+import NoticeItem from "../elements/NoticeItem";
 import { noticeListState } from "../../recoil/backendState";
 import { Button, Div } from "../../styles/style";
-import useFetch from "../../hooks/useFetch";
+
 
 const Notice = () => {
     //const [ post, setPost ] = useRecoilState(example)
@@ -24,5 +25,6 @@ const Notice = () => {
         </React.Fragment>
     )
 }
+
 
 export default Notice

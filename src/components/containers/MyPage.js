@@ -3,12 +3,12 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 import { useRecoilValue, useSetRecoilState } from "recoil"
 
 import Profile from "./Profile"
-import MyPageNav from './MyPageNav'
+import MyPageNav from '../navs/MyPageNav'
 import Setting from './Setting'
 import Clipping from './Clipping'
 import Notice from './Notice'
-import { FlexDiv } from "../../styles/style"
 import { isLoginState } from "../../recoil/state"
+import { FlexDiv } from "../../styles/style"
 
 
 const MyPage = () => {
@@ -41,5 +41,6 @@ const MyPage = () => {
         </FlexDiv>
     )
 }
+
 
 export default MyPage

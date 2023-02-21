@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { FlexDiv } from "../../styles/style";
 import CommunityMain from "./CommunityMain";
-import CommunityNav from './CommunityNav'
-import CommunityPost from "./CommunityPost";
+import CommunityNav from '../navs/CommunityNav'
+import CommunityPost from "../elements/CommunityPost";
+import { FlexDiv } from "../../styles/style";
 
 
 const Community = () => {
@@ -18,5 +18,6 @@ const Community = () => {
         </FlexDiv>
     )
 }
+
 
 export default Community

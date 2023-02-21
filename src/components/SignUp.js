@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
-import styled from "styled-components";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
-import { Button, Div, FlexDiv, Img, Input, Span } from "../../styles/style";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
+import { Button, Div, FlexDiv, Img, Input, Span } from "../styles/style";
+
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -344,7 +345,7 @@ const SignUp = () => {
                 <label htmlFor='pw'>비밀번호</label>
                 <FlexDiv width='400px' height='50px' alignItems='center' border='1px solid #E1E4E6' padding='4px' margin='8px 0 0' borderRadius='12px' backgroundColor='white'>
                     <Input onChange={pwInputChange} type='password' id='pw' margin='0 12px 0 12px' width='100%' cursor='pointer' />
-                    <Img width='18px' src={pwCheck == true ? require('../../img/check_full.svg').default : require('../../img/check.svg').default} margin='0 8px' />
+                    <Img width='18px' src={pwCheck == true ? require('../img/check_full.svg').default : require('../img/check.svg').default} margin='0 8px' />
                 </FlexDiv>
                 {
                     pwCheck ?
@@ -356,7 +357,7 @@ const SignUp = () => {
                 <label htmlFor='pwCheck'>비밀번호 확인</label>
                 <FlexDiv width='400px' height='50px' alignItems='center' border='1px solid #E1E4E6' padding='4px' margin='8px 0 0' borderRadius='12px' backgroundColor='white'>
                     <Input type='password' id='pwCheck' margin='0 12px 0 12px' width='100%' cursor='pointer' onChange={pwReInputChange} />
-                    <Img width='18px' src={pwRecheck == true ? require('../../img/check_full.svg').default : require('../../img/check.svg').default} margin='0 8px' />
+                    <Img width='18px' src={pwRecheck == true ? require('../img/check_full.svg').default : require('../img/check.svg').default} margin='0 8px' />
                 </FlexDiv>
                 {
                     pwRecheck ?

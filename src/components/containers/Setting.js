@@ -1,14 +1,14 @@
 import React, { Suspense, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-import { Div, Button, FlexDiv } from "../../styles/style"
-import Nickname from "./Nickname";
-import PostList from "../community/PostList";
 import { useRecoilState, useRecoilValue } from "recoil";
+
+import useFetch from "../../hooks/useFetch";
+import Nickname from "../elements/Nickname";
+import PostList from "../elements/PostList";
 import { userDataState } from "../../recoil/backendState";
 import { isLoginState } from "../../recoil/state";
-import { useNavigate } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import { Div, Button, FlexDiv } from "../../styles/style"
 
 
 const LabelDiv = styled(Div)`

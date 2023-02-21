@@ -1,9 +1,10 @@
 import React, { useRef } from "react"
 import { useRecoilState } from "recoil";
 
-import { Div, Img, Button, Input } from "../../styles/style";
+import { UserImg } from "../containers/Profile";
 import { userImgState } from "../../recoil/backendState";
-import { UserImg } from "./Profile";
+import { Div, Img, Button, Input } from "../../styles/style";
+
 
 const UserImgUpload = () => {
     const [userImg, setUserImg] = useRecoilState(userImgState)
@@ -67,5 +68,6 @@ const UserImgUpload = () => {
         </Div>
     )
 }
+
 
 export default UserImgUpload

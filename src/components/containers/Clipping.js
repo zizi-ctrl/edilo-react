@@ -1,7 +1,7 @@
 import React from "react";
-import useFetch from "../../hooks/useFetch";
 
-import PostList from "../community/PostList";
+import useFetch from "../../hooks/useFetch";
+import PostList from "../elements/PostList";
 
 const Clipping = () => {
 
