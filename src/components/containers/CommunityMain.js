@@ -39,11 +39,11 @@ const CommunityMain = () => {
         setClickedBtn(category)
     }
 
-    useEffect(() => {
-        return () => {
-            setPostCategory(clickedBtn)
-        }
-    }, clickedBtn)
+    // useEffect(() => {
+    //     // return () => {
+    //     //     setPostCategory(clickedBtn)
+    //     // }
+    // }, clickedBtn)
 
 
     return (

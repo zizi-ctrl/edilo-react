@@ -42,7 +42,7 @@ const CommunityPostPre = (props) => {
                     {year}.{month}.{day}
                 </LabelDiv>
             </FlexDiv>
-            <StyledLink to={`/post?postIndex=${postindex}`}>
+            <StyledLink to={`post`}>
                 <FlexDiv justifyContent='space-between' margin='10px 0 0 0'>
                     <FlexDiv fontSize='20px' margin='0 10px 10px 0' cursor='pointer' flexDirection='column'>
                         {posttitle}

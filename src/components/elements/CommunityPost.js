@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import { currentPostState } from "../../recoil/backendState";
@@ -63,7 +63,7 @@ const ProfileImg = styled(Img)`
 
 const CommunityPost = () => {
     const location = useLocation()
-    const [postInfo, setPostInfo] = useRecoilValue(currentPostState)
+    const [postInfo, setPostInfo] = useRecoilState(currentPostState)
     console.log(postInfo)
     const { areaTag, postTitle, postDate, postWriter, postImg, postCategory, view, like, scrap, postContent, postIndex, comment } = postInfo
     const [year, month, day] = postDate.split('-')
