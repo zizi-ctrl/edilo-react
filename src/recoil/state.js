@@ -104,3 +104,8 @@ export const attachImgState = atom({
     key: 'attachImg',
     default: []
 })
+
+export const userSelectPlan = atom({
+    key: 'userSelectPlan',
+    default: '일정 없음'
+})

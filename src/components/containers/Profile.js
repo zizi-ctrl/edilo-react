@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
-
-import UserImgUpload from "./UserImgUpload";
-import { FlexDiv, Div, Img } from "../../styles/style";
-import { userDataState } from "../../recoil/backendState";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
-import { isLoginState } from "../../recoil/state";
-import useFetch from "../../hooks/useFetch";
+import styled from "styled-components";
 
+import useFetch from "../../hooks/useFetch";
+import UserImgUpload from "../elements/UserImgUpload";
+import { userDataState } from "../../recoil/backendState";
+import { isLoginState } from "../../recoil/state";
+import { FlexDiv, Div, Img } from "../../styles/style";
 
 export const UserImg = styled(Img)`
     object-fit: cover;

@@ -52,11 +52,10 @@ const Schedule = () => {
                 })
                 const result = await response.json()
     
-                console.log(result)
                 if (result.success) {
-                    console.log(result.scheduleData[0][0], result.scheduleBlockData)
                     setPlanList(result.scheduleData[0][0])
                     setBlockList(result.scheduleBlockData)
+                    console.log(result)
                 }
             }
             catch (err) {
@@ -65,6 +64,11 @@ const Schedule = () => {
         }
 
         fc()
+
+        // return () => {
+        //     setPlanList([])
+        //     setBlockList([])
+        // }
     }, [])
 
 

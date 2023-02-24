@@ -20,6 +20,7 @@ const CommunityNav = () => {
     const cityList = useRecoilValue(cityListState)
     const [sidebarList, setSidebarList] = useState(cityList)
     const [searchKeyword, setSearchKeyword] = useState('')
+    const [searchResult, setSearchResult] = useState('')
     const inputRef = useRef()
     //console.log(sidebarList)
 
@@ -27,35 +28,27 @@ const CommunityNav = () => {
     // url , data, method, query (boolean)
 
 
-    const useSearchEvent = (e) => {
+    const useSearchEvent = async (e) => {
         const value = e.target.value
-        const searchResult = useFetch('/city/search', 'GET', `?searchKeyword=${value}`, true)
-
-        console.log(searchResult)
-
+        const result = useFetch('/city/search', 'GET', `?searchKeyword=${value}`, true)
+        
         
         if (value == '') {
             setSidebarList(cityList)
         }
         else {
+            console.log(result.success)
             setSidebarList(cityList.filter((item) => {
                 //console.log(item.cityCategory.includes(value))
                 if (item.cityCategory.includes(value)) {
                     return item
                 }
-                else {
+                else if (result.success) {
                     item.name.forEach((country) => {
-                        //console.log(country.cityCategory.includes(value))
-                        if (country.cityCategory.includes(value)) {
+                        console.log(country.cityCategory, searchResult.cityCountry, country.cityCategory.includes(searchResult.cityCountry))
+                        if (country.cityCategory.includes(searchResult.cityCountry)) {
+                            console.log(item)
                             return item
-                        }
-                        else {
-                            country.name.forEach((city) => {
-                                //console.log(city.includes(value))
-                                if (city.includes(value)) {
-                                    return item
-                                }
-                            })
                         }
                     })
                 }

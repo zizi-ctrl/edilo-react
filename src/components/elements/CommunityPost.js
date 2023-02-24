@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
@@ -61,10 +62,33 @@ const ProfileImg = styled(Img)`
 
 
 const CommunityPost = () => {
-    const postInfo = useRecoilValue(currentPostState)
+    const location = useLocation()
+    const [postInfo, setPostInfo] = useRecoilValue(currentPostState)
     console.log(postInfo)
     const { areaTag, postTitle, postDate, postWriter, postImg, postCategory, view, like, scrap, postContent, postIndex, comment } = postInfo
     const [year, month, day] = postDate.split('-')
+
+    useEffect(() => {
+        const fc = async () => {
+            try {
+                const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + location.pathname + location.search, {
+                    "method": "GET",
+                    "mode": 'cors', // no-cors, *cors, same-origin
+                    "credentials": "include"
+                })
+                const result = await response.json()
+    
+                
+                if (result.success) {
+                    setPostInfo(result)
+                    console.log(result)
+                }
+            }
+            catch (err) {
+                console.log(`ERR : ${err}`)
+            }
+        }
+    })
 
 
     return (

@@ -3,14 +3,13 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 import { useRecoilValue, useSetRecoilState } from "recoil"
 
 import Profile from "./Profile"
-import MyPageNav from './MyPageNav'
+import MyPageNav from '../navs/MyPageNav'
 import Setting from './Setting'
 import Clipping from './Clipping'
 import Notice from './Notice'
-import { FlexDiv } from "../../styles/style"
 import { isLoginState } from "../../recoil/state"
-import { userDataState } from "../../recoil/backendState"
-import useFetch from "../../hooks/useFetch"
+import { FlexDiv } from "../../styles/style"
+
 
 const MyPage = () => {
     // 미디어 쿼리 중간 지점 950px (레이아웃 깨져서 안이쁘게 보임)
@@ -42,5 +41,6 @@ const MyPage = () => {
         </FlexDiv>
     )
 }
+
 
 export default MyPage

@@ -3,16 +3,17 @@ import { Routes, Route } from 'react-router-dom';
 import { useMediaQuery } from "react-responsive"
 import { createGlobalStyle } from "styled-components";
 
+import HeaderComponent from "./components/header/Header";
 import FooterComponent from "./components/header/Footer"
-import HeaderComponent from "./components/header/Header"
+import Main from './components/containers/Main'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
+import Write from './components/containers/Write'
+import MyPage from './components/containers/MyPage'
 import Schedule from "./components/schedule/Schedule";
-import Main from "./components/Main/Main";
-import NotFound from "./components/NotFound";
-import MyPage from "./components/myPage/MyPage";
-import Community from "./components/community/Community";
-import Write from "./components/community/Write";
-import Login from "./components/login/Login";
-import SignUp from "./components/signup/SignUp";
+import NotFound from './components/NotFound'
+import Community from './components/containers/Community'
+
 
 // min-width, max-width (헤더 푸터 안 쪽)
 const GlobalStyle = createGlobalStyle`
@@ -52,14 +53,14 @@ const App = () => {
     return(
         <React.Fragment>
             <GlobalStyle/>
-            <HeaderComponent isMobile={isMobile}></HeaderComponent>
-            {isMobile && <FooterComponent></FooterComponent>}
+            <HeaderComponent isMobile={isMobile}/>
+            {isMobile && <FooterComponent/>}
             <Routes>               
                 <Route path="/" element={<Main/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/schedule/*" element={<Schedule/>}/>
-                <Route path="/community/*" element={<Community/>}/>
+                <Route path="/post/*" element={<Community/>}/>
                 <Route path="/writepost" element={<Write/>}/>
                 <Route path="/myPage/*" element={<MyPage/>}/>
                 <Route path="*" element={<NotFound/>}/>

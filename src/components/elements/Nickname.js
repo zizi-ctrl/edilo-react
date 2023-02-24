@@ -7,7 +7,7 @@ import { Img, Input, Div, FlexDiv, Button } from "../../styles/style";
 const Nickname = (props) => {
     const { userNickname } = props
     const [clickCheck, setClickCheck] = useState(false)
-    const [inputValue, setInputValue] = useState('여행가132') // 나중엔 원래 닉네임이 들어갈 예정
+    const [inputValue, setInputValue] = useState(userNickname) // 나중엔 원래 닉네임이 들어갈 예정
 
 
     const onChange = useCallback(e => {

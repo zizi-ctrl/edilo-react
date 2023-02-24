@@ -177,6 +177,7 @@ const GoogleMapComponent = () => {
                                 || item.blockCategory == '음식점' && require('../../img/marker_restaurant.svg').default
                                 || item.blockCategory == '쇼핑' && require('../../img/marker_shop.svg').default
                                 || item.blockCategory == '관광명소' && require('../../img/marker_attraction.svg').default
+                                || item.blockCategory == '카페' && require('../../img/marker_cafe.svg').default
                                 || require('../../img/marker_etc.svg').default
                                 ,
                                 scaledSize: { width: 30, height: 30 },
@@ -201,7 +202,7 @@ const GoogleMapComponent = () => {
                 {
                     // search Nav - 따로 빼고 싶었는데 serachbox 때문에 못 뺌
                     openSearch &&
-                    <SearchNav position='fixed' backgroundColor='backgroundGray' zIndex='1' width='300px' height='calc(100vh - 70px)' align='column-center' right='0px'>
+                    <SearchNav position='fixed' backgroundColor='backgroundGray' width='300px' height='calc(100vh - 70px)' align='column-center' right='0px'>
                         <FlexDiv>
                             <Button onClick={openSearchEvent}>
                                 <Img cursor='pointer' zIndex='1' width='18px' src={require('../../img/menuclose_right.svg').default} />
