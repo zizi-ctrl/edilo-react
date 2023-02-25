@@ -9,26 +9,23 @@ import { useLocation } from "react-router-dom";
 
 
 const PostList = (props) => {
-    const location = useLocation()
-    const url = location.pathname + location.search
+    const { url } = props
     const [posts, setPosts] = useRecoilState(postListState)
     const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
-    const [preParams, setPreParams] = useState('')
     const [ref, inView] = useInView({threshold: 1})
-    const postCategory = useRecoilValue(postCategoryState)
 
 
     const fetchURL = () => {
-        if (url == '/community') {
-            return '/post' + `/all?postCategory=1&postPage=${page}`
+        if (url == '/post/scrap/all') {
+            return url
         }
-        else return url + `&postPage=${page}`
+        else {
+            return url + `postPage=${page}`
+        }
     }
 
-
-    const getPosts = useCallback(async () => {    //서버에 데이터 페이지마다 요청
+    const getPosts = useCallback(async () => {  
         console.log(fetchURL())
         try {
             const response = await fetch(process.env.REACT_APP_BACK_HOST_IP + fetchURL(), {
@@ -37,14 +34,15 @@ const PostList = (props) => {
                 "credentials": "include"
             })
             const result = await response.json()
-
+            console.log(result)
             if (result.success) {
                 if (result.data.length != 0) {
                     setPosts((prevPosts) => [...prevPosts, ...result.data[0]])
                 }
                 else {
-                    alert('마지막 게시글입니다.')
+                    console.log('마지막 게시글입니다.')
                 }
+                setLoading(false)
             }
             else {
                 console.log(`${result.message}`)
@@ -52,20 +50,23 @@ const PostList = (props) => {
         } catch (err) {
             console.log(err)
         }
-        setLoading(false)
-    }, [page])
+    }, [url, page])
 
 
-    useEffect(() => {  // getPosts가 바뀔때 마다 데이터 불러오기
+    useEffect(() => {
+        setPosts([])
+        setPage(1)
+    }, [url])
+
+    useEffect(() => {
         getPosts()
-    }, [getPosts]) // 카테고리 바뀌면
+    }, [getPosts])
 
     useEffect(() => {
         // 사용자가 마지막 요소를 보고 있고, 로딩 중이 아니라면 page+=1
         if (inView && !loading) {
-            setIsLoading(true)
             setPage((prevState) => prevState + 1)
-            setIsLoading(false)
+            setLoading(true)
         }
     }, [inView])
 
@@ -73,6 +74,9 @@ const PostList = (props) => {
     return (
         <React.Fragment>
             {
+                loading ?
+                <Div>게시글 불러오는 중. . . ✏️</Div>
+                :
                 posts && posts.map((eachPost) => <CommunityPostPre eachPost={eachPost} />)
             }
             <Div ref={ref}></Div>
